@@ -1,0 +1,83 @@
+.admin-main {
+    padding: 0;
+}
+
+.qz-show{
+    display: block;
+}
+/**
+留言
+ */
+.data-list{
+    margin-top: 20px;
+}
+.data-list li{
+    list-style: none;
+    padding: 5px 0;
+    border-bottom: 1px solid #e0e0e0;
+    position: relative;
+}
+.msg-type{
+    display: inline-block;
+    height: 20px;
+    line-height: 18px;
+    padding: 0 5px;
+    color: #4d4d4d;
+    font-size: 12px;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    vertical-align: top;
+}
+.msg-title{
+    width: 80%;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    color: #4d4d4d;
+    line-height: 18px;
+    margin-top: -15px;
+}
+.msg-text{
+    margin-top: -3px;
+}
+.bb-span-wrap a{
+    color: #0e0e0e;
+}
+.bb-span-wrap a:hover{
+    color: #c00d11;
+}
+.fr{
+    float: right;
+    font-size: 13px;
+}
+.data-me{
+    cursor: pointer;
+}
+.line{
+    width: 1px;
+    height: 15px;
+    margin: 4px 10px 0 10px;
+    background: #c7afc7;
+}
+.data-cricle{
+    position: absolute;
+    left: -1%;
+    top: 17%;
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: #ca0c16;
+    border-radius: 50%;
+}
+.comment-com{
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 20px;
+    color: #a27d82;
+}
+
+

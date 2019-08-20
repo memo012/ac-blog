@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>强子的博客~~</title>
+    <link rel="alternate icon" type="image/png" href="myPicture.jpg">
+    <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="style/tig.css">
+    <link rel="stylesheet" href="style/index.css" th:href="@{/style/index.css}"/>
+    <style>
+        .header1 {
+            text-align: center;
+        }
+        .header1 h1 {
+            font-size: 200%;
+            color: #333;
+            margin-top: 30px;
+        }
+        .header1 p {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<!--头部-->
+<div th:replace="header :: header"></div>
+<div class="header1">
+    <div class="am-g">
+        <h1>登录界面</h1>
+    </div>
+    <hr />
+</div>
+<div class="am-g">
+    <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+
+        <div class="am-form">
+            <label for="username">手机号:</label>
+            <input type="text" name="" id="username" value="" placeholder="手机号">
+            <br>
+            <label for="password">密码:</label>
+            <input type="password" name="" id="password" class="pass" value="" placeholder="密码">
+            <br>
+            <label for="remember-me">
+                <input id="remember-me" type="checkbox">
+                记住密码
+            </label>
+            <br/>
+            <div class="am-cf">
+                <input type="button" name="" value="登 录" class="qz-login am-btn am-btn-primary am-btn-sm am-fl">
+                <button class="am-btn am-btn-default am-btn-sm am-fr"><a href="/findPwd" style="color:black;">忘记密码 ^_^?</a></button>
+            </div>
+        </div>
+
+        <div class="notice-box notice-box-res">
+            <i class="am-icon-exclamation-circle"></i>
+            <span> 用户名或密码错误</span>
+        </div>
+        <div class="notice-box notice-box-password-num">
+            <i class="am-icon-exclamation-circle"></i>
+            <span> 客官，密码格式6-18位</span>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!--底部-->
+<div th:replace="footer :: footer"></div>
+</body>
+<script src="assets/js/jquery-1.12.4.min.js"></script>
+<script src="assets/js/amazeui.js"></script>
+<script src="style/js/login.js"></script>
+<script src="style/js/header.js" th:src="@{/style/js/header.js}"></script>
+</html>

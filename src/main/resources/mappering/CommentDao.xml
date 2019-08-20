@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiang.modules.sys.dao.CommentDao">
+
+    <resultMap id="com" type="CommentEntity">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="blog_id" property="blogId"/>
+        <result column="message" property="message"/>
+        <result column="create_time" property="createTime"/>
+        <result column="likes" property="likes"/>
+        <result column="author_name" property="authorName"/>
+        <result column="is_read" property="isRead"/>
+        <collection property="reportComments" ofType="ReportCommentEntity">
+            <id column="rid" property="rid"/>
+            <result column="comment_id" property="commentId"/>
+            <result column="rep_mess" property="repMess"/>
+            <result column="reported_id" property="reportedId"/>
+            <result column="rcreate_time" property="rcreateTime"/>
+            <result column="ris_read" property="risRead"/>
+            <result column="rep_name" property="repName"/>
+            <result column="com_name" property="comName"/>
+        </collection>
+    </resultMap>
+
+    <select id="findByBlogIdAndPid" resultMap="com" parameterType="Long">
+      SELECT c.*, r.*
+      from comment c
+      LEFT JOIN reportcomment r on c.id = r.comment_id
+      where c.blog_id = #{arg0}
+      order by c.id desc, r.rid desc
+    </select>
+
+</mapper>

@@ -1,0 +1,12 @@
+.qz-guest{
+    width: 90%;
+    margin: 0px auto;
+    padding: 9%;
+    font-size: 19px;
+}
+.qz-guest > ul > li{
+    margin-top: 15px;
+    color: #64308f;
+    text-shadow: #075558;
+    font-weight: lighter;
+}

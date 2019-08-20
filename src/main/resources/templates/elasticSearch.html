@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>强子的博客~~</title>
+    <link rel="alternate icon" type="image/png" href="myPicture.jpg">
+    <link rel="stylesheet" href="assets/css/amazeui.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style/index.css"/>
+    <link rel="stylesheet" href="layui/css/layui.css"/>
+    <script src="layui/layui.js"></script>
+    <style type="text/css">
+        .read-all {
+            padding-top: 10%;
+        }
+        a:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<!--头部-->
+<div th:replace="header :: header"></div>
+
+
+<!--主体-->
+<div class="layui-row layui-col-space25 qz-session">
+
+    <div class="layui-col-md9 qz-main">
+        <div class="layui-row grid-demo layui-col-space15">
+            <div class="layui-col-md4">
+                <div th:replace="left :: left"></div>
+            </div>
+            <div class="layui-col-md8 qz-center">
+                <div class="qz-session-content">
+                    <div class="qz-session-center qiang">
+
+                    </div>
+
+                    <div class="qz-pagehelder">
+                        <div class="left-page">
+                            上一页
+                        </div>
+                        <div class="right-page">
+                            下一页
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--个人信息-->
+    <div class="layui-col-md3">
+        <div th:replace="aside :: aside"></div>
+    </div>
+</div>
+</div>
+
+
+<!--底部-->
+<div th:replace="footer :: footer"></div>
+
+</body>
+
+<script src="assets/js/jquery-1.12.4.min.js" th:src="@{/assets/js/jquery-1.12.4.min.js}"></script>
+<script src="assets/js/amazeui.js" th:src="@{/assets/js/amazeui.js}"></script>
+<script src="style/js/tags.js" th:src="@{/style/js/tags.js}"></script>
+<script src="style/js/header.js" th:src="@{/style/js/header.js}"></script>
+<script src="style/js/elasticsearch.js" th:src="@{/style/js/elasticsearch.js}"></script>
+
+</html>

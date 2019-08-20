@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>强子的博客~~</title>
+    <link rel="alternate icon" type="image/png" href="/myPicture.jpg">
+    <link rel="stylesheet" href="assets/css/amazeui.css" th:href="@{/assets/css/amazeui.css}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/admin.css" th:href="@{/assets/css/admin.css}">
+    <link rel="stylesheet" href="style/index.css" th:href="@{/style/index.css}"/>
+    <link rel="stylesheet" href="style/user.css" th:href="@{/style/user.css}"/>
+    <link rel="stylesheet" href="style/tig.css" th:href="@{/style/tig.css}"/>
+    <style type="text/css">
+        .qz-ul-a .active {
+            background: rgba(1, 89, 90, 0.5);
+            color: white;
+        }
+
+        .admin-sidebar {
+            overflow-y: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<!--首页-->
+<div th:replace="header :: header"></div>
+
+<span class="username" style="display: none;"><shiro:principal property="username"/></span>
+
+<!--页面主体内容-->
+<div class="am-cf admin-main">
+    <!-- sidebar start -->
+    <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+        <div class="am-offcanvas-bar admin-offcanvas-bar">
+            <ul class="am-list admin-sidebar-list qz-ul-a">
+                <li class="list-item persoSet active"><a style="cursor: pointer;"><span class="am-icon-file"></span> 个人资料<span
+                        class="am-icon-angle-right am-fr am-margin-right"></span></a></li>
+                <li class="list-item securSet"><a style="cursor: pointer;"><span class="am-icon-cog"></span> 安全配置<span
+                        class="am-icon-angle-right am-fr am-margin-right"></span></a></li>
+                <li class="list-item guestSet" shiro:hasRole="admin"><a style="cursor: pointer;"><span
+                        class="am-icon-pencil-square-o am-icon-commenting"></span>我的留言 <span
+                        class="am-icon-angle-right am-fr am-margin-right"></span></a></li>
+                <li class="list-item guesuSet" shiro:hasRole="user"><a style="cursor: pointer;"><span
+                        class="am-icon-pencil-square-o am-icon-commenting"></span>我的留言 <span
+                        class="am-icon-angle-right am-fr am-margin-right"></span></a></li>
+                <li class="list-item commeSet"><a style="cursor: pointer;"><span class="am-icon-comments"></span>我的评论 <span
+                        class="am-icon-angle-right am-fr am-margin-right"></span></a></li>
+                <li class="list-item commmSet" shiro:hasRole="admin"><a style="cursor: pointer;"><span class="am-icon-comments"></span>我的评论(博客) <span
+                        class="am-icon-angle-right am-fr am-margin-right"></span></a></li>
+                <li class="list-item likesSet"><a style="cursor: pointer;"><span class="am-icon-comments"></span>我的点赞 <span
+                        class="am-icon-angle-right am-fr am-margin-right"></span></a></li>
+            </ul>
+
+            <div class="am-panel am-panel-default admin-sidebar-panel">
+                <div class="am-panel-bd">
+                    <p><span class="am-icon-bookmark"></span> 公告</p>
+                    <p>现在不乘风破浪，更待何时？—— 强子</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- content start -->
+    <div class="admin-content">
+
+        <div id="persoSet" style="padding-bottom: 70px;">
+            <div class="am-cf am-padding am-padding-bottom-0">
+                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">个人资料</strong> /
+                    <small>Personal information</small>
+                </div>
+            </div>
+            <hr/>
+            <div class="am-g">
+                <div class="am-u-sm-12 am-u-md-4 am-u-md-push-8"></div>
+                <div class="am-u-sm-12 am-u-md-8 am-u-md-pull-4">
+                    <div class="am-form am-form-horizontal message">
+                        <div class="am-form-group">
+                            <label for="user-name" class="am-u-sm-3 am-form-label">姓名 / Name</label>
+                            <div class="am-u-sm-9">
+                                <input type="text" id="user-name" placeholder="真实姓名" value="">
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label for="user-phone" class="am-u-sm-3 am-form-label">电话 / Telephone</label>
+                            <div class="am-u-sm-9">
+                                <input type="tel" id="user-phone" placeholder="输入你的电话号码 / Telephone" disabled>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label for="user-QQ" class="am-u-sm-3 am-form-label">QQ</label>
+                            <div class="am-u-sm-9">
+                                <input type="text" pattern="[0-9]*" id="user-QQ" placeholder="输入你的QQ号码" value="">
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label for="user-email" class="am-u-sm-3 am-form-label">电子邮件 / Email</label>
+                            <div class="am-u-sm-9">
+                                <input type="text" id="user-email" placeholder="输入你的电子邮件 / Email" value="">
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label for="user-intro" class="am-u-sm-3 am-form-label">简介 / Intro</label>
+                            <div class="am-u-sm-9">
+                                <textarea class="" rows="5" id="user-intro" placeholder="输入个人简介"></textarea>
+                                <small>250字以内写出你的一生...</small>
+                            </div>
+                        </div>
+                        <div class="am-form-group" style="padding-bottom: 40px">
+                            <div class="am-u-sm-9 am-u-sm-push-3">
+                                <button type="button" class="am-btn am-btn-primary savebtn">保存修改</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="securSet" style="padding-bottom: 70px;">
+            <div class="am-cf am-padding am-padding-bottom-0">
+                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">安全配置</strong> /
+                    <small>Security information</small>
+                </div>
+            </div>
+            <hr/>
+            <div class="am-g">
+                <div class="am-u-sm-12 am-u-md-4 am-u-md-push-8"></div>
+                <div class="am-u-sm-12 am-u-md-8 am-u-md-pull-4">
+                    <form class="am-form am-form-horizontal">
+                        <div class="am-form-group">
+                            <label for="phone" class="am-u-sm-3 am-form-label">手机号</label>
+                            <div class="am-u-sm-9">
+                                <input type="number" id="phone" disabled="disabled">
+                            </div>
+                        </div>
+                        <div class="am-form-group qz-yan">
+                            <label for="yan" class="am-u-sm-3 am-form-label">验证码</label>
+                            <div class="am-u-sm-9">
+                                <input type="text" id="yan" placeholder="验证码"
+                                       style="width: 140px;">
+                                <button class="authCodeBtn am-btn am-btn-secondary am-round am-btn-sm"
+                                        id="authCodeBtn" type="button"
+                                        style="position: relative;top: -37px;left: 180px;">获取验证码
+                                </button>
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label for="password" class="am-u-sm-3 am-form-label">新密码</label>
+                            <div class="am-u-sm-9">
+                                <input type="password" id="password" placeholder="新密码">
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label for="passwordSure" class="am-u-sm-3 am-form-label">再次输入新密码</label>
+                            <div class="am-u-sm-9">
+                                <input type="password" id="passwordSure" placeholder="再次输入密码">
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <div class="am-u-sm-9 am-u-sm-push-3">
+                                <button type="button" class="am-btn am-btn-primary">保存修改</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="guestSet" style="padding-bottom: 70px;">
+            <div class="am-cf am-padding am-padding-bottom-0">
+                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">我的留言</strong> /
+                    <small>replay information</small>
+                </div>
+            </div>
+            <hr/>
+            <div class="am-g comment">
+                <div class="am-u-sm-12 am-u-md-12">
+                    <div class="am-cf" >
+                        <span>未读消息：8</span>
+                        <a class="fr data-me">清空所有消息</a>
+                        <span class="line fr"></span>
+                        <a class="fr data-me">全部标记为已读</a>
+                    </div>
+                    <div class="data-list">
+                        <ul>
+                            <li>
+                                <i class="data-cricle"></i>
+                                <span class="msg-type">留言</span>
+                                <span class="msg-title">
+                                    <a target="_blank" href="https://me.csdn.net/weixin_41393782">
+                                        weixin_41393782
+                                    </a>
+                                    给你留了言
+                                </span>
+
+                                <p class="msg-text">
+                                    <span data-v-0947769e="" class="bb-span-wrap">
+                                        <a href="/#">
+                                            微信小程序+Java后台开发(详细解释，附代码)
+                                        </a>
+                                    </span>
+                                    <em class="fr" style="color: #cccccc;">
+                                        2019-07-11
+                                    </em>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="guesuSet" style="padding-bottom: 70px;">
+            <div class="am-cf am-padding am-padding-bottom-0">
+                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">我的留言</strong> /
+                    <small>replay information</small>
+                </div>
+            </div>
+            <hr/>
+            <div class="am-g comment">
+                <div class="am-u-sm-12 am-u-md-12">
+                    <div class="am-cf" >
+                        <span>未读消息：8</span>
+                        <a class="fr data-me">清空所有消息</a>
+                        <span class="line fr"></span>
+                        <a class="fr data-me">全部标记为已读</a>
+                    </div>
+                    <div class="data-list">
+                        <ul>
+                            <li>
+                                <i class="data-cricle"></i>
+                                <span class="msg-type">留言</span>
+                                <span class="msg-title">
+                                    <a target="_blank" href="https://me.csdn.net/weixin_41393782">
+                                        weixin_41393782
+                                    </a>
+                                    给你留了言
+                                </span>
+
+                                <p class="msg-text">
+                                    <span data-v-0947769e="" class="bb-span-wrap">
+                                        <a href="/#">
+                                            微信小程序+Java后台开发(详细解释，附代码)
+                                        </a>
+                                    </span>
+                                    <em class="fr" style="color: #cccccc;">
+                                        2019-07-11
+                                    </em>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="commeSet" style="padding-bottom: 70px;">
+            <div class="am-cf am-padding am-padding-bottom-0">
+                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">我的评论</strong> /
+                    <small>comment information</small>
+                </div>
+            </div>
+            <hr/>
+            <div class="am-g comment">
+                <!--<div class="am-u-sm-12 am-u-md-12">-->
+                    <!--<div class="am-cf" >-->
+                        <!--<span>未读消息：8</span>-->
+                        <!--<a class="fr data-me">清空所有消息</a>-->
+                        <!--<span class="line fr"></span>-->
+                        <!--<a class="fr data-me">全部标记为已读</a>-->
+                    <!--</div>-->
+                    <!--<div class="data-list">-->
+                        <!--<ul>-->
+                            <!--<li>-->
+                                <!--&lt;!&ndash;<i class="data-cricle"></i>&ndash;&gt;-->
+                                <!--<span class="msg-type">博客</span>-->
+                                <!--<span class="msg-title">-->
+                                    <!--<a target="_blank">-->
+                                        <!--weixin_41393782-->
+                                    <!--</a>-->
+                                    <!--评论了你的博文-->
+                                <!--</span>-->
+
+                                <!--<p class="msg-text">-->
+                                    <!--<span data-v-0947769e="" class="bb-span-wrap">-->
+                                        <!--<a href="/#">-->
+                                            <!--微信小程序+Java后台开发(详细解释，附代码)-->
+                                        <!--</a>-->
+                                    <!--</span>-->
+                                    <!--<em class="fr" style="color: #cccccc;">-->
+                                        <!--2019-07-11-->
+                                    <!--</em>-->
+                                <!--</p>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+
+        <div id="commmSet" style="padding-bottom: 70px;">
+            <div class="am-cf am-padding am-padding-bottom-0">
+                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">我的评论</strong> /
+                    <small>comment information</small>
+                </div>
+            </div>
+            <hr/>
+            <div class="am-g comment">
+            </div>
+        </div>
+
+        <div id="likesSet" style="padding-bottom: 70px;">
+            <div class="am-cf am-padding am-padding-bottom-0">
+                <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">我的点赞</strong> /
+                    <small>like information</small>
+                </div>
+            </div>
+            <hr/>
+            <div class="am-g comment">
+                <div class="am-u-sm-12 am-u-md-12">
+                    <div class="am-cf" >
+                    </div>
+                    <div class="data-list">
+                        <ul>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="notice notice-box-suc">
+        <i class="am-icon-exclamation-circle"></i>
+        <span> 客官,修改成功</span>
+    </div>
+    <div class="notice notice-box notice-box1">
+        <i class="am-icon-exclamation-circle"></i>
+        <span> 客官,修改失败</span>
+    </div>
+    <div class="notice notice-box notice-name-len">
+        <i class="am-icon-exclamation-circle"></i>
+        <span> 客官,名字格式不对</span>
+    </div>
+    <div class="notice notice-box notice-email">
+        <i class="am-icon-exclamation-circle"></i>
+        <span> 客官,邮箱格式不对</span>
+    </div>
+    <div class="notice notice-box notice-qq">
+        <i class="am-icon-exclamation-circle"></i>
+        <span> 客官,QQ格式不对</span>
+    </div>
+</div>
+
+<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu"
+   data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+<!--底部-->
+<div th:replace="footer :: footer"></div>
+
+</body>
+
+<script src="assets/js/jquery-1.12.4.min.js" th:src="@{/assets/js/jquery-1.12.4.min.js}"></script>
+<script src="assets/js/amazeui.js" th:src="@{/assets/js/amazeui.js}"></script>
+<script src="assets/js/app.js" th:src="@{/assets/js/app.js}"></script>
+<script src="style/js/user.js" th:src="@{/style/js/user.js}"></script>
+<script src="style/js/header.js" th:src="@{/style/js/header.js}"></script>
+</html>

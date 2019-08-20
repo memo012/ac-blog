@@ -1,0 +1,22 @@
+.qz-friendlink{
+    color: #0a628f;
+    font-size: 25px;
+}
+.qz-friend{
+    margin-top: 5%;
+}
+.qz-friend li{
+    list-style-type: none;
+    display: inline;
+    height: 30px;
+    overflow: hidden;
+}
+
+.qz-friend li a{
+    color: #64308f;
+
+
+}
+.qz-friend li a:hover{
+    color: #b78e7d;
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>强子的博客~~</title>
+    <link rel="alternate icon" type="image/png" href="/myPicture.jpg">
+    <link rel="stylesheet" href="assets/css/amazeui.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style/index.css"/>
+    <link rel="stylesheet" href="style/show.css"/>
+    <link rel="stylesheet" href="style/guest.css"/>
+    <link rel="stylesheet" href="style/tig.css"/>
+    <link rel="stylesheet" href="layui/css/layui.css"/>
+    <script src="layui/layui.js"></script>
+    <style type="text/css">
+        .qz-center .qz-session-content .qz-art .comment-top, textarea {
+            margin: 60px auto 10px;
+            padding: 50px 30px;
+            width: 90%;
+            border-radius: 9px;
+            border: 1px solid #098e91;
+            background: white;
+            position: relative;
+            font-size: 15px;
+        }
+
+        textarea {
+            margin-left: 27px;
+        }
+
+        .commentBtn {
+            position: absolute;
+            right: 0;
+            bottom: -36%;
+        }
+
+        .commentBt {
+            position: absolute;
+            right: 5%;
+        }
+
+        .commentBt > button {
+            border-radius: 10px;
+        }
+
+        .commentBtn > button {
+            border-radius: 10px;
+        }
+
+        .goToLogin > a {
+            color: #0bc5c8;
+        }
+
+        .goToLogin > a:hover {
+            cursor: pointer;
+            color: #098e91;
+        }
+
+    </style>
+</head>
+<body>
+
+<!--首页-->
+<div th:replace="header :: header"></div>
+
+<!--主体-->
+<div class="layui-row layui-col-space25 qz-session">
+
+
+    <div class="layui-col-md9 qz-main">
+        <div class="layui-row grid-demo layui-col-space15">
+            <div class="layui-col-md4">
+                <div th:replace="left :: left"></div>
+            </div>
+            <div class="layui-col-md8 qz-center">
+                <div class="qz-session-content">
+                    <div class="qz-art">
+                        <div class="qz-guest">
+                            <ul>
+                                <li class="am-kai">强子的博客正式开业了~~~</li>
+                                <li class="am-kai">这个网站进行长期维护哦(⊙o⊙)？</li>
+                                <li class="am-kai">客官对网站有更好的建议，欢迎大家留言~~~~</li>
+                                <li class="am-kai">客官在使用过程中遇到了bug，欢迎指出来</li>
+                                <li class="am-kai">你的建议，就是我的最大动力</li>
+                                <li class="am-kai">乘风破浪~~~</li>
+                            </ul>
+                        </div>
+                        <hr>
+
+
+                        <div class="qz-comment" shiro:notAuthenticated="">
+                            <div class="comment-top">
+                                <div class="comment-top-input">
+                                    <div class="goToLogin">
+                                        &nbsp;&nbsp;&nbsp;<a id="toLogin" href="login" th:href="@{/login}">登录</a>后才可以留言呦...
+                                    </div>
+                                </div>
+
+                                <div class="commentBtn">
+                                    <button id="commentBn" type="button" class="am-btn am-btn-secondary">留言</button>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="qz-comment" shiro:authenticated="">
+                        <textarea id="desc" placeholder="客官可以留言提出意见哦(⊙o⊙)？"></textarea>
+                            <div class="commentBt">
+                                <button id="commentBn" type="button" class="am-btn am-btn-secondary">留言</button>
+                            </div>
+                        </div>
+
+
+                        <div class="article-comment-title">
+                            <span class="article-comment-word">留言</span>
+                            <div class="article-comment-line"></div>
+                        </div>
+
+                        <!--留言列表-->
+                        <div class="visitorComment">
+
+                            <hr>
+                        </div>
+
+                        <div class="qz-button"><br><br><br><br><br></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="notice-box notice-box-text">
+            <i class="am-icon-exclamation-circle"></i>
+            <span> 客官，内容不能为空！</span>
+        </div>
+    </div>
+    <!--个人信息-->
+    <div class="layui-col-md3">
+        <div th:replace="aside :: aside"></div>
+    </div>
+</div>
+
+
+<!--底部-->
+<div th:replace="footer :: footer"></div>
+
+</body>
+<script src="assets/js/jquery-1.12.4.min.js"></script>
+<script src="assets/js/amazeui.js"></script>
+<script src="style/js/tags.js"></script>
+<script src="style/js/header.js" th:src="@{/style/js/header.js}"></script>
+<script src="style/js/guest.js" th:src="@{/style/js/guest.js}"></script>
+</html>

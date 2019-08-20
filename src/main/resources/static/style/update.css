@@ -1,0 +1,34 @@
+.qz-center-div{
+    width: 95%;
+    margin: 0 auto;
+    padding: 3% 0 0 0;
+}
+.qz-update{
+    font-size: 23px;
+    color: rgba(7, 38, 41, 0.5);
+
+}
+.qz-session-content .qz-center{
+    border-radius: 0%;
+}
+.qz-log{
+    margin-top: 8%;
+    font-size: 25px;
+    color: rgba(96, 11, 112, 0.5);
+}
+.qz-updatelog{
+    /*margin-top: 8%;*/
+}
+.qz-updatelog h3{
+    color: rgba(0, 0, 0, 0.56);
+}
+.qz-ul-li{
+    margin-top: 15%;
+}
+.qz-ul-li p{
+    font-size: 17px;
+    color: rgba(75, 11, 12, 0.5);
+}
+.qz-ul-li-first{
+    margin-top: 8%;
+}

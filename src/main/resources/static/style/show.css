@@ -1,0 +1,175 @@
+.qz-article-top .article-top {
+    text-align: center;
+    font-size: 180%;
+    color: #480017;
+    padding-top: 3%;
+}
+
+.qz-article-top .article-info {
+    text-align: center;
+    margin-top: 5%;
+}
+
+.article-info .qz-mark {
+    border-radius: 50%;
+}
+
+.qz-article-content {
+    margin: 60px 40px 30px;
+}
+
+@media screen and (max-width: 768px) {
+    #wordsView {
+        padding: 5px;
+    }
+}
+
+.qz-article-content .markdown {
+    text-align: left;
+    line-height: 2;
+    color: rgb(51, 51, 51);
+    font-family: "Microsoft YaHei", Helvetica, "Meiryo UI", "Malgun Gothic", "Segoe UI", "Trebuchet MS", Monaco, monospace, Tahoma, STXihei, 华文细黑, STHeiti, "Helvetica Neue", "Droid Sans", "wenquanyi micro hei", FreeSans, Arimo, Arial, SimSun, 宋体, Heiti, 黑体, sans-serif;
+}
+
+.qz-session-content .qz-art {
+    background: rgba(255, 250, 240, 0.5);
+    box-shadow: 0px 0px 10px 0.5px #aaa;
+    margin-top: 5%;
+}
+
+.article-button {
+    text-align: right;
+    padding: 6% 6% 3% 0;
+
+}
+
+.article-btn {
+    padding: 0 1%;
+    font-size: 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition-property: background-color;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+    line-height: 2;
+    color: #fff;
+    background: #f9a477;
+}
+@media screen and (min-width: 768px) {
+    .comment-top {
+        border: 1px solid #4398ed;
+        padding: 15px 15px 5px;
+        margin: 0 50px;
+        border-radius: 7px;
+    }
+}
+.article-comment-title {
+    width: 90%;
+    margin: 15% auto 6%;
+}
+.article-comment-word {
+    margin-left: 0px;
+    font-size: 17px;
+    padding: 6px 15px 6px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top: 1px solid #098e91;
+    border-left: 1px solid #098e91;
+    border-right: 1px solid #098e91;
+    color: #098e91;
+}
+.article-comment-line {
+    left: 65px;
+    width: 87%;
+    border-bottom: 1px solid #098e91;
+    margin-top: 3px;
+    position: relative;
+}
+textarea{
+    width: 500px;
+}
+.qz-comment-list{
+    width: 85%;
+    margin: 0 auto;
+}
+.visitorCommentImg img{
+    width: 60px!important;
+    height: 60px!important;
+    border-radius: 50%;
+}
+.visitorInfo{
+    height: 60px!important;
+    line-height: 60px!important;
+    margin-left: 5%!important;
+}
+.visitorSay{
+    margin-left: 5%!important;
+}
+.tool-group{
+    margin-top: 3%!important;
+    margin-left: 5%!important;
+}
+.tool-group a{
+    cursor: pointer;
+}
+.visitorPublishDate{
+    float: right;
+}
+.sub-comment{
+
+}
+textarea{
+    resize: none;
+}
+.quitReplyWordBtn{
+    float: right;
+    margin-right: 5%;
+}
+.sendReplyWordBtn{
+    margin-left: 5%;
+}
+.replyWordBtn button{
+    border-radius: 23%;
+}
+.sub-comment-list {
+    width: 90%;
+    margin: 10px auto;
+    padding: 5px 0 5px 3%;
+    border-left: 2px solid #d9d9d9;
+}
+.visitorReplyTime {
+    color: #969696;
+    margin: 6px auto;
+    font-size: 15px;
+}
+.visitorReplyTime a:hover{
+    cursor: pointer;
+    color: #f9a477;
+}
+.tool-group a:hover{
+    cursor: pointer;
+    color: #f9a477;
+}
+.more-comment{
+    font-size: 18px;
+}
+.more-comment a:hover{
+    cursor: pointer;
+    color: #f9a477;
+}
+
+.comment-com{
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 20px;
+    color: #a27d82;
+}
+.reply-sub-comment-list{
+    display: none;
+}
+
+
+
+

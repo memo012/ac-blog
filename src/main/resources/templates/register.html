@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>强子的博客~~</title>
+    <link rel="alternate icon" type="image/png" href="myPicture.jpg">
+    <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="style/tig.css">
+    <link rel="stylesheet" href="style/index.css" th:href="@{/style/index.css}"/>
+    <style>
+        .header1 {
+            text-align: center;
+        }
+
+        .header1 h1 {
+            font-size: 200%;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        .header1 p {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<!--引入公共头部-->
+<div th:replace="header :: header"></div>
+
+<div class="header1">
+    <div class="am-g">
+        <h1>注册界面</h1>
+    </div>
+    <hr/>
+</div>
+<div class="am-g">
+    <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+        <div class="am-form">
+            <label>手机号:</label>
+            <input type="text" name="" id="phone" value="" placeholder="手机号">
+            <br>
+            <label>验证码:</label>
+            <input type="text" id="yan" placeholder="点右边获取验证码"
+                   style="width: 190px;">
+            <button class="authCodeBtn am-btn am-btn-secondary am-round am-btn-sm"
+                    id="authCodeBtn" type="button" style="position: relative;top: -37px;left: 250px;">获取验证码
+            </button>
+            <br>
+            <label for="username">用户名:</label>
+            <input type="text" name="" id="username" value="" placeholder="输入用户名">
+            <br>
+            <label for="password">密码:</label>
+            <input type="password" name="" id="password" value="" placeholder="输入密码">
+            <br>
+            <label for="passwordSure">确认密码:</label>
+            <input type="password" name="" id="passwordSure" placeholder="再输一次密码">
+            <br>
+            <label for="password">性别:</label>
+            <div class="radio_input am-form-group" style="margin: 0 0 10px auto">
+                <label class="am-radio-inline">
+                    <input type="radio" name="gender" value="0" checked>
+                    <span class="am-icon-male am-icon-sm"></span>
+                </label>
+                <label class="am-radio-inline" style="margin-left: 40px">
+                    <input type="radio" name="gender" value="1">
+                    <span class="am-icon-female am-icon-sm"></span>
+                </label>
+            </div>
+            <br>
+            <br/>
+            <div class="am-cf">
+                <input type="button" id="register-btn" name="" value="注 册"
+                       class="am-btn am-btn-primary am-btn-sm am-fl">
+                <button class="am-btn am-btn-default am-btn-sm am-fr"><a href="/login" style="color:black;">登录试试
+                    ^_^?</a></button>
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+
+    <div class="notice-box notice-box-phone">
+        <i class="am-icon-exclamation-circle"></i>
+        <span> 手机号不能为空</span>
+    </div>
+    <div class="notice-box notice-box-yan">
+        <i class="am-icon-exclamation-circle"></i>
+        <span> 验证码不能为空</span>
+    </div>
+    <div class="notice-box notice-box-code">
+        <i class="am-icon-exclamation-circle"></i>
+        <span> 验证码错误</span>
+    </div>
+    <div class="notice-box notice-box-user">
+        <i class="am-icon-exclamation-circle"></i>
+        <span> 用户名不能为空</span>
+    </div>
+    <div class="notice-box notice-box-user-length">
+        <i class="am-icon-exclamation-circle"></i>
+        <span> 用户名长度应小于16</span>
+    </div>
+    <div class="notice-box notice-box-user-exit">
+        <i class="am-icon-exclamation-circle"></i>
+        <span> 用户名已存在</span>
+    </div>
+    <div class="notice-box notice-box-password">
+        <i class="am-icon-exclamation-circle"></i>
+        <span> 密码不能为空</span>
+    </div>
+    <div class="notice-box notice-box-password-ps">
+        <i class="am-icon-exclamation-circle"></i>
+        <span> 两次密码输入错误</span>
+    </div>
+    <div class="notice-box notice-box-password-num">
+        <i class="am-icon-exclamation-circle"></i>
+        <span> 客官，密码格式6-18位</span>
+    </div>
+    <div class="notice-box notice-box-phone-num">
+        <i class="am-icon-exclamation-circle"></i>
+        <span> 客官，输入有效的手机号码！</span>
+    </div>
+    <div class="notice-box notice-box-phone-exit">
+        <i class="am-icon-exclamation-circle"></i>
+        <span> 客官，该手机号已被绑定！</span>
+    </div>
+    <div class="notice-box notice-box-reg">
+        <i class="am-icon-exclamation-circle"></i>
+        <span> 客官，注册失败！</span>
+    </div>
+    <div class="notice-box notice-box-name">
+        <i class="am-icon-exclamation-circle"></i>
+        <span> 客官，不能输入敏感字!</span>
+    </div>
+
+    <div class="am-modal am-modal-alert" tabindex="-1" id="publish-success" style="border-radius: 5px;">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">强子博客欢迎你</div>
+            <div class="am-modal-bd">
+                注册成功！！！
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn" id="issue-success">确定</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!--底部-->
+<div th:replace="footer :: footer"></div>
+</body>
+<script src="assets/js/jquery-1.12.4.min.js"></script>
+<script src="assets/js/amazeui.js"></script>
+<script src="style/js/register.js"></script>
+<script src="style/js/header.js" th:src="@{/style/js/header.js}"></script>
+</html>

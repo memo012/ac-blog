@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>强子的博客~~</title>
+    <link rel="alternate icon" type="image/png" href="myPicture.jpg">
+    <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="style/index.css"/>
+    <link rel="stylesheet" href="style/css/editormd/editor.css">
+    <!-- Editor css... -->
+    <link rel="stylesheet" href="style/css/editormd/css/style.css"/>
+    <link rel="stylesheet" href="style/css/editormd/css/editormd.preview.min.css"/>
+    <link rel="stylesheet" href="style/css/editormd/css/editormd.css"/>
+
+
+</head>
+
+<body>
+<div id="qiang">
+
+    <div id="removeDiv">
+        <!--头部-->
+        <header class="am-topbar">
+            <div class="am-u-sm-7 am-u-md-4">
+                <h1 class="am-topbar-brand qz-h1">
+                    <img src="style/images/myPicture.jpg">
+                    <a href="/" class="am-kai">强子博客</a>
+                </h1>
+            </div>
+            <div class="am-u-sm-12 am-u-md-4">
+                <h1 class="am-topbar-brand am-kai" style="font-size: 19px">Welcome to 强子 创作室</h1>
+            </div>
+
+            <div class="am-topbar-right" shiro:authenticated="">
+                <div class="am-dropdown" data-am-dropdown>
+                    <button class="personalSpace am-btn am-topbar-btn am-btn-sm am-dropdown-toggle"
+                            data-am-dropdown-toggle style="border-radius: 50%;">
+                        <span class="name"><shiro:principal property="username"/></span>
+                        <span class="am-icon-caret-down"></span>
+                    </button>
+                    <ul class="am-dropdown-content tar">
+                        <li><a href="/user">个人主页</a></li>
+                        <li><a href="/SuperAdmin" shiro:hasRole="admin">网站后台管理</a></li>
+                        <li shiro:hasRole="user"><a class="feedbackClick">消息&nbsp;&nbsp;<span
+                                class="newsNum am-badge am-badge-danger"></span></a></li>
+                        <li shiro:hasRole="admin"><a class="feedbackClick">反馈&nbsp;&nbsp;<span id="mess"
+                                                                                               class="am-badge am-radius am-badge-danger"></span></a>
+                        </li>
+                        <hr style="margin: 10px 0 5px 0;">
+                        <li><a class="logou" style="cursor: pointer;">退出登录</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="am-topbar-right" shiro:notAuthenticated="">
+                <a href="/register" class="am-btn am-btn-primary am-topbar-btn am-btn-sm"
+                   style="color: white">注册</a>
+            </div>
+            <div class="am-topbar-right" shiro:notAuthenticated="">
+                <a href="/login" class="am-btn am-btn-primary am-topbar-btn am-btn-sm"
+                   style="color: white">登录</a>
+            </div>
+
+        </header>
+
+        <div id="writeArticle">
+            <div class="qz-editor">
+                <div class="qz-editor-input">
+                    <input id="qz-editor-title" type="text" placeholder="输入文章标题">
+                    <button type="button" class="publishBtn am-btn am-btn-danger">发布博客</button>
+                </div>
+            </div>
+
+            <div class="qz-editor-writing">
+                <!--MarkDown的id标志 -->
+                <div id="my-editormd">
+                    <!-- 书写与实时显示的textarea -->
+                    <textarea id="content" name="content" style='display: none;'></textarea>
+                    <!-- 用于后端获取md稳当内容，Java中：request.getParameter("my-editormd-html-code")。 -->
+                    <textarea id="my-editormd-html-code" name="my-editormd-html-code" style="display:none;"></textarea>
+                </div>
+            </div>
+
+            <div class="notice-box notice-box-title">
+                <i class="am-icon-exclamation-circle"></i>
+                <span> 文章标题不能为空</span>
+            </div>
+            <div class="notice-box notice-box-content">
+                <i class="am-icon-exclamation-circle"></i>
+                <span> 文章內容不能为空</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- 模态框（Modal） -->
+    <div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+        <div class="am-modal-dialog" style="border-radius: 5px;">
+            <div class="am-modal-hd" style="text-align: left;margin:auto auto 5px 20px">发布博客
+                <a href="javascript: void(0)" class="am-close am-close-alt am-close-spin" data-am-modal-close style="margin: 7px 10px auto auto">&times;</a>
+            </div>
+            <div class="am-modal-bd">
+                <div class="article-setting">
+                    <div class="article-tag row">
+                        <div class="tags">
+                            <div class="tag-inline">
+                                <label class="publish-tag">文章标签<strong>:</strong></label>
+                                <div class="tag">
+
+                                </div>
+                                <button class="addTagsBtn">
+                                    <i class="am-icon-plus-circle"></i>
+                                    添加标签
+                                </button>
+                            </div>
+                            <span style="display: block;margin-left:67px;">最多添加5个标签</span>
+                        </div>
+                    </div>
+                    <div class="article-type row">
+                        <label class="publish-tag">文章类型<strong>:</strong></label>
+                        <div class="type">
+                            <select id="select-type">
+                                <option value="choose" selected>请选择</option>
+                                <option value="原创">原创</option>
+                                <option value="转载">转载</option>
+                            </select>
+                            <span class="required">*</span>
+                        </div>
+
+                        <label class="publish-tag" style="margin-left: 10px">博客分类<strong>:</strong></label>
+                        <div class="categories">
+                            <select id="select-categories">
+                                <option value="choose">请选择</option>
+                                <option value="面试">面试</option>
+                                <option value="心情窗口">心情窗口</option>
+                                <option value="程序录">程序录</option>
+                            </select>
+                            <span class="required">*</span>
+                        </div>
+                    </div>
+                    <div class="article-tag row">
+                        <label class="publish-tag">文章等级<strong>:</strong></label>
+                        <div class="grade">
+                            <select id="select-grade">
+                                <option value="choose" selected>请选择</option>
+                                <option value="1">☆</option>
+                                <option value="2">☆☆</option>
+                                <option value="3">☆☆☆</option>
+                                <option value="4">☆☆☆☆</option>
+                                <option value="5">☆☆☆☆☆</option>
+                            </select>
+                            <span class="required">*</span>
+                        </div>
+
+                        <div id="originalAuthorHide" style="display: inline-block">
+                            <label class="publish-tag" style="margin-left: 10px;display: inline-block">文章作者<strong>:</strong></label>
+                            <div class="originalAuthor" style="display: inline-block">
+                                <input type="text" id="originalAuthor" placeholder="请输入文章原作者">
+                                <span class="required">*</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="articleUrlHide row">
+                        <label class="publish-tag" style="display: inline-block">发布形式<strong>:</strong></label>
+                        <div class="url" style="display: inline-block">
+                            <label class="am-radio-inline">
+                                <input type="radio" name="gender" value="0" data-am-check>公开
+                            </label>
+                            <label class="am-radio-inline" style="margin-left: 30px">
+                                <input type="radio" name="gender" value="1">私密
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="am-modal-footer" style="text-align: right;height: 45px">
+                <button type="button" class="am-btn am-btn-default am-round" data-am-modal-close style="margin-right: 10px">取消</button>
+                <button type="button" class="surePublishBtn am-btn am-btn-danger am-round" style="margin: 10px 15px 10px auto">
+                    发表博客
+                </button>
+            </div>
+        </div>
+
+
+        <div class="notice-box notice-box-tags">
+            <i class="am-icon-exclamation-circle"></i>
+            <span> 文章标签不能为空</span>
+        </div>
+        <div class="notice-box notice-box-type">
+            <i class="am-icon-exclamation-circle"></i>
+            <span> 文章类型不能为空</span>
+        </div>
+        <div class="notice-box notice-box-categories">
+            <i class="am-icon-exclamation-circle"></i>
+            <span> 博客分类不能为空</span>
+        </div>
+        <div class="notice-box notice-box-grade">
+            <i class="am-icon-exclamation-circle"></i>
+            <span> 文章等级不能为空</span>
+        </div>
+        <div class="notice-box notice-box-originalAuthor">
+            <i class="am-icon-exclamation-circle"></i>
+            <span> 原作者不能为空</span>
+        </div>
+        <div class="notice-box notice-box-publish">
+            <i class="am-icon-exclamation-circle"></i>
+            <span> 发布失败</span>
+        </div>
+
+    </div>
+
+    <div class="am-modal am-modal-alert" tabindex="-1" id="publish-success" style="border-radius: 5px;">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">强子博客欢迎你</div>
+            <div class="am-modal-bd">
+                发布成功！！！
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn issue-success">确定</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="am-modal am-modal-alert" tabindex="-1" id="publish-upd" style="border-radius: 5px;">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">强子博客欢迎你</div>
+            <div class="am-modal-bd">
+                修改成功！！！
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn issue-success">确定</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="assets/js/jquery-1.12.4.min.js"></script>
+<script src="style/css/editormd/css/editormd.min.js"></script>
+<script src="style/css/editormd/js/editor.js"></script>
+<script src="assets/js/amazeui.js"></script>
+</html>

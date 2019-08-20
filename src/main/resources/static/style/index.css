@@ -1,0 +1,380 @@
+.am-topbar {
+    box-shadow: 0px 1px 13px 0.9px #aaa;
+    /*background: rgba(226, 226, 226, 0.5);*/
+    background: #fafafa;
+}
+
+.am-topbar-brand img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 4px;
+    border-radius: 50%;
+}
+
+.es {
+    border: #c8c8c8 solid 1px;
+}
+
+@media screen and (min-width: 768px) {
+    .am-nav {
+        padding-left: 255px;
+    }
+}
+
+/*主体*/
+.qz-session {
+    width: 95% !important;
+    margin: 0 auto !important;
+    padding: 0;
+}
+
+/*左侧*/
+.qz-lift {
+    /*margin-top: 2%;*/
+}
+
+.qz-lift > div {
+    background: #c0c4cc;
+    margin-top: 40px;
+    position: relative;
+}
+
+.qz-lift i:first-child {
+    display: block;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+}
+
+.qz-lift i:last-child {
+    display: block;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+}
+
+.qz-gonggao {
+    background: rgba(255, 250, 240, 0.5);
+    box-shadow: 0px 0px 10px 0.5px #aaa;
+}
+
+.qz-gonggao p:first-child {
+    padding-top: 24%;
+}
+
+.qz-gonggao p:last-child {
+    padding-bottom: 24%;
+
+}
+
+.qz-gonggao .last {
+    margin-left: -13%;
+    color: #0a628f;
+    font-size: 16px;
+}
+
+.qz-gonggao .qz-name {
+    text-align: right;
+}
+
+.qz-gonggao p {
+    padding: 10% 20%;
+    text-align: center;
+    color: lightslategrey;
+
+}
+
+.qz-xinxi {
+    background: rgba(52.94%, 80.78%, 95.16%, 0.5);
+}
+
+.qz-xinxi p {
+    color: #5c6b7a;
+}
+.am-nav li:hover{
+    color: #7e6792;
+}
+
+/*中间*/
+/*博客*/
+.qz-session-content .qz-center {
+    border-radius: 3%;
+    background: rgba(255, 250, 240, 0.5);
+    box-shadow: 0px 0px 10px 0.5px #aaa;
+    margin-top: 5%;
+}
+
+
+.qz-session-content .qz-page {
+    margin-top: 5%;
+    text-align: center;
+}
+
+.qz-session-content .qz-center .qz-article {
+    padding-left: 3%;
+}
+
+.qz-session-content .qz-center .qz-article h1 {
+    padding-top: 3%;
+}
+
+.qz-session-content .qz-center .qz-article h1 a:hover {
+    text-decoration: underline;
+    color: #0a628f;
+}
+
+.qz-article .qz-tt {
+    margin: 20px 0;
+}
+
+.qz-article .qz-tt .qz-mark {
+    border-radius: 45%;
+}
+
+.qz-center .qz-boke {
+    height: 200px;
+}
+
+.article-entry p {
+    width: 94%;
+    margin: 0 auto;
+    text-indent: 6%;
+    letter-spacing: 1px;
+    font-size: 15px;
+    color: #5e5f62;
+}
+
+.read-all a:hover {
+    text-decoration: underline;
+    color: #0a628f;
+}
+
+.article-tags {
+    margin-left: 2%;
+    padding-bottom: 1%;
+}
+
+.article-tags a.aa:hover {
+    color: #00F7DE;
+    text-decoration: underline;
+}
+
+/*右侧*/
+.qz-right {
+    /*width: 90%;*/
+}
+
+.qz-list {
+    border: 1px solid #c0c4cc;
+    padding: 20px 0 0 0;
+    margin-top: 25px;
+    box-shadow: 2px 2px 8px #c7afc7;
+    border-radius: 3%;
+}
+
+.qz-right ul li > img {
+    width: 40%;
+    height: 40%;
+    border-radius: 50%;
+    margin-left: 25%;
+}
+#wx_picture img{
+    width: 100%;
+    height: 100%;
+}
+#qq_picture img{
+    width: 150%;
+    height: 150%;
+}
+.picture-size{
+    width: 100px;
+    height: 100px;
+}
+.wxchat{
+    position: relative;
+}
+#wx_picture{
+    position: relative;
+    top: 5px;
+    left: 70%;
+}
+#qq_picture{
+    position: relative;
+    top: 5px;
+    left: 45%;
+}
+
+.qz-right ul li:first-child h1 {
+    background: red;
+    display: inline-block;
+}
+
+.qz-li {
+    margin-left: 40%;
+    margin-top: 10px;
+}
+
+.qz-mingyan {
+    width: 90%;
+    margin: 15px auto;
+    text-indent: 10%;
+}
+
+.qz-weixin {
+    margin-left: 19% !important;
+    margin: 6% 0;
+}
+
+.qz-hr {
+    height: 1px;
+    width: 100%;
+    background: #c0c4cc;
+}
+
+.qz-icon a {
+    width: 19%;
+    text-align: center;
+    margin-left: 5%;
+    padding: 2% 0;
+}
+
+/*标签云*/
+.blog-title {
+    margin-left: 4%;
+}
+
+.blog-tag {
+    display: inline-block;
+    font-size: 16px;
+    color: #307194;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 3px;
+}
+
+a.blog-tag:hover {
+    text-decoration: underline;
+
+}
+
+/*网站信息*/
+.qz-title {
+    margin-left: 3%;
+}
+
+.site-default {
+    margin-left: 6%;
+}
+
+.site-default li {
+    margin: 10px 0;
+}
+
+/*分页*/
+.qz-pagehelder {
+    margin-top: 6%;
+    /*display: none;*/
+}
+
+.qz-pagehelder > div {
+    display: inline-block;
+}
+
+.left-page {
+    float: left;
+    text-align: center;
+    border-radius: 3px;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 5px 6px 14px rgba(255, 192, 203, 0.5);
+    transition-property: box-shadow, background-color, -webkit-box-shadow;
+    transition-duration: .2s;
+    background-color: pink;
+    color: white;
+    font-weight: 600;
+    padding: 10px 40px;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.left-page:hover {
+    box-shadow: 5px 6px 14px rgba(176, 134, 141, 0.55);
+}
+
+.right-page {
+    float: right;
+    text-align: center;
+    border-radius: 3px;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 5px 6px 14px rgba(14, 252, 255, 0.23);
+    transition-property: box-shadow, background-color, -webkit-box-shadow;
+    transition-duration: .2s;
+    background: rgba(52.94%, 80.78%, 95.16%, 0.5);
+    color: white;
+    font-weight: 600;
+    padding: 10px 40px;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.right-page:hover {
+    box-shadow: 5px 6px 14px rgba(13, 150, 153, 0.5);
+}
+
+/*广播*/
+.roll {
+    display: inline-block;
+    width: 90%;
+    height: 21px;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(2px);
+}
+
+.roll li {
+    list-style: none;
+    height: 26px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.roll ul {
+    position: absolute;
+    left: 38px;
+    top: 0;
+}
+
+.radioBroadcast {
+    display: inline-block;
+    margin-left: 14px;
+    border: 1px solid silver;
+    box-shadow: 0 2px 5px 0 rgba(33, 22, 22, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    width: 99%;
+    position: relative;
+}
+
+.messVO {
+    position: absolute;
+    left: 5px;
+    top: 3px;
+    font-size: 18px;
+}
+
+.search {
+    position: relative;
+    line-height: 50px;
+    padding: 0 10px;
+}
+
+.writeBlog {
+    line-height: 50px;
+    color: black;
+}
+
+.writeBlog > a:hover {
+    color: #e10d13;
+}
+.personalSpace{
+    background: white;
+}

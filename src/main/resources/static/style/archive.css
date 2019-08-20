@@ -1,0 +1,167 @@
+.container-before-icon{
+    padding-top: 3%;
+    margin-left: 48%;
+    color: rgba(173, 18, 203, 0.5);
+}
+.qz-container{
+
+}
+.qz-session-content .qz-center{
+    border-radius: 0%;
+}
+.qz-time dl{
+    position: relative;
+    padding: 20px 0 20px 0;
+}
+.qz-time dl:before{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    z-index: 100;
+    width: 2px;
+    margin-left: 2px;
+    content: '';
+    background-color: #ccd1d9;
+}
+.qz-time dl dt{
+    position: relative;
+    top: 30px;
+    z-index: 200;
+    width: 100px;
+    padding: 8px 5px;
+    margin: 0 auto 30px;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    background-color: #aab2bd;
+    border-radius: 4px;
+}
+.qz-time dl dd{
+    position: relative;
+    height: 155px;
+}
+.qz-time dl dd .circ{
+    position: absolute;
+    top: 60px;
+    left: 50.5%;
+    z-index: 200;
+    width: 22px;
+    height: 22px;
+    margin-left: -11px;
+    background-color: #4fc1e9;
+    border: 4px solid #f5f7fa;
+    border-radius: 50%;
+
+}
+
+.qz-time dl dd .time{
+    display: inline-block;
+    width: 100px;
+    padding: 10px 20px;
+    color: #4fc1e9;
+}
+/**
+向右
+ */
+.qz-time dl dd.qz-right .time{
+    position: absolute;
+    top: 50px;
+    left: 36%;
+}
+/**
+向左
+ */
+.qz-time dl dd.qz-left .time{
+    position: absolute;
+    top: 50px;
+    left: 50%;
+}
+.qz-time dl dd .qz-event{
+    width: 43%;
+    /*padding: 10px 0 0;*/
+    margin-top: 50px;
+    background-color: rgba(92, 125, 203, 0.5);
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+/**
+向右
+ */
+.qz-time dl dd.qz-right .qz-event{
+    position: relative;
+    top:50px;
+    left: 53.5%;
+}
+/**
+向左
+ */
+.qz-time dl dd.qz-left .qz-event{
+    position: relative;
+    top:50px;
+    left: 4%;
+}
+.qz-time dl dd .qz-event:before{
+    width: 0;
+    height: 0;
+    content: '';
+    border-style: solid;
+    border-width: 6px;
+}
+/**
+向右
+ */
+.qz-time dl dd.qz-right .qz-event:before{
+    position: absolute;
+    border-color: transparent rgba(59, 76, 124, 0.5) transparent transparent;
+    top: 12px;
+    left: -12px;
+}
+/**
+向左
+ */
+.qz-time dl dd.qz-left .qz-event:before{
+    position: absolute;
+    border-color: transparent transparent transparent rgba(59, 76, 124, 0.5);
+    top: 15%;
+    right: -4.5%;
+}
+.qz-time dl dd .events-header{
+    min-height: 30px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 0 0 5px;
+    font-size: 1.05vw !important;
+}
+.qz-time dl dd .events-header:hover{
+    text-decoration: underline;
+    color: #0ab9bc;
+}
+.qz-time dl dd .events-header-span{
+   background: rgba(8, 138, 141, 0.5);
+    padding: 13px 0 13px 40px;
+}
+.qz-time dl dd .qz-flie{
+    margin-left: 4%;
+}
+a{
+    cursor: pointer;
+}
+.qz-time dl dd .qz-file{
+    margin-top: 3%;
+}
+.qz-time dl dd .qz-flie a:hover{
+    color: #9b0cb1;
+}
+.qz-dt-div:after{
+    /*visibility: hidden;*/
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    box-sizing: border-box;
+}
