@@ -14,7 +14,7 @@
   我是一个后台开发人（Java）,对前台不是那么的了解，单单只是能搭出来，效果的话，我已经尽我洪荒之力了，就搭出这个水平，希望不要见怪。
 ### 项目介绍
 1. 博客项目对于初学spring boot的人是个不错的练手项目，即不容易，又不复杂，体验一下做项目的感受。  
-2. 该项目为开源项目，代码已上传到我的GitHub上[https://github.com/memo012/people-blog](https://github.com/memo012/people-blog)，  欢迎**star**。  
+2. 该项目为开源项目，代码已上传到我的GitHub上[https://github.com/memo012/ac-blog](https://github.com/memo012/ac-blog)，  欢迎**star**。  
 3. 该网站已完成基本功能，后续不断更新修改。  
 4. 在文章，评论等处添加缓存，提高性能。  
 4. 使用nginx反向代理部署。  
