@@ -340,7 +340,7 @@ setInterval(function () {
 
 
 //网站最后更新时间（版本更新需更改）
-var siteLastUpdateTime = '2019年08月9日18点';
+var siteLastUpdateTime = '2019年08月20日16点';
 $(".siteUpdateTime").html(''+siteLastUpdateTime);
 
 

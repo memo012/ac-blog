@@ -3,6 +3,7 @@ package com.qiang.modules.sys.controller;
 import com.qiang.common.utils.Constant;
 import com.qiang.common.utils.RedisOperator;
 import com.qiang.common.utils.TransCodingUtil;
+import com.qiang.modules.sys.entity.VO.UsersVOEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,14 +32,23 @@ public class BackController {
      * @return
      */
     @GetMapping("/")
-    public String index(HttpServletResponse response, HttpServletRequest request) {
+    public String index() {
         if (redisOperator.hasKey(Constant.BLOG_VISIT_COUNT)) {
             redisOperator.incr(Constant.BLOG_VISIT_COUNT, 1);
         }
+        return "index";
+    }
+
+    /**
+     * 保存上一次浏览地址
+     * @return
+     */
+    @GetMapping("lasturl")
+    public String lasturl(HttpServletResponse response, HttpServletRequest request){
         response.setHeader("Access-Control-Allow-Origin", "*");
         String url = (String) request.getSession().getAttribute("lastUrl");
         response.setHeader("lastUrl", url);
-        return "index";
+        return "lasturl";
     }
 
     /**
@@ -84,7 +94,7 @@ public class BackController {
     @GetMapping("login")
     public String login(HttpServletRequest request) {
         String url = request.getHeader("Referer");
-        if(!url.contains("register") && !url.contains("findPwd")){
+        if (!url.contains("register") || !url.contains("findPwd") || !url.contains("login")) {
             //保存跳转页面的url
             request.getSession().setAttribute("lastUrl", request.getHeader("Referer"));
         }
@@ -95,7 +105,8 @@ public class BackController {
      * 登录前尝试保存上一个页面的url
      */
     @GetMapping("/toLogin")
-    public @ResponseBody void toLogin(HttpServletRequest request) {
+    public @ResponseBody
+    void toLogin(HttpServletRequest request) {
 //        //保存跳转页面的url
 //        request.getSession().setAttribute("lastUrl", request.getHeader("Referer"));
     }

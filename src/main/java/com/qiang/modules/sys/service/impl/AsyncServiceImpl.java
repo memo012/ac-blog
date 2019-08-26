@@ -81,7 +81,7 @@ public class AsyncServiceImpl implements AsyncService {
             b.setTagValue(StringAndArray.stringToArray(b.getLabelValues()));
             b.setArticleUrl("/article/" + b.getId());
             // 存入缓存中(首页分页查询)
-            redisOperator.rpush(Constant.PAGE_BLOG, b);
+            redisOperator.lpush(Constant.PAGE_BLOG, b);
         }
     }
 

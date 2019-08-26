@@ -25,7 +25,7 @@ function log(){
             success: function (data) {
                 //放入数据
                 if(data.status == 200){
-                    window.location.href="/";
+                    window.location.href="/lasturl";
                 }else if(data.status == 500){
                     $(".notice-box-res").show();
                     setTimeout(function () {
