@@ -65,7 +65,7 @@ docker镜像
 > 享受别人享受不了的享受
 
 ## 关于网站
-- 本人秉着开源风格，已把代码上传到GitHub上（[https://github.com/memo012/people-blog](https://github.com/memo012/people-blog)），可自行下载学习
+- 本人秉着开源风格，已把代码上传到GitHub上（[https://github.com/memo012/people-blog](https://github.com/memo012/ac-blog)），可自行下载学习
 - 客官觉得不错的话，给个**star**就行。
 
 
