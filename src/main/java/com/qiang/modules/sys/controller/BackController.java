@@ -3,7 +3,7 @@ package com.qiang.modules.sys.controller;
 import com.qiang.common.utils.Constant;
 import com.qiang.common.utils.RedisOperator;
 import com.qiang.common.utils.TransCodingUtil;
-import com.qiang.modules.sys.entity.VO.UsersVOEntity;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,8 +47,12 @@ public class BackController {
     public String lasturl(HttpServletResponse response, HttpServletRequest request){
         response.setHeader("Access-Control-Allow-Origin", "*");
         String url = (String) request.getSession().getAttribute("lastUrl");
-        response.setHeader("lastUrl", url);
-        return "lasturl";
+        if (!StringUtils.isEmpty(url)) {
+            response.setHeader("lastUrl", url);
+            return "lasturl";
+        }else{
+            return "index";
+        }
     }
 
     /**
@@ -94,9 +98,11 @@ public class BackController {
     @GetMapping("login")
     public String login(HttpServletRequest request) {
         String url = request.getHeader("Referer");
-        if (!url.contains("register") || !url.contains("findPwd") || !url.contains("login")) {
+        if (!url.contains("register") && !url.contains("findPwd") && !url.contains("login")) {
             //保存跳转页面的url
             request.getSession().setAttribute("lastUrl", request.getHeader("Referer"));
+        }else{
+            request.getSession().removeAttribute("lastUrl");
         }
         return "login";
     }
@@ -107,8 +113,6 @@ public class BackController {
     @GetMapping("/toLogin")
     public @ResponseBody
     void toLogin(HttpServletRequest request) {
-//        //保存跳转页面的url
-//        request.getSession().setAttribute("lastUrl", request.getHeader("Referer"));
     }
 
     /**
@@ -243,6 +247,7 @@ public class BackController {
     @GetMapping("tags")
     public String tags(HttpServletRequest request
             , HttpServletResponse response) {
+
         try {
             request.setCharacterEncoding("utf-8");
             response.setCharacterEncoding("utf-8");
