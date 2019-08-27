@@ -5,17 +5,8 @@ $.ajax({
     async:false,
     success:function (data, status, xhr) {
         var lastUrl = xhr.getResponseHeader("lastUrl");
-        if(lastUrl != null){
+        if(lastUrl != null && !lastUrl.match("register")){
             location.href = lastUrl;
         }
     }
 });
-
-// var forward = document.referrer;
-// console.log(forward);
-// if (forward == "" || forward == undefined || forward == null) {
-//     location.href = "/";
-// }
-// else {
-//     location.href = "" + forward + "";
-// }
