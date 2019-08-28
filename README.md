@@ -28,7 +28,7 @@ web框架： spring boot
 缓存：redis  
 数据库：Mysql  
 ### 前台
-前台框架：[layui框架](https://www.layui.com/ "layui框架") [amazeui框架](https://amazeui.clouddeep.cn/ "amazeui框架")
+前台框架：[layui框架](https://www.layui.com/ "layui框架") [amazeui框架](https://amazeui.clouddeep.cn/ "amazeui框架")  
 前端模板： thymeleaf  
 ### 部署
 docker镜像  
