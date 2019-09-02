@@ -10,22 +10,24 @@
     <link rel="stylesheet" href="style/index.css"/>
     <link rel="stylesheet" href="layui/css/layui.css"/>
     <script src="layui/layui.js"></script>
+    <script src="assets/js/jquery-1.12.4.min.js" th:src="@{/assets/js/jquery-1.12.4.min.js}"></script>
 
     <style type="text/css">
         .read-all {
             padding-top: 10%;
 
         }
-        a:hover{
+
+        a:hover {
             cursor: pointer;
         }
     </style>
 </head>
+<script src="style/js/background.js" th:src="@{/style/js/background.js}"></script>
 <body>
 
 <!--头部-->
 <div th:replace="header :: header"></div>
-
 
 <!--主体-->
 <div class="layui-row layui-col-space25 qz-session">
@@ -68,7 +70,7 @@
 
 </body>
 
-<script src="assets/js/jquery-1.12.4.min.js" th:src="@{/assets/js/jquery-1.12.4.min.js}"></script>
+
 <script src="assets/js/amazeui.js" th:src="@{/assets/js/amazeui.js}"></script>
 <script src="style/js/index.js" th:src="@{/style/js/index.js}"></script>
 <script src="style/js/tags.js" th:src="@{/style/js/tags.js}"></script>

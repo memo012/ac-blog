@@ -8,26 +8,21 @@
     <link rel="stylesheet" href="style/tig.css">
     <link rel="stylesheet" href="style/index.css" th:href="@{/style/index.css}"/>
     <style>
-        .header {
+        .pass >div > h1{
             text-align: center;
-        }
-
-        .header h1 {
             font-size: 200%;
             color: #333;
             margin-top: 30px;
         }
-
-        .header p {
-            font-size: 14px;
-        }
     </style>
 </head>
+<script src="assets/js/jquery-1.12.4.min.js"></script>
+<script src="style/js/background.js" th:src="@{/style/js/background.js}"></script>
 <body>
 <!--引入公共头部-->
 <div th:replace="header :: header"></div>
 
-<div class="header">
+<div class="header pass">
     <div class="am-g">
         <h1>密码修改界面</h1>
     </div>
@@ -121,7 +116,7 @@
 <!--底部-->
 <div th:replace="footer :: footer"></div>
 </body>
-<script src="assets/js/jquery-1.12.4.min.js"></script>
+
 <script src="assets/js/amazeui.js"></script>
 <script src="style/js/findPwd.js"></script>
 </html>
