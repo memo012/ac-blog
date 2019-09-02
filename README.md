@@ -2,7 +2,7 @@
 # 注意:
 #### 博客网站后台技术更新,采用**springboot2.1.7+mybatis-plus**
 #### **springboot1.x+mybatis**以前版本也在，供大家选择，GitHub地址为:[https://github.com/memo012/people-blog](https://github.com/memo012/people-blog)
-# spring boot实现people博客
+# spring boot实现acblog-博客
 ## 前言
    正如你们所见，我就是这个简陋网站的维护人，一个普普通通的在校大二学生，不对，应该说马上就要大三了，唉唉，大学已经过去了一半了，想想自己的困境，头就要炸，既要应对学业上的问题，又要面临实习找工作，做准备工作，能怎么办？扛着吧！！！  
   众所周知，大学的专业知识（核心）到了大三才学，大三，既要面临找工作，又要加强自己的专业知识水平，难受，辛亏我在大二上半年时加入一个实验室，在这个实验室中慢慢找到自己的方向，非常感谢实验室，让我找到了方向，使自己对自己的人生有了一种定位，不再那么迷茫，那么无助。  
@@ -22,13 +22,13 @@
 ### 后台：
 项目构建：Maven  
 web框架： spring boot  
+数据持久层： mybatis-plus  
 安全框架： shiro  
 搜索引擎： elasticSearch  
 缓存：redis  
 数据库：Mysql  
-分页：PageHelper插件  
 ### 前台
-前台框架：[layui框架](https://www.layui.com/ "layui框架") [amazeui框架](https://amazeui.clouddeep.cn/ "amazeui框架")
+前台框架：[layui框架](https://www.layui.com/ "layui框架") [amazeui框架](https://amazeui.clouddeep.cn/ "amazeui框架")  
 前端模板： thymeleaf  
 ### 部署
 docker镜像  
@@ -65,7 +65,7 @@ docker镜像
 > 享受别人享受不了的享受
 
 ## 关于网站
-- 本人秉着开源风格，已把代码上传到GitHub上（[https://github.com/memo012/people-blog](https://github.com/memo012/people-blog)），可自行下载学习
+- 本人秉着开源风格，已把代码上传到GitHub上（[https://github.com/memo012/people-blog](https://github.com/memo012/ac-blog)），可自行下载学习
 - 客官觉得不错的话，给个**star**就行。
 
 
