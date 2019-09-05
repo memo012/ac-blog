@@ -2,7 +2,8 @@
 # 注意:
 #### 博客网站后台技术更新,采用**springboot2.1.7+mybatis-plus**
 #### **springboot1.x+mybatis**以前版本也在，供大家选择，GitHub地址为:[https://github.com/memo012/people-blog](https://github.com/memo012/people-blog)
-坚持不易，各位朋友如果觉得项目还不错的话可以给项目一个 star 吧，也是对我一直更新代码的一种鼓励啦，谢谢各位的支持。
+##### 坚持不易，各位朋友如果觉得项目还不错的话可以给项目一个 star 吧，也是对我一直更新代码的一种鼓励啦，谢谢各位的支持。
+![](https://github.com/memo012/people-blog/blob/master/images/star.png)
 # spring boot实现acblog-博客
 ## 前言
    正如你们所见，我就是这个简陋网站的维护人，一个普普通通的在校大二学生，不对，应该说马上就要大三了，唉唉，大学已经过去了一半了，想想自己的困境，头就要炸，既要应对学业上的问题，又要面临实习找工作，做准备工作，能怎么办？扛着吧！！！  
