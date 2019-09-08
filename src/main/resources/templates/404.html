@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>强子的博客~~</title>
+    <link rel="stylesheet" href="style/index.css"/>
+    <link rel="alternate icon" type="image/png" href="/myPicture.jpg">
+    <link rel="stylesheet" href="assets/css/amazeui.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style/index.css"/>
+    <link rel="stylesheet" href="style/errorpage.css"/>
+
+    <script src="assets/js/jquery-1.12.4.min.js"></script>
+</head>
+<script src="style/js/background.js" th:src="@{/style/js/background.js}"></script>
+<body>
+<!--首页-->
+<div class="header">
+    <div class="am-topbar" style="margin-bottom: 0">
+        <h1 class="am-topbar-brand qz-h1">
+            <a href="/" class="am-kai"><img src="style/images/myPicture.jpg">&nbsp;&nbsp;强子博客</a>
+        </h1>
+
+        <!--手机适配导航显示按钮-->
+        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
+                data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span
+                class="am-icon-bars"></span></button>
+
+        <div class="am-collapse am-topbar-collapse qz-header" id="doc-topbar-collapse">
+
+            <ul class="am-nav am-nav-pills am-topbar-nav div-ul-li">
+                <li class="list-header "><a href="/"><span class="am-icon-home"></span>首页</a></li>
+                <li class="am-dropdown list-header" data-am-dropdown>
+                    <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;"
+                       style="color: #111111">
+                        <span class="am-icon-gg"/>技术专题 <span class="am-icon-caret-down"></span>
+                    </a>
+                    <ul class="am-dropdown-content">
+                        <li><a href="#">Java学习指南 <em style="font-weight: bold">更新中~~</em></a></li>
+                        <li class="am-divider"></li>
+                        <li><a href="#">spring <i style="font-weight: bold">更新中~~</i></a></li>
+                        <li class="am-divider"></li>
+                        <li><a href="#">springMVC <em style="font-weight: bold">更新中~~</em></a></li>
+                        <li class="am-divider"></li>
+                        <li><a href="#">Spring Boot <em style="font-weight: bold">更新中~~</em></a></li>
+                        <li class="am-divider"></li>
+                        <li><a href="#">MyBatis <em style="font-weight: bold">更新中~~</em></a></li>
+                        <li class="am-divider"></li>
+                        <li><a href="#">面试题 <em style="font-weight: bold">更新中~~</em></a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="/archive" style="color: #111111"><span class="am-icon-archive"/>归档</a></li>
+                <li class=""><a href="/update" style="color: #111111"><span class="am-icon-calendar-plus-o"/>更新</a>
+                </li>
+                <li class=""><a href="/guest" style="color: #111111"><span class="am-icon-pencil"/>留言板</a></li>
+                <li class=""><a href="/friendlink" style="color: #111111"><i class="layui-icon layui-icon-senior"></i>友链</a>
+                </li>
+                <li class=""><a href="/aboutme" style="color: #111111"><i
+                        class="layui-icon layui-icon-username"></i>关于我</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="main">
+    <div class="error404Page">
+        <img src="img/errorpage/404.png"/>
+    </div>
+    <div class="errorWords">
+        <div class="errorWords_display">
+            <p>由于天气原因，这个页面已经去南极避暑了</p>
+            <p><a href="/"><u>返回首页</u></a><a href="#" style="margin-left: 30px"></a></p>
+        </div>
+    </div>
+</div>
+
+<!--底部-->
+<div th:replace="footer :: footer"></div>
+
+</body>
+<script src="assets/js/amazeui.js"></script>
+<script src="style/js/tags.js"></script>
+<script src="style/js/header.js" th:src="@{/style/js/header.js}"></script>
+</html>

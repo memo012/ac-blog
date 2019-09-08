@@ -31,11 +31,8 @@ public class BackController {
      *
      * @return
      */
-    @GetMapping("/")
+    @GetMapping(value = {"/", "index"})
     public String index() {
-        if (redisOperator.hasKey(Constant.BLOG_VISIT_COUNT)) {
-            redisOperator.incr(Constant.BLOG_VISIT_COUNT, 1);
-        }
         return "index";
     }
 
@@ -72,9 +69,6 @@ public class BackController {
      */
     @GetMapping("/aboutme")
     public String aboutme(HttpServletRequest request) {
-        if (redisOperator.hasKey(Constant.BLOG_VISIT_COUNT)) {
-            redisOperator.incr(Constant.BLOG_VISIT_COUNT, 1);
-        }
         request.getSession().removeAttribute("lastUrl");
         return "aboutme";
     }
@@ -98,6 +92,9 @@ public class BackController {
     @GetMapping("login")
     public String login(HttpServletRequest request) {
         String url = request.getHeader("Referer");
+        if(StringUtils.isEmpty(url)){
+            return "login";
+        }
         if (!url.contains("register") && !url.contains("findPwd") && !url.contains("login")) {
             //保存跳转页面的url
             request.getSession().setAttribute("lastUrl", request.getHeader("Referer"));
@@ -123,9 +120,6 @@ public class BackController {
     @GetMapping("/es/{message}")
     public String elasticsearch(@PathVariable("message") String message, HttpServletResponse response
             , HttpServletRequest request) {
-        if (redisOperator.hasKey(Constant.BLOG_VISIT_COUNT)) {
-            redisOperator.incr(Constant.BLOG_VISIT_COUNT, 1);
-        }
         response.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
         response.setHeader("message", TransCodingUtil.stringToUnicode(message));
@@ -150,9 +144,6 @@ public class BackController {
      */
     @GetMapping("friendlink")
     public String friendlink() {
-        if (redisOperator.hasKey(Constant.BLOG_VISIT_COUNT)) {
-            redisOperator.incr(Constant.BLOG_VISIT_COUNT, 1);
-        }
         return "friendlink";
     }
 
@@ -177,9 +168,6 @@ public class BackController {
      */
     @GetMapping("/archive")
     public String archive(HttpServletRequest request) {
-        if (redisOperator.hasKey(Constant.BLOG_VISIT_COUNT)) {
-            redisOperator.incr(Constant.BLOG_VISIT_COUNT, 1);
-        }
         request.getSession().removeAttribute("lastUrl");
         return "archive";
     }
@@ -191,9 +179,6 @@ public class BackController {
      */
     @GetMapping("/update")
     public String update(HttpServletRequest request) {
-        if (redisOperator.hasKey(Constant.BLOG_VISIT_COUNT)) {
-            redisOperator.incr(Constant.BLOG_VISIT_COUNT, 1);
-        }
         request.getSession().removeAttribute("lastUrl");
         return "update";
     }
@@ -208,9 +193,6 @@ public class BackController {
     @GetMapping("/article/{articleId}")
     public String show(@PathVariable("articleId") long articleId
             , HttpServletResponse response, HttpServletRequest request) {
-        if (redisOperator.hasKey(Constant.BLOG_VISIT_COUNT)) {
-            redisOperator.incr(Constant.BLOG_VISIT_COUNT, 1);
-        }
         response.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
         //将文章id存入响应头
@@ -271,9 +253,6 @@ public class BackController {
     @GetMapping("categories")
     public String categories(HttpServletRequest request
             , HttpServletResponse response) {
-        if (redisOperator.hasKey(Constant.BLOG_VISIT_COUNT)) {
-            redisOperator.incr(Constant.BLOG_VISIT_COUNT, 1);
-        }
         try {
             request.setCharacterEncoding("utf-8");
             response.setCharacterEncoding("utf-8");
@@ -294,9 +273,6 @@ public class BackController {
      */
     @GetMapping("/guest")
     public String guest(HttpServletRequest request) {
-        if (redisOperator.hasKey(Constant.BLOG_VISIT_COUNT)) {
-            redisOperator.incr(Constant.BLOG_VISIT_COUNT, 1);
-        }
         request.getSession().removeAttribute("lastUrl");
         return "guest";
     }

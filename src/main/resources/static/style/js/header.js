@@ -18,6 +18,8 @@ $(".qq").mouseleave(function () {
 /**
  * 访客量
  */
+var pageName = window.location.pathname + window.location.search;
+console.log(pageName.substring(1));
 $(function () {
     $.ajax({
         type: "GET",
@@ -25,6 +27,9 @@ $(function () {
         // contentType: "application/x-www-form-urlencoded",
         contentType: "application/json",
         dataType: "json",
+        data:{
+          pageName: pageName.substring(1)
+        },
         success: function (data) {
             $(".visitCount").html(''+data.data);
         }

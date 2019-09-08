@@ -1,12 +1,17 @@
 package com.qiang.modules.sys.controller;
 
 import com.qiang.common.utils.BlogJSONResult;
+import com.qiang.common.utils.CommonUtils;
 import com.qiang.common.utils.Constant;
 import com.qiang.common.utils.RedisOperator;
 import com.qiang.modules.sys.service.IndexService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @Author: qiang
@@ -92,14 +97,26 @@ public class IndexController {
      * @return
      */
     @GetMapping("visitCount")
-    public BlogJSONResult visitCount(){
+    public BlogJSONResult visitCount(@RequestParam("pageName") String pageName){
         Integer count = 0;
-        if(redisOperator.hasKey(Constant.BLOG_VISIT_COUNT)){
-            count = (Integer)redisOperator.get(Constant.BLOG_VISIT_COUNT);
-        }else{
-            count = indexService.myWebCount();
+        // 有N个页面不需要添加访问量
+        if(CommonUtils.pageNameIsAdd(pageName)) {
+            if (redisOperator.hasKey(Constant.BLOG_VISIT_COUNT)) {
+                count = (Integer)redisOperator.get(Constant.BLOG_VISIT_COUNT);
+            }else {
+                count = indexService.myWebCount();
+            }
+        }else {
+            if (redisOperator.hasKey(Constant.BLOG_VISIT_COUNT)) {
+                redisOperator.incr(Constant.BLOG_VISIT_COUNT, 1);
+                count = (Integer) redisOperator.get(Constant.BLOG_VISIT_COUNT);
+            }else {
+                count = indexService.myWebCount();
+            }
         }
         return BlogJSONResult.ok(count);
     }
+    
+
 
 }

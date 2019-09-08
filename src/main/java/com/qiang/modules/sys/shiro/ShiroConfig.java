@@ -13,10 +13,16 @@ import org.crazycake.shiro.RedisSessionDAO;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.server.ConfigurableWebServerFactory;
+import org.springframework.boot.web.server.ErrorPage;
+import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 
 import java.util.LinkedHashMap;
+import java.util.Properties;
 
 /**
  * @Author: qiang
@@ -145,8 +151,6 @@ public class ShiroConfig {
         return bean;
     }
 
-
-
     /**
      * Shiro控制ThymeLeaf界面按钮级权限控制
      *
@@ -156,9 +160,6 @@ public class ShiroConfig {
     public ShiroDialect shiroDialect() {
         return new ShiroDialect();
     }
-
-
-
 
 
     /**

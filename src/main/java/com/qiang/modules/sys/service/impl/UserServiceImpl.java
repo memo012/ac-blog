@@ -176,18 +176,6 @@ public class UserServiceImpl implements UserService {
         return usersDao.updUserPwd(phone, String.valueOf(o));
     }
 
-    //    @Transactional(propagation = Propagation.SUPPORTS)
-//    @Override
-//    public int findByPhonePass(String phone, String password) {
-//        return usersMapper.findByPhonePass(phone, password);
-//    }
-//
-//    @Transactional(propagation = Propagation.SUPPORTS)
-//    @Override
-//    public Users findByName(String name) {
-//        return usersMapper.findByName(name);
-//    }
-
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public UsersEntity findUserMess(String username) {

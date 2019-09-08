@@ -1,6 +1,8 @@
 package com.qiang.common.utils;
 
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 /**
  * @Author: qiang
@@ -52,6 +54,24 @@ public class CommonUtils {
             ret += rd.nextInt(max - min);
 
         return ret;
+    }
+
+    /**
+     * 筛选出不新增访问页面人数页面
+     * @param pageName
+     * @return true -- 存在 false -- 不存在
+     */
+    public static boolean pageNameIsAdd(String pageName){
+        Set set = new HashSet<String>();
+        set.add("login");
+        set.add("register");
+        set.add("SuperAdmin");
+        set.add("user");
+        set.add("findPwd");
+        if(set.contains(pageName)){
+            return true;
+        }
+        return false;
     }
 
 }
