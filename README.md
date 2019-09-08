@@ -4,7 +4,35 @@
 #### **springboot1.x+mybatis**以前版本也在，供大家选择，GitHub地址为:[https://github.com/memo012/people-blog](https://github.com/memo012/people-blog)
 ##### 坚持不易，各位朋友如果觉得项目还不错的话可以给项目一个 star 吧，也是对我一直更新代码的一种鼓励啦，谢谢各位的支持。
 ![](https://github.com/memo012/people-blog/blob/master/images/star.png)
-# spring boot实现acblog-博客
+## 项目架构
+```
+|--- pom                                        // acblog配置文件
+|--- blog-plus.sql                              // acblog数据库设计
+|--- src                                        // 源代码
+|--- |--- main                                  // 代码页
+          |--- Java                             // 后台代码
+             |--- common                        // 公共类
+                   |--- config                  // 配置类(以.config后缀结尾)
+                   |--- utils                   // 工具类
+                        |--- phoneVerify        // 腾讯云短信验证代码
+         |--- modules                           // 服务端代码
+                  |--- controller               // 表现层
+                  |--- dao                      // 持久层
+                  |--- entity                   // 实体层
+                  |--- service                  // 业务逻辑层
+                  |--- shiro                    // shiro配置类
+                  |--- AcblogApplication        // spring boot启动类
+|--- |--- resources                             // 资源
+              |--- mappering                    // 持久层xml文件
+              |--- static                       // 静态文件
+              |--- templates                    // 前端页面
+              |--- application.properties       // 全局配置类
+              |--- application.yml              // 全局配置类
+              |--- application-dev.yml          // 全局配置类(开发者模式)
+              |--- application-test.yml         // 全局配置类(测试者模式)
+			  |--- application-prod.yml         // 全局配置类(生产者模式)
+```
+
 ## 前言
    正如你们所见，我就是这个简陋网站的维护人，一个普普通通的在校大二学生，不对，应该说马上就要大三了，唉唉，大学已经过去了一半了，想想自己的困境，头就要炸，既要应对学业上的问题，又要面临实习找工作，做准备工作，能怎么办？扛着吧！！！  
   众所周知，大学的专业知识（核心）到了大三才学，大三，既要面临找工作，又要加强自己的专业知识水平，难受，辛亏我在大二上半年时加入一个实验室，在这个实验室中慢慢找到自己的方向，非常感谢实验室，让我找到了方向，使自己对自己的人生有了一种定位，不再那么迷茫，那么无助。  
