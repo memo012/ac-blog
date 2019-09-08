@@ -30,7 +30,7 @@
               |--- application.yml              // 全局配置类
               |--- application-dev.yml          // 全局配置类(开发者模式)
               |--- application-test.yml         // 全局配置类(测试者模式)
-			  |--- application-prod.yml         // 全局配置类(生产者模式)
+              |--- application-prod.yml         // 全局配置类(生产者模式)
 ```
 
 ## 前言
