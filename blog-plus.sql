@@ -260,7 +260,7 @@ CREATE TABLE `users` (
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES ('56db1007-5b9f-44f9-a73b-fc64e4e92a8c', 'dong', 'bd0596c7bfd4a4ea8c36a9695ef8d77e', '15383466858', '0', '2019-08-17', '2', '', '', '', '');
-INSERT INTO `users` VALUES ('63e09177-338e-47a3-a8db-f1dd2e19e70e', '强子', 'ae1289da5dea6047a009ac1c417babf1', '15383466854', '0', '2019-08-06', '1', '1', '1', '1', '1');
+INSERT INTO `users` VALUES ('63e09177-338e-47a3-a8db-f1dd2e19e70e', '强子', 'ee663543a50fa1ca6edadcee6a91455d', '15383466854', '0', '2019-08-06', '1', '1', '1', '1', '1');
 INSERT INTO `users` VALUES ('dfdf', '12', 'efaef', '12344', '0', 'efsdf', '1', 'df', '2', '3', 'dfe');
 
 -- ----------------------------
