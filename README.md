@@ -4,6 +4,12 @@
 #### **springboot1.x+mybatis**以前版本也在，供大家选择，GitHub地址为:[https://github.com/memo012/people-blog](https://github.com/memo012/people-blog)
 ##### 坚持不易，各位朋友如果觉得项目还不错的话可以给项目一个 star 吧，也是对我一直更新代码的一种鼓励啦，谢谢各位的支持。
 ![](https://github.com/memo012/people-blog/blob/master/images/star.png)
+## 本地测试
+**第一步：** 把数据库文件导入本地，已上传
+**第二步：** 修改application一系列配置文件(redis配置文件，数据库配置文件)，如不知道application存在位置，可查看下面的项目架构
+**第三步：** 修改腾讯云配置，位置查看选项目架构
+**第四步：** 默认账号：15383466854  密码：feise5328
+**第五步：** 在网页打开： localhost:8080
 ## 项目架构
 ```
 |--- pom                                        // acblog配置文件
