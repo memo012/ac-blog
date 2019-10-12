@@ -3,7 +3,6 @@ package com.qiang.modules.sys.entity.VO;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.qiang.modules.sys.entity.BlogMessageEntity;
-import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;

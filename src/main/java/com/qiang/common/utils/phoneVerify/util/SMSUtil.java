@@ -10,7 +10,7 @@
 public class SMSUtil {
 
     // 短信应用SDK AppID
-    public static final Integer APPID = 14007771; // 你的AppID
+    public static final Integer APPID = 1400247771; // 你的AppID
 
     // 短信应用SDK AppKEY
     public static final String APPKEY = ""; //你的

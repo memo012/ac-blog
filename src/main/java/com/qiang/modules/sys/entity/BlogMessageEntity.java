@@ -17,6 +17,7 @@ import java.io.Serializable;
 @Data
 @TableName(value = "blog")
 public class BlogMessageEntity implements Serializable {
+
     private static final long serialVersionUID = 6202944650911776915L;
     /**
      * 标识符
