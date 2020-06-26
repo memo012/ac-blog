@@ -1,4 +1,8 @@
 ## 适合学生搭建的个人博客：[www.lqnb.xyz](http://www.lqnb.xyz)
+## 公众号
+希望大家多多关注，里面不定期发放干货
+![迈莫公众号](https://img-blog.csdnimg.cn/20200626232429879.jpg#pic_center)
+
 # 注意:
 #### 博客网站后台技术更新,采用**springboot2.1.7+mybatis-plus**
 #### **springboot1.x+mybatis**以前版本也在，供大家选择，GitHub地址为:[https://github.com/memo012/people-blog](https://github.com/memo012/people-blog)
