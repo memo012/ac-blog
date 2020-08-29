@@ -17,3 +17,8 @@ mybatis-plus:
     db-config:
       table-underline: true
       db-type: mysql
+
+# log位置的配置
+logging:
+  file:
+    path: /web/tomcat/logs/acblog
