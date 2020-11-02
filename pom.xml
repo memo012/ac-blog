@@ -30,7 +30,6 @@
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -42,16 +41,19 @@
             <scope>test</scope>
         </dependency>
 
-        <!--MySQL-->
+        <!-- mysql -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
         </dependency>
+
+        <!-- spring jdbctemplate -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
+
         <!--mybatis-plus配置-->
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -59,7 +61,7 @@
             <version>${mybatis-plus.version}</version>
         </dependency>
 
-        <!--&lt;!&ndash;引入druid数据源&ndash;&gt;-->
+        <!-- 引入druid数据源 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
@@ -84,19 +86,20 @@
             <version>4.3.22.RELEASE</version>
         </dependency>
 
-
-        <!--spring整个shiro-->
+        <!--spring整合shiro-->
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
             <version>${shiro.version}</version>
         </dependency>
+
         <!-- shiro+redis缓存插件 -->
         <dependency>
             <groupId>org.crazycake</groupId>
             <artifactId>shiro-redis</artifactId>
             <version>${shiro-redis.version}</version>
         </dependency>
+
         <!-- 导入thymeleaf对shiro的扩展坐标 -->
         <dependency>
             <groupId>com.github.theborakompanioni</groupId>
@@ -104,13 +107,13 @@
             <version>${thymeleaf-extras-shiro.version}</version>
         </dependency>
 
-        <!--elasticsearch配置-->
+        <!-- elasticsearch配置 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
         </dependency>
 
-        <!--redis配置-->
+        <!-- redis配置 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
@@ -136,28 +139,27 @@
             <version>RELEASE</version>
         </dependency>
 
-        <!--lombok简化Java配置-->
+        <!-- lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
-            <!--            <scope>provided</scope>-->
+            <!-- <scope>provided</scope> -->
         </dependency>
 
-        <!-- 腾讯云短信平台-->
+        <!-- 腾讯云短信平台 -->
         <dependency>
             <groupId>com.github.qcloudsms</groupId>
             <artifactId>qcloudsms</artifactId>
             <version>1.0.6</version>
         </dependency>
 
-        <!--log4j-->
+        <!-- log4j -->
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
         </dependency>
-
     </dependencies>
 
     <build>
