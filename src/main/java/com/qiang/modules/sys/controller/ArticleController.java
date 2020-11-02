@@ -2,7 +2,6 @@ package com.qiang.modules.sys.controller;
 
 import com.qiang.common.utils.BlogJSONResult;
 import com.qiang.common.utils.PagedResult;
-import com.qiang.common.utils.RedisOperator;
 import com.qiang.common.utils.TransCodingUtil;
 import com.qiang.modules.sys.entity.VO.BlogMessageVOEntity;
 import com.qiang.modules.sys.service.ArticleService;

@@ -1,7 +1,10 @@
 package com.qiang.modules.sys.controller;
 
 import com.qiang.common.utils.BlogJSONResult;
-import com.qiang.modules.sys.entity.*;
+import com.qiang.modules.sys.entity.FriendLikesEntity;
+import com.qiang.modules.sys.entity.FriendLinkEntity;
+import com.qiang.modules.sys.entity.FriendurlEntity;
+import com.qiang.modules.sys.entity.RepFriendLinkEntity;
 import com.qiang.modules.sys.entity.VO.UsersVOEntity;
 import com.qiang.modules.sys.service.FriendLinkService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -6,9 +6,12 @@ import com.qiang.common.utils.RedisOperator;
 import com.qiang.common.utils.phoneVerify.service.SMSService;
 import com.qiang.modules.sys.entity.UsersEntity;
 import com.qiang.modules.sys.service.RegisterService;
-import com.qiang.modules.sys.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @Author: qiang
