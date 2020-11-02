@@ -1,5 +1,7 @@
 package com.qiang.common.utils;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.stereotype.Component;
 
 /**
@@ -16,6 +18,8 @@ import org.springframework.stereotype.Component;
  * 503: 不具备角色功能
  * 555：异常抛出信息
  */
+@Getter
+@Setter
 @Component
 public class BlogJSONResult {
 
@@ -40,47 +44,11 @@ public class BlogJSONResult {
      */
     private String ok;
 
-    public static BlogJSONResult build(Integer status, String msg, Object data) {
-        return new BlogJSONResult(status, msg, data);
-    }
-
-    public static BlogJSONResult ok(Object data) {
-        return new BlogJSONResult(data);
-    }
-
-    public static BlogJSONResult ok() {
-        return new BlogJSONResult(null);
-    }
-
-    public static BlogJSONResult errorMsg(String msg) {
-        return new BlogJSONResult(500, msg, null);
-    }
-
-    public static BlogJSONResult errorMap(Object data) {
-        return new BlogJSONResult(501, "error", data);
-    }
-
-    public static BlogJSONResult errorTokenMsg(String msg) {
-        return new BlogJSONResult(502, msg, null);
-    }
-
-    public static BlogJSONResult errorRolesMsg(String msg) {
-        return new BlogJSONResult(503, msg, null);
-    }
-
-    public static BlogJSONResult errorException(String msg) {
-        return new BlogJSONResult(555, msg, null);
-    }
 
     public BlogJSONResult() {
 
     }
 
-    public BlogJSONResult(Integer status, String msg, Object data) {
-        this.status = status;
-        this.msg = msg;
-        this.data = data;
-    }
 
     public BlogJSONResult(Object data) {
         this.status = 200;
@@ -88,40 +56,51 @@ public class BlogJSONResult {
         this.data = data;
     }
 
-    public Boolean isOK() {
-        return this.status == 200;
-    }
 
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
+    public BlogJSONResult(Integer status, String msg, Object data) {
         this.status = status;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
         this.msg = msg;
-    }
-
-    public Object getData() {
-        return data;
-    }
-
-    public void setData(Object data) {
         this.data = data;
     }
 
-    public String getOk() {
-        return ok;
+
+    public static BlogJSONResult ok() {
+        return new BlogJSONResult(null);
     }
 
-    public void setOk(String ok) {
-        this.ok = ok;
+
+    public static BlogJSONResult build(Integer status, String msg, Object data) {
+        return new BlogJSONResult(status, msg, data);
+    }
+
+
+    public static BlogJSONResult ok(Object data) {
+        return new BlogJSONResult(data);
+    }
+
+
+    public static BlogJSONResult errorMsg(String msg) {
+        return new BlogJSONResult(500, msg, null);
+    }
+
+
+    public static BlogJSONResult errorMap(Object data) {
+        return new BlogJSONResult(501, "error", data);
+    }
+
+
+    public static BlogJSONResult errorTokenMsg(String msg) {
+        return new BlogJSONResult(502, msg, null);
+    }
+
+
+    public static BlogJSONResult errorRolesMsg(String msg) {
+        return new BlogJSONResult(503, msg, null);
+    }
+
+
+    public static BlogJSONResult errorException(String msg) {
+        return new BlogJSONResult(555, msg, null);
     }
 
 }

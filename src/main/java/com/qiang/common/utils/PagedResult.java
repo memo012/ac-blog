@@ -1,5 +1,7 @@
 package com.qiang.common.utils;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -9,6 +11,8 @@ import java.util.List;
  * @Description: 封装分页后的数据格式
  * @Date: 2019/7/31 0031 19:20
  */
+@Getter
+@Setter
 @Component
 public class PagedResult {
 
@@ -31,37 +35,5 @@ public class PagedResult {
      * 每行显示的内容
      */
     private List<?> rows;
-
-    public int getPage() {
-        return page;
-    }
-
-    public void setPage(int page) {
-        this.page = page;
-    }
-
-    public long getTotal() {
-        return total;
-    }
-
-    public void setTotal(long total) {
-        this.total = total;
-    }
-
-    public long getRecords() {
-        return records;
-    }
-
-    public void setRecords(long records) {
-        this.records = records;
-    }
-
-    public List<?> getRows() {
-        return rows;
-    }
-
-    public void setRows(List<?> rows) {
-        this.rows = rows;
-    }
 
 }

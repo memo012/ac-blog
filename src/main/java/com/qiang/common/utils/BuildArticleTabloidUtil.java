@@ -13,7 +13,7 @@ public class BuildArticleTabloidUtil {
     public String buildArticleTabloid(String htmlArticleComment) {
         String regex = "\\s+";
         String str = htmlArticleComment.trim();
-        //去掉所有空格
+        // 去掉所有空格
         String articleTabloid = str.replaceAll(regex, "");
 
         int beginIndex = articleTabloid.indexOf("<");
@@ -32,7 +32,7 @@ public class BuildArticleTabloidUtil {
             articleTabloid = articleTabloid.substring(endIndex + 1);
             beginIndex = articleTabloid.indexOf("<");
             if (myArticleTabloid.length() < 197) {
-                //过滤掉<pre>标签中的代码块
+                // 过滤掉<pre>标签中的代码块
                 if (articleTabloid.length() > 4) {
                     if (articleTabloid.charAt(beginIndex) == '<' && articleTabloid.charAt(beginIndex + 1) == 'p' && articleTabloid.charAt(beginIndex + 2) == 'r' && articleTabloid.charAt(beginIndex + 3) == 'e') {
                         endIndex = articleTabloid.indexOf("</pre>");

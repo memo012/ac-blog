@@ -28,12 +28,15 @@ public class CommonUtils {
             int n;
             while (true) {
                 n = rd.nextInt('z' + 1);
-                if (n >= '0' && n <= '9')
+                if (n >= '0' && n <= '9') {
                     break;
-                if (n >= 'a' && n <= 'z')
+                }
+                if (n >= 'a' && n <= 'z') {
                     break;
-                if (n >= 'A' && n <= 'Z')
+                }
+                if (n >= 'A' && n <= 'Z') {
                     break;
+                }
             }
             content.append((char) n);
         }
@@ -52,7 +55,7 @@ public class CommonUtils {
         Random rd = new Random();
         int ret = rd.nextInt(max);
 
-        while (ret < min){
+        while (ret < min) {
             ret += rd.nextInt(max - min);
         }
         return ret;
