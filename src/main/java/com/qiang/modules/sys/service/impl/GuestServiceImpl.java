@@ -1,7 +1,7 @@
 package com.qiang.modules.sys.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.qiang.common.constatnt.Constant;
+import com.qiang.common.constatnt.BlogConstant;
 import com.qiang.common.utils.RedisOperator;
 import com.qiang.common.utils.TimeUtil;
 import com.qiang.modules.sys.dao.GuestDao;
@@ -118,7 +118,7 @@ public class GuestServiceImpl implements GuestService {
             list = getAllGuest();
         }
         // 存入缓存 增加留言（+1）
-        redisOperator.incr(Constant.BLOG_GUEST_COUNT, 1);
+        redisOperator.incr(BlogConstant.BLOG_GUEST_COUNT, 1);
         return list;
     }
 
@@ -138,7 +138,7 @@ public class GuestServiceImpl implements GuestService {
             list = getAllGuest();
         }
         // 存入缓存 增加留言（+1）
-        redisOperator.incr(Constant.BLOG_GUEST_COUNT, 1);
+        redisOperator.incr(BlogConstant.BLOG_GUEST_COUNT, 1);
         return list;
     }
 

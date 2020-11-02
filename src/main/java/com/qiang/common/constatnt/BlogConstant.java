@@ -5,7 +5,7 @@ package com.qiang.common.constatnt;
  * @Description: 常量
  * @Date: 2019/7/21 0021 16:28
  */
-public class Constant {
+public class BlogConstant {
 
     /**
      * 首页分页博客

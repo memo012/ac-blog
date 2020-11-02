@@ -1,7 +1,7 @@
 package com.qiang.modules.sys.controller;
 
 import com.qiang.common.utils.BlogJSONResult;
-import com.qiang.common.constatnt.Constant;
+import com.qiang.common.constatnt.BlogConstant;
 import com.qiang.common.utils.RedisOperator;
 import com.qiang.common.utils.phoneVerify.service.SMSService;
 import com.qiang.modules.sys.service.UserService;
@@ -56,7 +56,7 @@ public class FindPwdController {
     public BlogJSONResult findUsersPwd(@RequestParam("phone") String phone, @RequestParam("password") String password) {
         int i = userService.updUserPwd(phone, password);
         if (i > 0) {
-            redisOperator.del(Constant.USER_PHONE_CODE + phone);
+            redisOperator.del(BlogConstant.USER_PHONE_CODE + phone);
             return BlogJSONResult.ok();
         }
         return BlogJSONResult.errorMsg("修改失败");

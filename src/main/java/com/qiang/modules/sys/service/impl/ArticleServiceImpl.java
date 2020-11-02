@@ -3,7 +3,7 @@ package com.qiang.modules.sys.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.qiang.common.constatnt.Constant;
+import com.qiang.common.constatnt.BlogConstant;
 import com.qiang.common.utils.PagedResult;
 import com.qiang.common.utils.RedisOperator;
 import com.qiang.common.utils.StringAndArray;
@@ -40,13 +40,13 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public int updLike(long articleId) {
         // 先从缓存中查询
-        if (redisOperator.hasKey(Constant.BLOG_LIKES + articleId)) {
-            redisOperator.incr(Constant.BLOG_LIKES + articleId, 1);
+        if (redisOperator.hasKey(BlogConstant.BLOG_LIKES + articleId)) {
+            redisOperator.incr(BlogConstant.BLOG_LIKES + articleId, 1);
         } else {
             long likes = blogDao.selectById(articleId).getLikes();
-            redisOperator.set(Constant.BLOG_LIKES + articleId, likes + 1);
+            redisOperator.set(BlogConstant.BLOG_LIKES + articleId, likes + 1);
         }
-        return (int) redisOperator.get(Constant.BLOG_LIKES + articleId);
+        return (int) redisOperator.get(BlogConstant.BLOG_LIKES + articleId);
     }
 
 
@@ -116,11 +116,11 @@ public class ArticleServiceImpl implements ArticleService {
     public PagedResult findAllBlog(Integer pageNum, Integer pageSize) {
         PagedResult grid = new PagedResult();
         // 先从缓存中查询
-        if (redisOperator.hasKey(Constant.PAGE_BLOG)) {
+        if (redisOperator.hasKey(BlogConstant.PAGE_BLOG)) {
             int start = (pageNum - 1) * pageSize;
             int stop = pageNum * pageSize - 1;
-            List<BlogMessageVOEntity> range = (List<BlogMessageVOEntity>) redisOperator.range(Constant.PAGE_BLOG, start, stop);
-            long length = redisOperator.llen(Constant.PAGE_BLOG);
+            List<BlogMessageVOEntity> range = (List<BlogMessageVOEntity>) redisOperator.range(BlogConstant.PAGE_BLOG, start, stop);
+            long length = redisOperator.llen(BlogConstant.PAGE_BLOG);
             grid.setRecords(length);
             grid.setRows(range);
             grid.setPage(pageNum);

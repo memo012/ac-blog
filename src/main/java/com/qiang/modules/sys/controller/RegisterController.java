@@ -1,7 +1,7 @@
 package com.qiang.modules.sys.controller;
 
 import com.qiang.common.utils.BlogJSONResult;
-import com.qiang.common.constatnt.Constant;
+import com.qiang.common.constatnt.BlogConstant;
 import com.qiang.common.utils.RedisOperator;
 import com.qiang.common.utils.phoneVerify.service.SMSService;
 import com.qiang.modules.sys.entity.UsersEntity;
@@ -41,7 +41,7 @@ public class RegisterController {
     public BlogJSONResult register(@RequestBody UsersEntity users) {
         int result = registerService.insUsers(users);
         if (result > 0) {
-            redisOperator.del(Constant.USER_PHONE_CODE + users.getPhone());
+            redisOperator.del(BlogConstant.USER_PHONE_CODE + users.getPhone());
             return BlogJSONResult.ok();
         }
         return BlogJSONResult.errorMsg("注册失败");
@@ -57,8 +57,8 @@ public class RegisterController {
     @GetMapping("phoneCheck")
     public BlogJSONResult phoneCheck(@RequestParam("phone") String phone) {
         // 先从缓存中查询
-        if (redisOperator.hsize(Constant.USER_PHONE_EXIST) != 0) {
-            if (!redisOperator.hasHkey(Constant.USER_PHONE_EXIST, phone)) {
+        if (redisOperator.hsize(BlogConstant.USER_PHONE_EXIST) != 0) {
+            if (!redisOperator.hasHkey(BlogConstant.USER_PHONE_EXIST, phone)) {
                 return BlogJSONResult.ok();
             } else {
                 return BlogJSONResult.errorMsg("该手机号已被注册");
@@ -83,8 +83,8 @@ public class RegisterController {
     @GetMapping("usernameCheck")
     public BlogJSONResult usernameCheck(@RequestParam("username") String username) {
         // 先从缓存中查询
-        if (redisOperator.hsize(Constant.USER_NAME_EXIST) != 0) {
-            if (!redisOperator.hasHkey(Constant.USER_NAME_EXIST, username)) {
+        if (redisOperator.hsize(BlogConstant.USER_NAME_EXIST) != 0) {
+            if (!redisOperator.hasHkey(BlogConstant.USER_NAME_EXIST, username)) {
                 return BlogJSONResult.ok();
             } else {
                 return BlogJSONResult.errorMsg("该用户已存在");
@@ -127,8 +127,8 @@ public class RegisterController {
      */
     @GetMapping("getCodeReflush")
     public BlogJSONResult getCodeReflush(@RequestParam("phone") String phone) {
-        if (redisOperator.hasKey(Constant.USER_PHONE_CODE + phone)) {
-            return BlogJSONResult.ok(redisOperator.get(Constant.USER_PHONE_CODE + phone));
+        if (redisOperator.hasKey(BlogConstant.USER_PHONE_CODE + phone)) {
+            return BlogJSONResult.ok(redisOperator.get(BlogConstant.USER_PHONE_CODE + phone));
         } else {
             return BlogJSONResult.errorMsg("验证码失效");
         }

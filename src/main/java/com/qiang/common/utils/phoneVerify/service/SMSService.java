@@ -2,7 +2,7 @@ package com.qiang.common.utils.phoneVerify.service;
 
 import com.github.qcloudsms.*;
 import com.github.qcloudsms.httpclient.HTTPException;
-import com.qiang.common.constatnt.Constant;
+import com.qiang.common.constatnt.BlogConstant;
 import com.qiang.common.utils.RedisOperator;
 import com.qiang.common.utils.phoneVerify.component.PhoneRandomBuilder;
 import com.qiang.common.utils.phoneVerify.util.SMSUtil;
@@ -64,9 +64,9 @@ public class SMSService {
             // 验证码随机数
             String code = PhoneRandomBuilder.randomBuilder();
             // 把验证码存入缓存中
-            redisOperator.set(Constant.USER_PHONE_CODE + number, code);
+            redisOperator.set(BlogConstant.USER_PHONE_CODE + number, code);
             // 设置过期时间（默认以秒为单位）
-            redisOperator.expire(Constant.USER_PHONE_CODE + number, 300);
+            redisOperator.expire(BlogConstant.USER_PHONE_CODE + number, 300);
 
             String[] params = {code};
             SmsSingleSender ssender = new SmsSingleSender(SMSUtil.APPID, SMSUtil.APPKEY);

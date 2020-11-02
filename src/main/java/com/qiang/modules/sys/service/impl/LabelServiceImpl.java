@@ -1,7 +1,7 @@
 package com.qiang.modules.sys.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.qiang.common.constatnt.Constant;
+import com.qiang.common.constatnt.BlogConstant;
 import com.qiang.common.utils.RedisOperator;
 import com.qiang.modules.sys.dao.LabelDao;
 import com.qiang.modules.sys.entity.LabelEntity;
@@ -38,8 +38,8 @@ public class LabelServiceImpl implements LabelService {
     public List<LabelEntity> selAllLabel() {
         List<LabelEntity> list = null;
         // 从redis中查询
-        if (redisOperator.hasKey(Constant.LABEL_ALL)) {
-            list = (List<LabelEntity>) redisOperator.range(Constant.LABEL_ALL, 0, -1);
+        if (redisOperator.hasKey(BlogConstant.LABEL_ALL)) {
+            list = (List<LabelEntity>) redisOperator.range(BlogConstant.LABEL_ALL, 0, -1);
         } else {
             // 从数据库中查 并存入缓存中
             list = labelDao.selectList(null);
@@ -65,9 +65,9 @@ public class LabelServiceImpl implements LabelService {
                 tags.setLabelName(label[i]);
                 flag = labelDao.insert(tags);
                 // 把标签名加入缓存
-                redisOperator.lpush(Constant.LABEL_ALL, tags);
+                redisOperator.lpush(BlogConstant.LABEL_ALL, tags);
                 // 标签数加一
-                redisOperator.incr(Constant.LABEL_ALL_COUNT, 1);
+                redisOperator.incr(BlogConstant.LABEL_ALL_COUNT, 1);
             }
         }
         return flag;

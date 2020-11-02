@@ -1,6 +1,6 @@
 package com.qiang.modules.sys.service.impl;
 
-import com.qiang.common.constatnt.Constant;
+import com.qiang.common.constatnt.BlogConstant;
 import com.qiang.common.utils.RedisOperator;
 import com.qiang.modules.sys.dao.IndexDao;
 import com.qiang.modules.sys.service.ScheduledService;
@@ -33,7 +33,7 @@ public class ScheduledServiceImpl implements ScheduledService {
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public void visitorCustom() {
-        indexDao.updWebVisitorCount((int) redisOperator.get(Constant.BLOG_VISIT_COUNT));
+        indexDao.updWebVisitorCount((int) redisOperator.get(BlogConstant.BLOG_VISIT_COUNT));
     }
 
 

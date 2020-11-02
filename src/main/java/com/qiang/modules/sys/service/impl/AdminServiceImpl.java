@@ -3,7 +3,7 @@ package com.qiang.modules.sys.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.qiang.common.constatnt.Constant;
+import com.qiang.common.constatnt.BlogConstant;
 import com.qiang.common.utils.PagedResult;
 import com.qiang.common.utils.RedisOperator;
 import com.qiang.common.utils.TimeUtil;
@@ -49,9 +49,9 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public int deleteBlog(Long id) {
         // 删除缓存里东西
-        redisOperator.lremove(Constant.PAGE_BLOG, 0, redisOperator.hget(Constant.BLOG_DETAIL, String.valueOf(id))); // 首页
-        redisOperator.del(Constant.BLOG_DETAIL + id); // 文章浏览次数
-        redisOperator.hdel(Constant.BLOG_DETAIL, String.valueOf(id)); // 详情
+        redisOperator.lremove(BlogConstant.PAGE_BLOG, 0, redisOperator.hget(BlogConstant.BLOG_DETAIL, String.valueOf(id))); // 首页
+        redisOperator.del(BlogConstant.BLOG_DETAIL + id); // 文章浏览次数
+        redisOperator.hdel(BlogConstant.BLOG_DETAIL, String.valueOf(id)); // 详情
         // esService.removeEsBlog(id); // 搜索
         //  BlogMessageVO byId = adminMapper.findById(id);
         int i = blogDao.deleteById(id);
