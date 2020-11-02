@@ -1,22 +1,26 @@
-###########################
-######### 模式匹配
-##########################
+server:
+  port: 8876
+
+
+
 spring:
   # 环境 dev|test|prod
   profiles:
     active: dev
 
-#############################
-###### mybatis-plus配置
-#############################
+
+
+# mybatis-plus配置
 mybatis-plus:
-  mapper-locations: classpath:mappering/*.xml
-  #实体扫描，多个package用逗号或者分号分隔
+  mapper-locations: classpath:mapper/*.xml
+  # 实体扫描，多个package用逗号或者分号分隔
   type-aliases-package: com.qiang.modules.*.entity
   global-config:
     db-config:
       table-underline: true
       db-type: mysql
+
+
 
 # log位置的配置
 logging:
