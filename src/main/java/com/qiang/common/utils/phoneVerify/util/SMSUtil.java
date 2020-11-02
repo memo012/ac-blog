@@ -1,4 +1,4 @@
-﻿package com.qiang.common.utils.phoneVerify.util;
+package com.qiang.common.utils.phoneVerify.util;
 
 /**
  * @Author: qiang

@@ -1,7 +1,7 @@
 spring:
   datasource:
     username: root
-    password: root
+    password: 123456
     url: jdbc:mysql://localhost/vblog?useSSL=FALSE&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
