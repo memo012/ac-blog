@@ -1,6 +1,9 @@
 package com.qiang.modules.sys.service;
 
-import com.qiang.modules.sys.entity.*;
+import com.qiang.modules.sys.entity.FriendLikesEntity;
+import com.qiang.modules.sys.entity.FriendLinkEntity;
+import com.qiang.modules.sys.entity.FriendurlEntity;
+import com.qiang.modules.sys.entity.RepFriendLinkEntity;
 
 import java.util.List;
 

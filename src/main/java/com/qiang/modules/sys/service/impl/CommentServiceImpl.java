@@ -1,7 +1,6 @@
 package com.qiang.modules.sys.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.qiang.common.utils.Constant;
 import com.qiang.common.utils.RedisOperator;
 import com.qiang.common.utils.TimeUtil;

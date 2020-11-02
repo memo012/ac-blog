@@ -14,7 +14,6 @@ import com.qiang.modules.sys.entity.FriendurlEntity;
 import com.qiang.modules.sys.entity.UsersEntity;
 import com.qiang.modules.sys.entity.VO.BlogMessageVOEntity;
 import com.qiang.modules.sys.service.AdminService;
-import org.apache.ibatis.annotations.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
