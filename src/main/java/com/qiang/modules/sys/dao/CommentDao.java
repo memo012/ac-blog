@@ -2,6 +2,7 @@ package com.qiang.modules.sys.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.qiang.modules.sys.entity.CommentEntity;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
@@ -14,6 +15,7 @@ import java.util.List;
  * @Date: 2019/7/22 0022 14:56
  */
 @Repository
+@Mapper
 public interface CommentDao extends BaseMapper<CommentEntity> {
 
     List<CommentEntity> findByBlogIdAndPid(long blogId);

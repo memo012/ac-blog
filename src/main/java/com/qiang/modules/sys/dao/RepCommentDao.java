@@ -2,6 +2,7 @@ package com.qiang.modules.sys.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.qiang.modules.sys.entity.ReportCommentEntity;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +14,7 @@ import java.util.List;
  * @Date: 2019/8/17 0017 19:01
  */
 @Repository
+@Mapper
 public interface RepCommentDao extends BaseMapper<ReportCommentEntity> {
 
     List<ReportCommentEntity> getUserRepMessNotRead(String username);

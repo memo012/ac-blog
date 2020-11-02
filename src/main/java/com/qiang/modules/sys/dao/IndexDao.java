@@ -1,5 +1,6 @@
 package com.qiang.modules.sys.dao;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Repository;
  * @Date: 2019/8/8 0008 16:14
  */
 @Repository
+@Mapper
 public interface IndexDao {
 
     @Select("select count(*) from blog")
