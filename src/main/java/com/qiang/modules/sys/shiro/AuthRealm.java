@@ -20,15 +20,14 @@ import java.util.Set;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.shiro
  * @Description: shiro认证授权
  * @Date: 2019/6/20 0020 13:02
- **/
+ */
 public class AuthRealm extends AuthorizingRealm {
 
     @Autowired
     private UserService userService;
+
 
     // 用于授权的方法
     @Override
@@ -38,12 +37,12 @@ public class AuthRealm extends AuthorizingRealm {
         List<String> list = new ArrayList<>();
         List<String> roleNameList = new ArrayList<>();
         Set<RoleVOEntity> roles = users.getRoles();
-        if(CollectionUtils.isNotEmpty(roles)){
-            for (RoleVOEntity role:
+        if (CollectionUtils.isNotEmpty(roles)) {
+            for (RoleVOEntity role :
                     roles) {
                 roleNameList.add(role.getRname());
                 Set<PermissionEntity> permissionSet = role.getPermissionSet();
-                if(CollectionUtils.isNotEmpty(permissionSet)) {
+                if (CollectionUtils.isNotEmpty(permissionSet)) {
                     for (PermissionEntity permission :
                             permissionSet) {
                         list.add(permission.getPname());
@@ -56,6 +55,7 @@ public class AuthRealm extends AuthorizingRealm {
         info.addRoles(roleNameList);
         return info;
     }
+
 
     // 用户认证的方法
     @Override

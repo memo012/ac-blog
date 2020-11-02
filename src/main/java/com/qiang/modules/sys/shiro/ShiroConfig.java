@@ -26,11 +26,9 @@ import java.util.Properties;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.shiro
  * @Description: shiro配置文件
  * @Date: 2019/6/20 0020 13:24
- **/
+ */
 @Configuration
 public class ShiroConfig {
 
@@ -62,6 +60,7 @@ public class ShiroConfig {
 
     /**
      * 自定义realm
+     *
      * @return
      */
     @Bean("authRealm")
@@ -71,12 +70,14 @@ public class ShiroConfig {
         return authRealm;
     }
 
+
     /**
      * 自定义sessionManager
+     *
      * @return
      */
     @Bean("sessionManager")
-    public SessionManager sessionManager(){
+    public SessionManager sessionManager() {
         CustomSessionManager customSessionManager = new CustomSessionManager();
         // 超时时间 默认30分钟，会话超时，方法里面的是单位是毫秒
         customSessionManager.setGlobalSessionTimeout(60 * 1000 * 60 * 24);
@@ -98,23 +99,27 @@ public class ShiroConfig {
         return manager;
     }
 
+
     /**
      * 设置redisManager
+     *
      * @return
      */
-    public RedisManager getRedisManager(){
+    public RedisManager getRedisManager() {
         RedisManager redisManager = new RedisManager();
         redisManager.setHost(shiroRedisHost);
         redisManager.setPort(shiroRedisPort);
         return redisManager;
     }
 
+
     /**
      * 配置具体cache实现类
+     *
      * @return
      */
     @Bean("redisCacheManager")
-    public RedisCacheManager redisCacheManager(){
+    public RedisCacheManager redisCacheManager() {
         RedisCacheManager redisCacheManager = new RedisCacheManager();
         redisCacheManager.setRedisManager(getRedisManager());
         // 设置过期时间，单位是秒
@@ -122,17 +127,20 @@ public class ShiroConfig {
         return redisCacheManager;
     }
 
+
     /**
      * 自定义session持久化
+     *
      * @return
      */
-    public RedisSessionDAO redisSessionDAO(){
+    public RedisSessionDAO redisSessionDAO() {
         RedisSessionDAO redisSessionDAO = new RedisSessionDAO();
         redisSessionDAO.setRedisManager(getRedisManager());
         // 设置sessionId生成器
         redisSessionDAO.setSessionIdGenerator(new CustomSessionIdGenerator());
         return redisSessionDAO;
     }
+
 
     @Bean("shiroFilter")
     public ShiroFilterFactoryBean shiroFilter() {
@@ -150,6 +158,7 @@ public class ShiroConfig {
         bean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return bean;
     }
+
 
     /**
      * Shiro控制ThymeLeaf界面按钮级权限控制
@@ -177,7 +186,7 @@ public class ShiroConfig {
 
 
     /**
-     * Spring的一个bean , 由Advisor决定对哪些类的方法进行AOP代理 .
+     * Spring的一个bean , 由Advisor决定对哪些类的方法进行AOP代理
      *
      * @return
      */
