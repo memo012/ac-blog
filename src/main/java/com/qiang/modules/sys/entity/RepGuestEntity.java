@@ -8,11 +8,9 @@ import java.io.Serializable;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.entity
  * @Description: 留言评论实体类
  * @Date: 2019/7/24 0024 17:16
- **/
+ */
 @Data
 @TableName(value = "repguest")
 public class RepGuestEntity implements Serializable {
@@ -55,7 +53,7 @@ public class RepGuestEntity implements Serializable {
     private String repName;
 
     /**
-     *被评论者名称
+     * 被评论者名称
      */
     private String guestName;
 

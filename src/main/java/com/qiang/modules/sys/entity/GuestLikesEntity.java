@@ -7,11 +7,9 @@ import java.io.Serializable;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.entity
  * @Description: 留言点赞用户判断
  * @Date: 2019/7/24 0024 19:51
- **/
+ */
 @Data
 @TableName(value = "guestlikes")
 public class GuestLikesEntity implements Serializable {

@@ -3,18 +3,15 @@ package com.qiang.modules.sys.entity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.entity
  * @Description:
  * @Date: 2019/7/22 0022 18:15
- **/
+ */
 @Data
 @TableName(value = "reportcomment")
 public class ReportCommentEntity implements Serializable {
@@ -37,7 +34,7 @@ public class ReportCommentEntity implements Serializable {
     private String repMess;
 
     /**
-     *  回复者id
+     * 回复者id
      */
     private String reportedId;
 
@@ -47,7 +44,7 @@ public class ReportCommentEntity implements Serializable {
     private String rcreateTime;
 
     /**
-     *  该条评论是否已读  1--未读   0--已读
+     * 该条评论是否已读  1--未读   0--已读
      */
     private Integer risRead = 1;
 
@@ -72,7 +69,5 @@ public class ReportCommentEntity implements Serializable {
      */
     @TableField(exist = false)
     private String title;
-
-
 
 }

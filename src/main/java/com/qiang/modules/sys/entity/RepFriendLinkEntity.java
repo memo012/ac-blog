@@ -8,15 +8,12 @@ import java.io.Serializable;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.entity
  * @Description: 友链评论实体类
  * @Date: 2019/7/24 0024 17:16
- **/
+ */
 @Data
 @TableName(value = "repfriend")
 public class RepFriendLinkEntity implements Serializable {
-
 
     private static final long serialVersionUID = 4963923988287900210L;
     /**
@@ -56,7 +53,7 @@ public class RepFriendLinkEntity implements Serializable {
     private String repName;
 
     /**
-     *被评论者名称
+     * 被评论者名称
      */
     private String friendName;
 

@@ -9,11 +9,9 @@ import java.io.Serializable;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.entity
  * @Description:
  * @Date: 2019/7/8 0008 17:32
- **/
+ */
 @Data
 @TableName(value = "blog")
 public class BlogMessageVOEntity extends BlogMessageEntity implements Serializable {

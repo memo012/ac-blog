@@ -10,11 +10,9 @@ import java.util.Set;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.entity
  * @Description: 留言实体类
  * @Date: 2019/7/24 0024 17:13
- **/
+ */
 @Data
 @TableName(value = "guest")
 public class GuestEntity implements Serializable {

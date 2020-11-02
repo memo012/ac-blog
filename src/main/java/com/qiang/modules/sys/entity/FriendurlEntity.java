@@ -8,11 +8,9 @@ import java.io.Serializable;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.entity
  * @Description:
  * @Date: 2019/8/19 0019 21:29
- **/
+ */
 @Data
 @TableName(value = "friendurl")
 public class FriendurlEntity implements Serializable {
@@ -35,4 +33,5 @@ public class FriendurlEntity implements Serializable {
      * 创建时间
      */
     private String createTime;
+
 }

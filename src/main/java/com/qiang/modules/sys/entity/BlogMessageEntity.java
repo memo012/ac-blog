@@ -9,11 +9,9 @@ import java.io.Serializable;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.entity
  * @Description: 博客信息表
  * @Date: 2019/7/4 0004 11:13
- **/
+ */
 @Data
 @TableName(value = "blog")
 public class BlogMessageEntity implements Serializable {
@@ -82,10 +80,8 @@ public class BlogMessageEntity implements Serializable {
 
     /**
      * 文章摘要
-     * @return
      */
     private String articleTabled;
-
 
     /**
      * 浏览次数

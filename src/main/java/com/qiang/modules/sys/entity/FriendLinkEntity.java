@@ -10,15 +10,12 @@ import java.util.Set;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.entity
  * @Description: 友链实体类
  * @Date: 2019/7/24 0024 17:13
- **/
+ */
 @Data
 @TableName(value = "friendlink")
 public class FriendLinkEntity implements Serializable {
-
 
     private static final long serialVersionUID = -1543921671185779569L;
     /**

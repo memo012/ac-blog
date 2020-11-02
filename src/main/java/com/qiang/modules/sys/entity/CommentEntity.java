@@ -10,11 +10,9 @@ import java.util.Set;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.entity
  * @Description: 评论实体类
  * @Date: 2019/7/22 0022 14:58
- **/
+ */
 @Data
 @TableName(value = "comment")
 public class CommentEntity implements Serializable {
@@ -58,7 +56,7 @@ public class CommentEntity implements Serializable {
 
 
     /**
-     *  该条评论是否已读  1--未读   0--已读
+     * 该条评论是否已读  1--未读   0--已读
      */
     private Integer isRead = 1;
 
@@ -67,6 +65,5 @@ public class CommentEntity implements Serializable {
      */
     @TableField(exist = false)
     private Set<ReportCommentEntity> reportComments;
-
 
 }

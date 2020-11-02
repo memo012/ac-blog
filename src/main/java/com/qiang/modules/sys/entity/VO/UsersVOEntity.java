@@ -3,7 +3,6 @@ package com.qiang.modules.sys.entity.VO;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.qiang.modules.sys.entity.UsersEntity;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -11,11 +10,9 @@ import java.util.Set;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.entity.VO
  * @Description:
  * @Date: 2019/8/17 0017 11:36
- **/
+ */
 @Data
 @TableName(value = "users")
 public class UsersVOEntity implements Serializable {
@@ -77,9 +74,11 @@ public class UsersVOEntity implements Serializable {
      * 个人简历
      */
     private String intro = "";
+
     /**
-     *  角色
+     * 角色
      */
     @TableField(exist = false)
     private Set<RoleVOEntity> roles;
+
 }

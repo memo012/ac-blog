@@ -6,11 +6,9 @@ import lombok.Data;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.entity
  * @Description: 网站信息
  * @Date: 2019/8/9 0009 18:01
- **/
+ */
 @Data
 @TableName(value = "web")
 public class WebMessageEntity {

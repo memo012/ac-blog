@@ -9,11 +9,9 @@ import java.io.Serializable;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.entity
  * @Description: 判断用户是否点赞 实体类
  * @Date: 2019/7/24 0024 11:02
- **/
+ */
 @Data
 @TableName(value = "commentlikes")
 public class CommentLikesEntity implements Serializable {

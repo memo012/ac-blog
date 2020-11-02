@@ -7,15 +7,12 @@ import java.io.Serializable;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.entity
  * @Description: 友链点赞用户判断
  * @Date: 2019/7/24 0024 19:51
- **/
+ */
 @Data
 @TableName(value = "friendlikes")
 public class FriendLikesEntity implements Serializable {
-
 
     private static final long serialVersionUID = -4400820938884482478L;
     /**

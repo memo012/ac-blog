@@ -2,22 +2,18 @@ package com.qiang.modules.sys.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.entity
  * @Description: 用户信息表
  * @Date: 2019/7/4 0004 11:13
- **/
+ */
 @Data
 @TableName(value = "users")
 public class UsersEntity implements Serializable {
-
 
     private static final long serialVersionUID = 2091272315817336009L;
     /**
