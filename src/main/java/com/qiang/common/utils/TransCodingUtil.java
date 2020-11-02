@@ -4,14 +4,15 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
 /**
- * @author: qiang
+ * @Author: qiang
+ * @Describe: 转码工具
  * @Date: 2018/7/22 21:17
- * Describe: 转码工具
  */
 public class TransCodingUtil {
 
     /**
      * 中文转unicode编码
+     *
      * @param gbString 汉字
      * @return unicode编码
      */
@@ -28,8 +29,10 @@ public class TransCodingUtil {
         return unicodeBytes;
     }
 
+
     /**
      * unicode编码转中文
+     *
      * @param dataStr unicode编码
      * @return 中文
      */
@@ -53,8 +56,10 @@ public class TransCodingUtil {
         return buffer.toString();
     }
 
+
     /**
      * 将utf-8展开的16进制数转换成utf-8汉字
+     *
      * @param strUtf16
      * @return
      * @throws UnsupportedEncodingException
@@ -63,21 +68,25 @@ public class TransCodingUtil {
         String strUtf8 = URLDecoder.decode(strUtf16, "UTF-8");
         return strUtf8;
     }
+
+
     /**
      * 判断是否为汉字
+     *
      * @param str
      * @return
      */
-    public static boolean isChinese(String str){
-        for(int i=0;i<str.length();i++){
+    public static boolean isChinese(String str) {
+        for (int i = 0; i < str.length(); i++) {
             int char1 = str.charAt(i);
             //汉字范围
-            if(char1>=19968 && char1<=171941){
+            if (char1 >= 19968 && char1 <= 171941) {
                 return true;
             }
         }
         return false;
     }
+
 
 //    /**
 //     * 汉字转16进制

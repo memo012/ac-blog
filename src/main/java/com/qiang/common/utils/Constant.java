@@ -2,11 +2,9 @@ package com.qiang.common.utils;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.common.utils
  * @Description: 常量
  * @Date: 2019/7/21 0021 16:28
- **/
+ */
 public class Constant {
 
     /**
@@ -17,12 +15,12 @@ public class Constant {
     /**
      * 首页标签
      */
-    public static  final String LABEL_ALL = "redis:index:all:label";
+    public static final String LABEL_ALL = "redis:index:all:label";
 
     /**
      * 首页标签数
      */
-    public static  final String LABEL_ALL_COUNT = "redis:index:label:count";
+    public static final String LABEL_ALL_COUNT = "redis:index:label:count";
     /**
      * 文章详情
      */

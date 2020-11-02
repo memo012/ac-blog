@@ -1,16 +1,18 @@
 package com.qiang.common.utils;
 
 /**
+ * @Author: qiang
  * @Description: 自定义响应数据结构
- * 				这个类是提供给门户，ios，安卓，微信商城用的
- * 				门户接受此类数据后需要使用本类的方法转换成对于的数据类型格式（类，或者list）
- * 				其他自行处理
- * 				200：表示成功
- * 				500：表示错误，错误信息在msg字段中
- * 				501：bean验证错误，不管多少个错误都以map形式返回
- * 				502：拦截器拦截到用户token出错
- * 			    503: 不具备角色功能
- * 				555：异常抛出信息
+ * @Date: 2019/7/4 0004 11:05
+ * 这个类是提供给门户，ios，安卓，微信商城用的
+ * 门户接受此类数据后需要使用本类的方法转换成对于的数据类型格式（类，或者list）
+ * 其他自行处理
+ * 200：表示成功
+ * 500：表示错误，错误信息在msg字段中
+ * 501：bean验证错误，不管多少个错误都以map形式返回
+ * 502：拦截器拦截到用户token出错
+ * 503: 不具备角色功能
+ * 555：异常抛出信息
  */
 public class BlogJSONResult {
 
@@ -22,8 +24,8 @@ public class BlogJSONResult {
 
     // 响应中的数据
     private Object data;
-    
-    private String ok;	// 不使用
+
+    private String ok;    // 不使用
 
     public static BlogJSONResult build(Integer status, String msg, Object data) {
         return new BlogJSONResult(status, msg, data);
@@ -36,15 +38,15 @@ public class BlogJSONResult {
     public static BlogJSONResult ok() {
         return new BlogJSONResult(null);
     }
-    
+
     public static BlogJSONResult errorMsg(String msg) {
         return new BlogJSONResult(500, msg, null);
     }
-    
+
     public static BlogJSONResult errorMap(Object data) {
         return new BlogJSONResult(501, "error", data);
     }
-    
+
     public static BlogJSONResult errorTokenMsg(String msg) {
         return new BlogJSONResult(502, msg, null);
     }
@@ -52,7 +54,7 @@ public class BlogJSONResult {
     public static BlogJSONResult errorRolesMsg(String msg) {
         return new BlogJSONResult(503, msg, null);
     }
-    
+
     public static BlogJSONResult errorException(String msg) {
         return new BlogJSONResult(555, msg, null);
     }
@@ -101,12 +103,12 @@ public class BlogJSONResult {
         this.data = data;
     }
 
-	public String getOk() {
-		return ok;
-	}
+    public String getOk() {
+        return ok;
+    }
 
-	public void setOk(String ok) {
-		this.ok = ok;
-	}
+    public void setOk(String ok) {
+        this.ok = ok;
+    }
 
 }

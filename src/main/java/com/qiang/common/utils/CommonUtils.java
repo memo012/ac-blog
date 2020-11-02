@@ -6,11 +6,9 @@ import java.util.Set;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.common.utils
  * @Description: 工具类
  * @Date: 2019/7/31 0031 18:41
- **/
+ */
 public class CommonUtils {
 
     /**
@@ -39,6 +37,7 @@ public class CommonUtils {
         return content.toString();
     }
 
+
     /**
      * 获取一个从min到max的随机整数
      *
@@ -50,25 +49,27 @@ public class CommonUtils {
         Random rd = new Random();
         int ret = rd.nextInt(max);
 
-        while (ret < min)
+        while (ret < min){
             ret += rd.nextInt(max - min);
-
+        }
         return ret;
     }
 
+
     /**
      * 筛选出不新增访问页面人数页面
+     *
      * @param pageName
      * @return true -- 存在 false -- 不存在
      */
-    public static boolean pageNameIsAdd(String pageName){
+    public static boolean pageNameIsAdd(String pageName) {
         Set set = new HashSet<String>();
         set.add("login");
         set.add("register");
         set.add("SuperAdmin");
         set.add("user");
         set.add("findPwd");
-        if(set.contains(pageName)){
+        if (set.contains(pageName)) {
             return true;
         }
         return false;
