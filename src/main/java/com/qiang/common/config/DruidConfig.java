@@ -17,11 +17,9 @@ import java.util.Map;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.common.config
  * @Description: durid数据源配置
  * @Date: 2019/6/27 0027 17:24
- **/
+ */
 
 @Configuration
 public class DruidConfig {
@@ -31,14 +29,15 @@ public class DruidConfig {
 
     @ConfigurationProperties(prefix = "spring.datasource")
     @Bean
-    public DataSource druid(){
+    public DataSource druid() {
         return new DruidDataSource();
     }
 
-    //配置druid的监控
-    //1. 配置一个管理后台的servlet
+
+    // 配置druid的监控
+    // 1. 配置一个管理后台的servlet
     @Bean
-    public ServletRegistrationBean statViewServlet(){
+    public ServletRegistrationBean statViewServlet() {
         ServletRegistrationBean bean = new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
         Map<String, String> initParams = new HashMap<>();
         initParams.put("loginUsername", "admin");
@@ -49,9 +48,10 @@ public class DruidConfig {
         return bean;
     }
 
-    //2. 配置一个web监控filter
+
+    // 2. 配置一个web监控filter
     @Bean
-    public FilterRegistrationBean webStatFilter(){
+    public FilterRegistrationBean webStatFilter() {
         FilterRegistrationBean bean = new FilterRegistrationBean();
         bean.setFilter(new WebStatFilter());
         Map<String, String> initParams = new HashMap<>();
@@ -60,4 +60,5 @@ public class DruidConfig {
         bean.setUrlPatterns(Arrays.asList("/*"));
         return bean;
     }
+
 }

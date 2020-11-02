@@ -21,6 +21,11 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @Author: qiang
+ * @Description:
+ * @Date: 2019/7/26 0026 11:02
+ */
 @Configuration
 @EnableCaching
 public class RedisConfig {
