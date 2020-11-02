@@ -1,6 +1,11 @@
 package com.qiang.common.utils.phoneVerify.service;
 
-import com.github.qcloudsms.*;
+import com.github.qcloudsms.SmsMultiSender;
+import com.github.qcloudsms.SmsMultiSenderResult;
+import com.github.qcloudsms.SmsSingleSender;
+import com.github.qcloudsms.SmsSingleSenderResult;
+import com.github.qcloudsms.SmsVoiceVerifyCodeSender;
+import com.github.qcloudsms.SmsVoiceVerifyCodeSenderResult;
 import com.github.qcloudsms.httpclient.HTTPException;
 import com.qiang.common.constatnt.BlogConstant;
 import com.qiang.common.utils.RedisOperator;
@@ -64,20 +69,22 @@ public class SMSService {
             // 验证码随机数
             String code = PhoneRandomBuilder.randomBuilder();
             // 把验证码存入缓存中
-            redisOperator.set(BlogConstant.USER_PHONE_CODE + number, code);
+            redisOperator.set(BlogConstant.USER_PHONE_CODE.val() + number, code);
             // 设置过期时间（默认以秒为单位）
-            redisOperator.expire(BlogConstant.USER_PHONE_CODE + number, 300);
+            redisOperator.expire(BlogConstant.USER_PHONE_CODE.val() + number, 300);
 
             String[] params = {code};
             SmsSingleSender ssender = new SmsSingleSender(SMSUtil.APPID, SMSUtil.APPKEY);
             if (mark == 0) {
+                // 签名参数未提供或者为空时，会使用默认签名发送短信
                 SmsSingleSenderResult result = ssender.sendWithParam("86", number,
-                        SMSUtil.SHORTNOTID, params, "", "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
+                        SMSUtil.SHORTNOTID, params, "", "", "");
                 System.out.print(result);
                 return result.errMsg;//OK
             } else if (mark == 1) {
+                // 签名参数未提供或者为空时，会使用默认签名发送短信
                 SmsSingleSenderResult result = ssender.sendWithParam("86", number,
-                        SMSUtil.UPDPWDID, params, "", "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
+                        SMSUtil.UPDPWDID, params, "", "", "");
                 System.out.print(result);
                 return result.errMsg;//OK
             }
