@@ -9,11 +9,9 @@ import java.util.List;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.dao
  * @Description:
  * @Date: 2019/8/17 0017 19:10
- **/
+ */
 @Repository
 public interface CommentLikeDao extends BaseMapper<CommentLikesEntity> {
 
@@ -23,7 +21,5 @@ public interface CommentLikeDao extends BaseMapper<CommentLikesEntity> {
     List<Long> findNotReadLikesIdByUsername(String username);
 
     int updLikesIsRead(List<Long> rid);
-
-
 
 }

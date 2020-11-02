@@ -9,11 +9,9 @@ import java.util.List;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.dao
  * @Description:
  * @Date: 2019/8/17 0017 20:31
- **/
+ */
 @Repository
 public interface GuestDao extends BaseMapper<GuestEntity> {
 

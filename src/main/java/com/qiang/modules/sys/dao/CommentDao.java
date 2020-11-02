@@ -10,11 +10,9 @@ import java.util.List;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.mapper
  * @Description: 评论数据库
  * @Date: 2019/7/22 0022 14:56
- **/
+ */
 @Repository
 public interface CommentDao extends BaseMapper<CommentEntity> {
 
@@ -31,6 +29,5 @@ public interface CommentDao extends BaseMapper<CommentEntity> {
 
     @Update("update commentlikes set is_read = 0 where id = #{arg0}")
     int updOneBlogNotLikes(Long id);
-
 
 }
