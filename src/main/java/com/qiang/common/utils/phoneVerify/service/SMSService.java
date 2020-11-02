@@ -2,7 +2,7 @@ package com.qiang.common.utils.phoneVerify.service;
 
 import com.github.qcloudsms.*;
 import com.github.qcloudsms.httpclient.HTTPException;
-import com.qiang.common.utils.Constant;
+import com.qiang.common.constatnt.Constant;
 import com.qiang.common.utils.RedisOperator;
 import com.qiang.common.utils.phoneVerify.component.PhoneRandomBuilder;
 import com.qiang.common.utils.phoneVerify.util.SMSUtil;

@@ -3,7 +3,7 @@ package com.qiang.modules.sys.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.qiang.common.utils.Constant;
+import com.qiang.common.constatnt.Constant;
 import com.qiang.common.utils.PagedResult;
 import com.qiang.common.utils.RedisOperator;
 import com.qiang.common.utils.StringAndArray;

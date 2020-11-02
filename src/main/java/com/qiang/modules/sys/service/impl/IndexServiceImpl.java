@@ -1,6 +1,6 @@
 package com.qiang.modules.sys.service.impl;
 
-import com.qiang.common.utils.Constant;
+import com.qiang.common.constatnt.Constant;
 import com.qiang.common.utils.RedisOperator;
 import com.qiang.modules.sys.dao.IndexDao;
 import com.qiang.modules.sys.service.IndexService;

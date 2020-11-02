@@ -2,7 +2,7 @@ package com.qiang.modules.sys.controller;
 
 import com.qiang.common.utils.BlogJSONResult;
 import com.qiang.common.utils.CommonUtils;
-import com.qiang.common.utils.Constant;
+import com.qiang.common.constatnt.Constant;
 import com.qiang.common.utils.RedisOperator;
 import com.qiang.modules.sys.service.IndexService;
 import org.springframework.beans.factory.annotation.Autowired;

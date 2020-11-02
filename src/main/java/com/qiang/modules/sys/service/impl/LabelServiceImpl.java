@@ -1,7 +1,7 @@
 package com.qiang.modules.sys.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.qiang.common.utils.Constant;
+import com.qiang.common.constatnt.Constant;
 import com.qiang.common.utils.RedisOperator;
 import com.qiang.modules.sys.dao.LabelDao;
 import com.qiang.modules.sys.entity.LabelEntity;
