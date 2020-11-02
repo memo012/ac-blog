@@ -14,11 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.controller
  * @Description: 文章controller
  * @Date: 2019/7/8 0008 15:26
- **/
+ */
 @RestController
 public class ArticleController {
 
@@ -52,13 +50,14 @@ public class ArticleController {
     @GetMapping("getArticleDetail")
     public BlogJSONResult getArticleDetail(@RequestParam("articleId") long articleId) {
         BlogMessageVOEntity byId = blogService.findBlogById(articleId);
-        if(byId != null){
+        if (byId != null) {
             return BlogJSONResult.ok(byId);
-        }else{
+        } else {
             return BlogJSONResult.errorMsg("已删除");
         }
 
     }
+
 
     /**
      * 通过标签查看文章
@@ -77,6 +76,7 @@ public class ArticleController {
         return BlogJSONResult.ok(byTag);
     }
 
+
     /**
      * 点赞(游客即可)
      *
@@ -91,6 +91,5 @@ public class ArticleController {
         }
         return BlogJSONResult.errorMsg("点赞失败");
     }
-
 
 }

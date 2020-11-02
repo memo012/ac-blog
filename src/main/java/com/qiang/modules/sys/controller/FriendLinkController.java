@@ -15,11 +15,9 @@ import java.util.List;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.controller
  * @Description: 友链controller
  * @Date: 2019/8/19 0019 19:14
- **/
+ */
 @RestController
 public class FriendLinkController {
 
@@ -27,39 +25,41 @@ public class FriendLinkController {
     private FriendLinkService friendLinkService;
 
 
-
-
     @GetMapping("/getAllFriendlink")
-    public BlogJSONResult getAllFriendlink(){
+    public BlogJSONResult getAllFriendlink() {
         List<FriendurlEntity> allFriend = friendLinkService.getAllFriend();
         return BlogJSONResult.ok(allFriend);
     }
 
+
     /**
      * 获取全部留言
+     *
      * @return
      */
     @GetMapping("/getAllFriend")
-    public BlogJSONResult getAllFriend(){
+    public BlogJSONResult getAllFriend() {
         List<FriendLinkEntity> allGuest = friendLinkService.getAllGuest();
-        if(allGuest != null){
+        if (allGuest != null) {
             return BlogJSONResult.ok(allGuest);
-        }else{
+        } else {
             return BlogJSONResult.errorMsg("无果");
         }
     }
 
+
     /**
      * 新增留言
+     *
      * @param guest
      * @param request
      * @return
      */
     @PostMapping("/insFriend")
     public BlogJSONResult insFriend(@RequestBody FriendLinkEntity guest,
-                                   HttpServletRequest request){
+                                    HttpServletRequest request) {
         UsersVOEntity user = (UsersVOEntity) request.getSession().getAttribute("user");
-        if(user == null){
+        if (user == null) {
             return BlogJSONResult.errorTokenMsg("用户已过期");
         }
         guest.setUserId(user.getId());
@@ -68,61 +68,65 @@ public class FriendLinkController {
         return BlogJSONResult.ok(guests);
     }
 
+
     /**
      * 新增留言评论
+     *
      * @param repGuest
      * @param request
      * @return
      */
     @PostMapping("/insRepFriend")
     public BlogJSONResult insRepFriend(@RequestBody RepFriendLinkEntity repGuest,
-                                      HttpServletRequest request){
+                                       HttpServletRequest request) {
         UsersVOEntity user = (UsersVOEntity) request.getSession().getAttribute("user");
-        if(user == null){
+        if (user == null) {
             return BlogJSONResult.errorTokenMsg("用户已过期");
         }
         repGuest.setRfriendId(user.getId());
         repGuest.setRepName(user.getUsername());
         List<FriendLinkEntity> guests = friendLinkService.insRepGuest(repGuest);
-        if(guests != null){
+        if (guests != null) {
             return BlogJSONResult.ok(guests);
-        }else{
+        } else {
             return BlogJSONResult.errorMsg("新增失败");
         }
     }
 
+
     /**
      * 点赞更新
+     *
      * @param guestLikes
      * @param request
      * @return
      */
     @PostMapping("/updFriendLikes")
     public BlogJSONResult updFriendLikes(@RequestBody FriendLikesEntity guestLikes,
-                                        HttpServletRequest request){
+                                         HttpServletRequest request) {
         UsersVOEntity user = (UsersVOEntity) request.getSession().getAttribute("user");
-        if(user == null){
+        if (user == null) {
             return BlogJSONResult.errorTokenMsg("用户已过期");
         }
         guestLikes.setLikeName(user.getUsername());
         boolean isLikes = friendLinkService.findIsLikes(guestLikes);
-        if(isLikes){
+        if (isLikes) {
             // 已点过赞
             List<FriendLinkEntity> guests = friendLinkService.updDesLikes(guestLikes.getFriendId());
-            if(guests != null){
+            if (guests != null) {
                 friendLinkService.delIsLikes(guestLikes);
                 return BlogJSONResult.ok(guests);
-            }else{
+            } else {
                 // 点赞失败
                 return BlogJSONResult.errorMsg("点赞失败");
             }
-        }else{
+        } else {
             // 未点过赞
             List<FriendLinkEntity> guests = friendLinkService.insIsLikes(guestLikes);
-            if(guests != null){
+            if (guests != null) {
                 // 点赞成功
-                return  BlogJSONResult.ok(guests);
-            }else{
+                return BlogJSONResult.ok(guests);
+            } else {
                 // 点赞失败
                 return BlogJSONResult.errorMsg("点赞失败");
             }

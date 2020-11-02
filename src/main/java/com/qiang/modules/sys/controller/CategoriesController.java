@@ -11,19 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.controller
  * @Description: 文章归类
  * @Date: 2019/7/10 0010 16:42
- **/
+ */
 @RestController
 public class CategoriesController {
 
     @Autowired
     private ArticleService articleService;
 
+
     /**
      * 文章归类查询
+     *
      * @param pageSize
      * @param pageNum
      * @param categorie
@@ -31,11 +31,11 @@ public class CategoriesController {
      */
     @GetMapping("/getCategories")
     public BlogJSONResult getCategories(@RequestParam("pageSize") int pageSize
-                                        , @RequestParam("pageNum") int pageNum
-                                        , @RequestParam("categorie") String categorie){
-
+            , @RequestParam("pageNum") int pageNum
+            , @RequestParam("categorie") String categorie) {
         String categories = TransCodingUtil.unicodeToString(categorie);
         PagedResult byCategories = articleService.findByCategories(pageNum, pageSize, categories);
         return BlogJSONResult.ok(byCategories);
     }
+
 }

@@ -10,16 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.controller
  * @Description: 首页
  * @Date: 2019/8/3 0003 10:43
- **/
+ */
 @RestController
 public class IndexController {
 
@@ -32,29 +27,32 @@ public class IndexController {
 
     /**
      * 文章总数
+     *
      * @return
      */
     @GetMapping("myArticlesCount")
-    public BlogJSONResult myArticlesCount(){
+    public BlogJSONResult myArticlesCount() {
         Long count = 0L;
-        if(redisOperator.hasKey(Constant.BLOG_DETAIL)){
+        if (redisOperator.hasKey(Constant.BLOG_DETAIL)) {
             count = redisOperator.hsize(Constant.BLOG_DETAIL);
-        }else{
+        } else {
             count = indexService.myArticlesCount();
         }
         return BlogJSONResult.ok(count);
     }
 
+
     /**
      * 标签总数
+     *
      * @return
      */
     @GetMapping("myLabelsCount")
-    public BlogJSONResult myLabelsCount(){
+    public BlogJSONResult myLabelsCount() {
         Integer count = 0;
-        if(redisOperator.hasKey(Constant.LABEL_ALL_COUNT)){
-            count = (int)redisOperator.get(Constant.LABEL_ALL_COUNT);
-        }else{
+        if (redisOperator.hasKey(Constant.LABEL_ALL_COUNT)) {
+            count = (int) redisOperator.get(Constant.LABEL_ALL_COUNT);
+        } else {
             count = indexService.myLabelsCount();
         }
         return BlogJSONResult.ok(count);
@@ -63,60 +61,63 @@ public class IndexController {
 
     /**
      * 评论总数
+     *
      * @return
      */
     @GetMapping("myReportsCount")
-    public BlogJSONResult myReportsCount(){
+    public BlogJSONResult myReportsCount() {
         Integer count = 0;
-        if(redisOperator.hasKey(Constant.BLOG_REPORT_COUNT)){
+        if (redisOperator.hasKey(Constant.BLOG_REPORT_COUNT)) {
             count = (Integer) redisOperator.get(Constant.BLOG_REPORT_COUNT);
-        }else{
+        } else {
             count = indexService.myReportsCount();
         }
 
         return BlogJSONResult.ok(count);
     }
 
+
     /**
      * 留言总数
+     *
      * @return
      */
     @GetMapping("myGuestCount")
-    public BlogJSONResult myGuestCount(){
+    public BlogJSONResult myGuestCount() {
         Integer count = 0;
-        if(redisOperator.hasKey(Constant.BLOG_GUEST_COUNT)){
-            count = (Integer)redisOperator.get(Constant.BLOG_GUEST_COUNT);
-        }else{
+        if (redisOperator.hasKey(Constant.BLOG_GUEST_COUNT)) {
+            count = (Integer) redisOperator.get(Constant.BLOG_GUEST_COUNT);
+        } else {
             count = indexService.myGuestCount();
         }
         return BlogJSONResult.ok(count);
     }
 
+
     /**
      * 访客量
+     *
      * @return
      */
     @GetMapping("visitCount")
-    public BlogJSONResult visitCount(@RequestParam("pageName") String pageName){
+    public BlogJSONResult visitCount(@RequestParam("pageName") String pageName) {
         Integer count = 0;
         // 有N个页面不需要添加访问量
-        if(CommonUtils.pageNameIsAdd(pageName)) {
+        if (CommonUtils.pageNameIsAdd(pageName)) {
             if (redisOperator.hasKey(Constant.BLOG_VISIT_COUNT)) {
-                count = (Integer)redisOperator.get(Constant.BLOG_VISIT_COUNT);
-            }else {
+                count = (Integer) redisOperator.get(Constant.BLOG_VISIT_COUNT);
+            } else {
                 count = indexService.myWebCount();
             }
-        }else {
+        } else {
             if (redisOperator.hasKey(Constant.BLOG_VISIT_COUNT)) {
                 redisOperator.incr(Constant.BLOG_VISIT_COUNT, 1);
                 count = (Integer) redisOperator.get(Constant.BLOG_VISIT_COUNT);
-            }else {
+            } else {
                 count = indexService.myWebCount();
             }
         }
         return BlogJSONResult.ok(count);
     }
-    
-
 
 }

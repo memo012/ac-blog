@@ -1,6 +1,5 @@
 package com.qiang.modules.sys.controller;
 
-import com.qiang.common.utils.Constant;
 import com.qiang.common.utils.RedisOperator;
 import com.qiang.common.utils.TransCodingUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -15,9 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 
 /**
- * @author: qiang
+ * @Author: qiang
+ * @Describe: 所有页面跳转
  * @Date: 2019/7/06 19:24
- * Describe: 所有页面跳转
  */
 @Controller
 public class BackController {
@@ -36,21 +35,24 @@ public class BackController {
         return "index";
     }
 
+
     /**
      * 保存上一次浏览地址
+     *
      * @return
      */
     @GetMapping("lasturl")
-    public String lasturl(HttpServletResponse response, HttpServletRequest request){
+    public String lasturl(HttpServletResponse response, HttpServletRequest request) {
         response.setHeader("Access-Control-Allow-Origin", "*");
         String url = (String) request.getSession().getAttribute("lastUrl");
         if (!StringUtils.isEmpty(url)) {
             response.setHeader("lastUrl", url);
             return "lasturl";
-        }else{
+        } else {
             return "index";
         }
     }
+
 
     /**
      * 寻找密码
@@ -61,6 +63,7 @@ public class BackController {
     public String findPwd() {
         return "findPwd";
     }
+
 
     /**
      * 关于我
@@ -84,6 +87,7 @@ public class BackController {
         return "SuperAdmin";
     }
 
+
     /**
      * 登录页面
      *
@@ -92,17 +96,18 @@ public class BackController {
     @GetMapping("login")
     public String login(HttpServletRequest request) {
         String url = request.getHeader("Referer");
-        if(StringUtils.isEmpty(url)){
+        if (StringUtils.isEmpty(url)) {
             return "login";
         }
         if (!url.contains("register") && !url.contains("findPwd") && !url.contains("login")) {
             //保存跳转页面的url
             request.getSession().setAttribute("lastUrl", request.getHeader("Referer"));
-        }else{
+        } else {
             request.getSession().removeAttribute("lastUrl");
         }
         return "login";
     }
+
 
     /**
      * 登录前尝试保存上一个页面的url
@@ -111,6 +116,7 @@ public class BackController {
     public @ResponseBody
     void toLogin(HttpServletRequest request) {
     }
+
 
     /**
      * 搜索页面
@@ -127,6 +133,7 @@ public class BackController {
         return "/elasticsearch";
     }
 
+
     /**
      * 注册页面
      *
@@ -137,6 +144,7 @@ public class BackController {
         return "register";
     }
 
+
     /**
      * 友链页面
      *
@@ -146,6 +154,7 @@ public class BackController {
     public String friendlink() {
         return "friendlink";
     }
+
 
     /**
      * 博客发布页面
@@ -161,6 +170,7 @@ public class BackController {
         return "editor";
     }
 
+
     /**
      * 归档页面
      *
@@ -171,6 +181,7 @@ public class BackController {
         request.getSession().removeAttribute("lastUrl");
         return "archive";
     }
+
 
     /**
      * 更新页面
@@ -201,6 +212,7 @@ public class BackController {
         return "show";
     }
 
+
     /**
      * 查过发布时间查询
      *
@@ -218,6 +230,7 @@ public class BackController {
         request.getSession().removeAttribute("lastUrl");
         return "time";
     }
+
 
     /**
      * 标签归档
@@ -243,6 +256,7 @@ public class BackController {
         return "tags";
     }
 
+
     /**
      * 文章归类查询
      *
@@ -266,6 +280,7 @@ public class BackController {
         return "categories";
     }
 
+
     /**
      * 留言板
      *
@@ -277,6 +292,7 @@ public class BackController {
         return "guest";
     }
 
+
     /**
      * 个人中心
      *
@@ -286,6 +302,5 @@ public class BackController {
     public String user() {
         return "user";
     }
-
 
 }
