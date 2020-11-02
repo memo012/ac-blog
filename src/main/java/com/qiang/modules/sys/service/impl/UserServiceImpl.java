@@ -1,10 +1,19 @@
 package com.qiang.modules.sys.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.qiang.common.utils.RedisOperator;
-import com.qiang.modules.sys.dao.*;
-import com.qiang.modules.sys.entity.*;
+import com.qiang.modules.sys.dao.CommentDao;
+import com.qiang.modules.sys.dao.CommentLikeDao;
+import com.qiang.modules.sys.dao.GuestDao;
+import com.qiang.modules.sys.dao.RepCommentDao;
+import com.qiang.modules.sys.dao.RepGuestDao;
+import com.qiang.modules.sys.dao.UsersDao;
+import com.qiang.modules.sys.dao.UsersLoginDao;
+import com.qiang.modules.sys.entity.CommentEntity;
+import com.qiang.modules.sys.entity.CommentLikesEntity;
+import com.qiang.modules.sys.entity.GuestEntity;
+import com.qiang.modules.sys.entity.RepGuestEntity;
+import com.qiang.modules.sys.entity.ReportCommentEntity;
+import com.qiang.modules.sys.entity.UsersEntity;
 import com.qiang.modules.sys.entity.VO.UsersVOEntity;
 import com.qiang.modules.sys.service.UserService;
 import com.qiang.modules.sys.shiro.ShiroMD5;
@@ -17,11 +26,9 @@ import java.util.List;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.service.impl
  * @Description:
  * @Date: 2019/6/20 0020 11:26
- **/
+ */
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -46,6 +53,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private GuestDao guestDao;
 
+
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public UsersEntity insUserMess(UsersEntity users) {
@@ -56,6 +64,7 @@ public class UserServiceImpl implements UserService {
         }
         return u;
     }
+
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
@@ -71,6 +80,7 @@ public class UserServiceImpl implements UserService {
         }
         return list;
     }
+
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
@@ -96,6 +106,7 @@ public class UserServiceImpl implements UserService {
         return c2 + c4;
     }
 
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public int findMessageNotRead(String username) {
@@ -105,10 +116,11 @@ public class UserServiceImpl implements UserService {
                 .eq("com_name", username));
         int c3 = guestDao.selectCount(new QueryWrapper<GuestEntity>().eq("is_read", 1));
         int c4 = repGuestDao.selectCount(new QueryWrapper<RepGuestEntity>()
-                    .eq("ris_read", 1)
-                    .eq("guest_name", username));
+                .eq("ris_read", 1)
+                .eq("guest_name", username));
         return c1 + c2 + c3 + c4;
     }
+
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
@@ -132,6 +144,7 @@ public class UserServiceImpl implements UserService {
         return guestDao.updOneNotGuestMana(id);
     }
 
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<RepGuestEntity> findNotRepReadGuest(String username) {
@@ -148,6 +161,7 @@ public class UserServiceImpl implements UserService {
         return guestDao.selectList(null);
     }
 
+
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public List<CommentLikesEntity> updComIsRead(String username) {
@@ -163,11 +177,13 @@ public class UserServiceImpl implements UserService {
         return list;
     }
 
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<CommentLikesEntity> findLikes(String username) {
         return commentLikeDao.findLikes(username);
     }
+
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
@@ -176,16 +192,18 @@ public class UserServiceImpl implements UserService {
         return usersDao.updUserPwd(phone, String.valueOf(o));
     }
 
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public UsersEntity findUserMess(String username) {
         return usersDao.selectOne(new QueryWrapper<UsersEntity>().eq("username", username));
-
     }
+
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public UsersVOEntity findUsersByPhone(String phone) {
         return usersLoginDao.findByPhone(phone);
     }
+
 }

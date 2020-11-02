@@ -5,16 +5,14 @@ import com.qiang.modules.sys.entity.FriendurlEntity;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.service
  * @Description:
  * @Date: 2019/8/2 0002 18:00
- **/
+ */
 public interface AdminService {
-
 
     /**
      * 增加友链
+     *
      * @param friendurlEntity
      * @return
      */
@@ -23,32 +21,39 @@ public interface AdminService {
 
     /**
      * 全部用户信息
+     *
      * @return
      */
     PagedResult findAllUsers(Integer pageSize, Integer pageNum);
 
+
     /**
      * 全部友链信息
+     *
      * @return
      */
     PagedResult getAllFriendsUrl(Integer pageSize, Integer pageNum);
 
+
     /**
      * 全部博客信息
+     *
      * @return
      */
     PagedResult findAllBlogs(Integer pageSize, Integer pageNum);
 
 
-
     /**
      * 删除用户
+     *
      * @return
      */
     int deleteUsers(String username);
 
+
     /**
      * 删除友链
+     *
      * @return
      */
     int delFriendUrl(Long id);
@@ -56,6 +61,7 @@ public interface AdminService {
 
     /**
      * 删除博客
+     *
      * @return
      */
     int deleteBlog(Long id);
@@ -66,9 +72,5 @@ public interface AdminService {
 //     * @return
 //     */
 //    BlogMessage editByBlogId(Long id);
-
-
-
-
 
 }

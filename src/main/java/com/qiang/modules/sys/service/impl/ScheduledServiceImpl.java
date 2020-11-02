@@ -12,8 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.service.impl
  * @Description:
  * @Date: 2019/8/9 0009 16:35
  **/
@@ -26,6 +24,7 @@ public class ScheduledServiceImpl implements ScheduledService {
     @Autowired
     private RedisOperator redisOperator;
 
+
     /**
      * second(秒),minute(分),hour(时)，day of month(日),month(月),day of week(周几)
      * 0 * * * * MON-FRI
@@ -34,8 +33,9 @@ public class ScheduledServiceImpl implements ScheduledService {
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public void visitorCustom() {
-        indexDao.updWebVisitorCount((int)redisOperator.get(Constant.BLOG_VISIT_COUNT));
+        indexDao.updWebVisitorCount((int) redisOperator.get(Constant.BLOG_VISIT_COUNT));
     }
+
 
     @Scheduled(cron = "0 5 * * * ?")
     @Transactional(propagation = Propagation.REQUIRED)
@@ -43,4 +43,5 @@ public class ScheduledServiceImpl implements ScheduledService {
     public void lookBlog() {
 
     }
+
 }

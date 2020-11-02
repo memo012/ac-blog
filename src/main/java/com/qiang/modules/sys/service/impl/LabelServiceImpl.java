@@ -17,11 +17,9 @@ import java.util.UUID;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.service
  * @Description: 标签业务逻辑层
  * @Date: 2019/7/6 0006 11:50
- **/
+ */
 @Service
 public class LabelServiceImpl implements LabelService {
 
@@ -34,14 +32,15 @@ public class LabelServiceImpl implements LabelService {
     @Autowired
     private AsyncService asyncService;
 
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<LabelEntity> selAllLabel() {
         List<LabelEntity> list = null;
         // 从redis中查询
-        if(redisOperator.hasKey(Constant.LABEL_ALL)){
-            list = (List<LabelEntity>)redisOperator.range(Constant.LABEL_ALL, 0, -1);
-        }else{
+        if (redisOperator.hasKey(Constant.LABEL_ALL)) {
+            list = (List<LabelEntity>) redisOperator.range(Constant.LABEL_ALL, 0, -1);
+        } else {
             // 从数据库中查 并存入缓存中
             list = labelDao.selectList(null);
             if (list != null) {
@@ -52,13 +51,14 @@ public class LabelServiceImpl implements LabelService {
         return list;
     }
 
+
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public int insLabel(String[] label) {
         int flag = 0;
-        for(int i = 0; i < label.length; i++){
+        for (int i = 0; i < label.length; i++) {
             Integer result = labelDao.selectCount(new QueryWrapper<LabelEntity>().eq("label_name", label[i]));
-            if(result == 0){
+            if (result == 0) {
                 LabelEntity tags = new LabelEntity();
                 String id = UUID.randomUUID().toString();
                 tags.setId(id);

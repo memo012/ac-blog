@@ -11,16 +11,15 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.service.impl
  * @Description:
  * @Date: 2019/8/17 0017 12:16
- **/
+ */
 @Service
 public class RedisServiceImpl implements RedisService {
 
     @Autowired
     private RedisOperator redisOperator;
+
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
@@ -30,6 +29,7 @@ public class RedisServiceImpl implements RedisService {
         // 用户名加入缓存
         redisOperator.hset(Constant.USER_NAME_EXIST, username, 1);
     }
+
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
@@ -41,4 +41,5 @@ public class RedisServiceImpl implements RedisService {
         // 文章浏览次数
         redisOperator.set(Constant.BLOG_DETAIL + blogMessageVOEntity.getId(), 0);
     }
+
 }

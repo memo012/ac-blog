@@ -20,11 +20,9 @@ import java.util.List;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.service.impl
  * @Description: 留言业务逻辑层
  * @Date: 2019/7/24 0024 17:31
- **/
+ */
 @Service
 public class GuestServiceImpl implements GuestService {
 
@@ -40,6 +38,7 @@ public class GuestServiceImpl implements GuestService {
     @Autowired
     private GuestLikesDao guestLikesDao;
 
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<GuestEntity> getAllGuest() {
@@ -47,6 +46,7 @@ public class GuestServiceImpl implements GuestService {
         list = guestDao.getAllGuest();
         return list;
     }
+
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
@@ -57,6 +57,7 @@ public class GuestServiceImpl implements GuestService {
         return guestLikesDao.selectOne(queryWrapper) != null ? true : false;
     }
 
+
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public int delIsLikes(GuestLikesEntity guestLikes) {
@@ -66,11 +67,13 @@ public class GuestServiceImpl implements GuestService {
         return guestLikesDao.delete(queryWrapper);
     }
 
+
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public int updInsLikes(Long id) {
         return guestDao.updInsRepGuest(id);
     }
+
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
@@ -81,22 +84,24 @@ public class GuestServiceImpl implements GuestService {
         int i = guestLikesDao.insert(guestLikes);
         int k = updInsLikes(guestLikes.getGuestId());
         List<GuestEntity> list = null;
-        if(i > 0 && k > 0){
+        if (i > 0 && k > 0) {
             list = getAllGuest();
         }
         return list;
     }
+
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public List<GuestEntity> updDesLikes(Long id) {
         int i = guestDao.updDesRepGuest(id);
         List<GuestEntity> list = null;
-        if(i > 0){
+        if (i > 0) {
             list = getAllGuest();
         }
         return list;
     }
+
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
@@ -109,13 +114,14 @@ public class GuestServiceImpl implements GuestService {
         List<GuestEntity> list = null;
         int i = repGuestDao.insert(repGuest);
 
-        if(i > 0){
+        if (i > 0) {
             list = getAllGuest();
         }
         // 存入缓存 增加留言（+1）
         redisOperator.incr(Constant.BLOG_GUEST_COUNT, 1);
         return list;
     }
+
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
@@ -128,11 +134,12 @@ public class GuestServiceImpl implements GuestService {
         guest.setIsRead(1);
         List<GuestEntity> list = null;
         int i = guestDao.insert(guest);
-        if(i > 0){
+        if (i > 0) {
             list = getAllGuest();
         }
         // 存入缓存 增加留言（+1）
         redisOperator.incr(Constant.BLOG_GUEST_COUNT, 1);
         return list;
     }
+
 }

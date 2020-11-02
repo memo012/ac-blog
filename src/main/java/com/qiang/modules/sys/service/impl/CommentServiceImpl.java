@@ -21,11 +21,9 @@ import java.util.List;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.service.impl
  * @Description: 评论业务逻辑层
  * @Date: 2019/7/22 0022 15:04
- **/
+ */
 @Service
 public class CommentServiceImpl implements CommentService {
 
@@ -52,6 +50,7 @@ public class CommentServiceImpl implements CommentService {
         return commentLikeDao.insert(commentLikes);
     }
 
+
     @Override
     public int updOneNotComm(Long id) {
         ReportCommentEntity reportCommentEntity = new ReportCommentEntity();
@@ -61,20 +60,22 @@ public class CommentServiceImpl implements CommentService {
         return repCommentDao.updateById(reportCommentEntity);
     }
 
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<ReportCommentEntity> updComIsRead(String username) {
         List<Long> rid = repCommentDao.selComByUsername(username);
         List<ReportCommentEntity> userRepMessNotRead = null;
-        if(rid.size() == 0){
+        if (rid.size() == 0) {
             return userRepMessNotRead;
         }
         int i = repCommentDao.updComIsRead(rid);
-        if(i > 0){
+        if (i > 0) {
             userRepMessNotRead = getUserRepMessNotRead(username);
         }
         return userRepMessNotRead;
     }
+
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
@@ -89,6 +90,7 @@ public class CommentServiceImpl implements CommentService {
         return allComment;
     }
 
+
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public int delCommLikes(CommentLikesEntity commentLikes) {
@@ -99,11 +101,13 @@ public class CommentServiceImpl implements CommentService {
         return commentLikeDao.delete(commentLikesEntityQueryWrapper);
     }
 
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<ReportCommentEntity> getUserRepMessNotRead(String username) {
         return repCommentDao.getUserRepMessNotRead(username);
     }
+
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
@@ -118,6 +122,7 @@ public class CommentServiceImpl implements CommentService {
         return allComment;
     }
 
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public boolean isCommLikes(CommentLikesEntity commentLikes) {
@@ -127,6 +132,7 @@ public class CommentServiceImpl implements CommentService {
                 .eq("like_name", commentLikes.getLikeName());
         return commentLikeDao.selectOne(queryWrapper) != null ? true : false;
     }
+
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
@@ -149,6 +155,7 @@ public class CommentServiceImpl implements CommentService {
         return list;
     }
 
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<CommentEntity> getAllComment(long blogId) {
@@ -165,6 +172,7 @@ public class CommentServiceImpl implements CommentService {
         }
         return list;
     }
+
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override

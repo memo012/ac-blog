@@ -11,11 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.service.impl
  * @Description:
  * @Date: 2019/8/8 0008 16:13
- **/
+ */
 @Service
 public class IndexServiceImpl implements IndexService {
 
@@ -25,6 +23,7 @@ public class IndexServiceImpl implements IndexService {
     @Autowired
     private RedisOperator redisOperator;
 
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public Long myArticlesCount() {
@@ -33,6 +32,7 @@ public class IndexServiceImpl implements IndexService {
         return aLong;
     }
 
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public int myLabelsCount() {
@@ -40,6 +40,7 @@ public class IndexServiceImpl implements IndexService {
         redisOperator.set(Constant.LABEL_ALL_COUNT, myLabelsCount);
         return myLabelsCount;
     }
+
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
@@ -51,6 +52,7 @@ public class IndexServiceImpl implements IndexService {
         return l3;
     }
 
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public Integer myGuestCount() {
@@ -61,6 +63,7 @@ public class IndexServiceImpl implements IndexService {
         return al;
     }
 
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public int myWebCount() {
@@ -68,4 +71,5 @@ public class IndexServiceImpl implements IndexService {
         redisOperator.set(Constant.BLOG_VISIT_COUNT, visitorCount);
         return visitorCount;
     }
+
 }

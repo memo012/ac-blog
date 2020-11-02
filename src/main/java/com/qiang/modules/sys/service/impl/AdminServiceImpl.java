@@ -24,15 +24,11 @@ import java.util.List;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.service.impl
  * @Description: 管理员业务逻辑层
  * @Date: 2019/8/2 0002 18:00
- **/
+ */
 @Service
 public class AdminServiceImpl implements AdminService {
-
-
 
     @Autowired
     private UsersDao usersDao;
@@ -45,22 +41,25 @@ public class AdminServiceImpl implements AdminService {
 
     @Autowired
     private FriendurlDao friendurlDao;
-//
-//    @Autowired
-//    private EsService esService;
-//
+
+
+    //    @Autowired
+    //    private EsService esService;
+    //
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public int deleteBlog(Long id) {
         // 删除缓存里东西
         redisOperator.lremove(Constant.PAGE_BLOG, 0, redisOperator.hget(Constant.BLOG_DETAIL, String.valueOf(id))); // 首页
-        redisOperator.del(Constant.BLOG_DETAIL+id); // 文章浏览次数
+        redisOperator.del(Constant.BLOG_DETAIL + id); // 文章浏览次数
         redisOperator.hdel(Constant.BLOG_DETAIL, String.valueOf(id)); // 详情
-       // esService.removeEsBlog(id); // 搜索
-      //  BlogMessageVO byId = adminMapper.findById(id);
+        // esService.removeEsBlog(id); // 搜索
+        //  BlogMessageVO byId = adminMapper.findById(id);
         int i = blogDao.deleteById(id);
         return i;
     }
+
+
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public int deleteUsers(String username) {
@@ -68,12 +67,14 @@ public class AdminServiceImpl implements AdminService {
         return i;
     }
 
+
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public int delFriendUrl(Long id) {
         int i = friendurlDao.delete(new QueryWrapper<FriendurlEntity>().eq("id", id));
         return i;
     }
+
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
@@ -88,6 +89,7 @@ public class AdminServiceImpl implements AdminService {
         return grid;
     }
 
+
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public int insFriendUrl(FriendurlEntity friendurlEntity) {
@@ -96,6 +98,7 @@ public class AdminServiceImpl implements AdminService {
         friendurlEntity.setCreateTime(timeUtil.getFormatDateForSix());
         return friendurlDao.insert(friendurlEntity);
     }
+
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
@@ -111,6 +114,7 @@ public class AdminServiceImpl implements AdminService {
         return grid;
     }
 
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public PagedResult getAllFriendsUrl(Integer pageSize, Integer pageNum) {
@@ -124,4 +128,5 @@ public class AdminServiceImpl implements AdminService {
         grid.setRows(records);
         return grid;
     }
+
 }

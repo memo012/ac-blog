@@ -1,16 +1,13 @@
 package com.qiang.modules.sys.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.qiang.common.utils.Constant;
 import com.qiang.common.utils.TimeUtil;
 import com.qiang.modules.sys.dao.RegisterDao;
 import com.qiang.modules.sys.entity.UsersEntity;
-import com.qiang.modules.sys.entity.VO.UsersVOEntity;
 import com.qiang.modules.sys.service.AsyncService;
 import com.qiang.modules.sys.service.RedisService;
 import com.qiang.modules.sys.service.RegisterService;
 import com.qiang.modules.sys.shiro.ShiroMD5;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -20,11 +17,9 @@ import java.util.UUID;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.service.impl
  * @Description:
  * @Date: 2019/8/9 0009 17:32
- **/
+ */
 @Service
 public class RegisterServiceImpl implements RegisterService {
 
@@ -53,6 +48,7 @@ public class RegisterServiceImpl implements RegisterService {
         return registerDao.insert(users);
     }
 
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public int findByPhone(String phone) {
@@ -62,6 +58,7 @@ public class RegisterServiceImpl implements RegisterService {
         return phoneNum;
     }
 
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public int findByUsername(String username) {
@@ -70,7 +67,5 @@ public class RegisterServiceImpl implements RegisterService {
         asyncService.insUserName();
         return name;
     }
-
-
 
 }

@@ -20,11 +20,9 @@ import java.util.List;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.service.impl
  * @Description: 首页操作业务逻辑层
  * @Date: 2019/7/8 0008 15:47
- **/
+ */
 @Service
 public class ArticleServiceImpl implements ArticleService {
 
@@ -42,14 +40,15 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public int updLike(long articleId) {
         // 先从缓存中查询
-        if(redisOperator.hasKey(Constant.BLOG_LIKES+articleId)){
-            redisOperator.incr(Constant.BLOG_LIKES+articleId, 1);
-        }else{
+        if (redisOperator.hasKey(Constant.BLOG_LIKES + articleId)) {
+            redisOperator.incr(Constant.BLOG_LIKES + articleId, 1);
+        } else {
             long likes = blogDao.selectById(articleId).getLikes();
-            redisOperator.set(Constant.BLOG_LIKES+articleId, likes+1);
+            redisOperator.set(Constant.BLOG_LIKES + articleId, likes + 1);
         }
-        return (int)redisOperator.get(Constant.BLOG_LIKES+articleId);
+        return (int) redisOperator.get(Constant.BLOG_LIKES + articleId);
     }
+
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
@@ -58,7 +57,7 @@ public class ArticleServiceImpl implements ArticleService {
                 .like("create_time", time)
                 .orderByDesc("id");
         IPage<BlogMessageVOEntity> blog = blogDao.selectPage(new Page<>(pageNum, pageSize), queryWrapper);
-        for (BlogMessageVOEntity b:
+        for (BlogMessageVOEntity b :
                 blog.getRecords()) {
             b.setTagValue(StringAndArray.stringToArray(b.getLabelValues()));
         }
@@ -69,6 +68,7 @@ public class ArticleServiceImpl implements ArticleService {
         grid.setRows(blog.getRecords());
         return grid;
     }
+
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
@@ -77,7 +77,7 @@ public class ArticleServiceImpl implements ArticleService {
                 .like("select_categories", categories)
                 .orderByDesc("id");
         IPage<BlogMessageVOEntity> blog = blogDao.selectPage(new Page<>(pageNum, pageSize), queryWrapper);
-        for (BlogMessageVOEntity b:
+        for (BlogMessageVOEntity b :
                 blog.getRecords()) {
             b.setTagValue(StringAndArray.stringToArray(b.getLabelValues()));
         }
@@ -89,6 +89,7 @@ public class ArticleServiceImpl implements ArticleService {
         return grid;
     }
 
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public PagedResult findByTag(Integer pageNum, Integer pageSize, String tag) {
@@ -96,7 +97,7 @@ public class ArticleServiceImpl implements ArticleService {
                 .like("label_values", tag)
                 .orderByDesc("id");
         IPage<BlogMessageVOEntity> blog = blogDao.selectPage(new Page<>(pageNum, pageSize), queryWrapper);
-        for (BlogMessageVOEntity b:
+        for (BlogMessageVOEntity b :
                 blog.getRecords()) {
             b.setTagValue(StringAndArray.stringToArray(b.getLabelValues()));
             b.setSpecificTag(tag);
@@ -109,12 +110,13 @@ public class ArticleServiceImpl implements ArticleService {
         return grid;
     }
 
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public PagedResult findAllBlog(Integer pageNum, Integer pageSize) {
         PagedResult grid = new PagedResult();
         // 先从缓存中查询
-        if(redisOperator.hasKey(Constant.PAGE_BLOG)){
+        if (redisOperator.hasKey(Constant.PAGE_BLOG)) {
             int start = (pageNum - 1) * pageSize;
             int stop = pageNum * pageSize - 1;
             List<BlogMessageVOEntity> range = (List<BlogMessageVOEntity>) redisOperator.range(Constant.PAGE_BLOG, start, stop);
@@ -123,15 +125,15 @@ public class ArticleServiceImpl implements ArticleService {
             grid.setRows(range);
             grid.setPage(pageNum);
             grid.setTotal(length);
-        }else{
+        } else {
             IPage<BlogMessageVOEntity> blog = blogDao.selectPage(new Page<>(pageNum, pageSize), new QueryWrapper<BlogMessageVOEntity>().orderByDesc("id"));
-            for (BlogMessageVOEntity b:
+            for (BlogMessageVOEntity b :
                     blog.getRecords()) {
                 b.setTagValue(StringAndArray.stringToArray(b.getLabelValues()));
                 b.setArticleUrl("/article/" + b.getId());
             }
             // 存入缓存中(异步存储)
-            if(blog != null){
+            if (blog != null) {
                 asyncService.insPageBlog();
             }
             grid.setPage(pageNum);
@@ -141,4 +143,5 @@ public class ArticleServiceImpl implements ArticleService {
         }
         return grid;
     }
+
 }

@@ -16,11 +16,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.service.impl
  * @Description: 博客业务逻辑层
  * @Date: 2019/7/6 0006 15:07
- **/
+ */
 @Service
 public class BlogServiceImpl implements BlogService {
 
@@ -30,14 +28,15 @@ public class BlogServiceImpl implements BlogService {
     @Autowired
     private RedisService redisService;
 
-//    @Autowired
-//    private EsService esService;
+    // @Autowired
+    // private EsService esService;
 
     @Autowired
     private RedisOperator redisOperator;
 
     @Autowired
     private AsyncService asyncService;
+
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
@@ -48,13 +47,14 @@ public class BlogServiceImpl implements BlogService {
         return blogMessage;
     }
 
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public BlogMessageVOEntity findBlogById(long id) {
         BlogMessageVOEntity blogMessage = null;
         // 从缓存中查询
         if (redisOperator.hasHkey(Constant.BLOG_DETAIL, String.valueOf(id))) {
-            if(redisOperator.hget(Constant.BLOG_DETAIL, String.valueOf(id)) == null){
+            if (redisOperator.hget(Constant.BLOG_DETAIL, String.valueOf(id)) == null) {
                 return blogMessage;
             }
             blogMessage = (BlogMessageVOEntity) redisOperator.hget(Constant.BLOG_DETAIL, String.valueOf(id));
@@ -74,7 +74,7 @@ public class BlogServiceImpl implements BlogService {
 
             // 缓存中是否存在博客点赞数
             if (redisOperator.hasKey(Constant.BLOG_LIKES + id)) {
-                likes = (int)redisOperator.get(Constant.BLOG_LIKES + id);
+                likes = (int) redisOperator.get(Constant.BLOG_LIKES + id);
             } else {
                 BlogMessageVOEntity findLikes = blogDao.selectById(id);
                 redisOperator.set(Constant.BLOG_LIKES + id, findLikes.getLikes());
@@ -90,6 +90,7 @@ public class BlogServiceImpl implements BlogService {
         return blogMessage;
     }
 
+
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public Boolean updBlogByBlogId(BlogMessageVOEntity blogMessageVO) {
@@ -104,7 +105,7 @@ public class BlogServiceImpl implements BlogService {
 //        esService.removeEsBlog(blogMessageVO.getId());
 //        esBlogMessage.update(blogMessageVO);
 //        esService.saveBlog(esBlogMessage);
-         // 存入缓存中(首页分页查询) -- 先删后存
+        // 存入缓存中(首页分页查询) -- 先删后存
         redisOperator.lremove(Constant.PAGE_BLOG, 0, redisOperator.hget(Constant.BLOG_DETAIL, String.valueOf(blogMessageVO.getId())));
         redisOperator.lpush(Constant.PAGE_BLOG, blogMessageVO);
         // 存入缓存（博客具体详情） -- 先删后存
@@ -112,6 +113,7 @@ public class BlogServiceImpl implements BlogService {
         redisOperator.hset(Constant.BLOG_DETAIL, String.valueOf(blogMessageVO.getId()), blogMessageVO);
         return true;
     }
+
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
@@ -136,4 +138,5 @@ public class BlogServiceImpl implements BlogService {
         // 存入缓存
         redisService.SaveEditBlog(blogMessageVO);
     }
+
 }

@@ -1,11 +1,15 @@
 package com.qiang.modules.sys.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.qiang.common.utils.Constant;
-import com.qiang.common.utils.RedisOperator;
 import com.qiang.common.utils.TimeUtil;
-import com.qiang.modules.sys.dao.*;
-import com.qiang.modules.sys.entity.*;
+import com.qiang.modules.sys.dao.FriendLikesDao;
+import com.qiang.modules.sys.dao.FriendlinkDao;
+import com.qiang.modules.sys.dao.FriendurlDao;
+import com.qiang.modules.sys.dao.RepFriendlinkDao;
+import com.qiang.modules.sys.entity.FriendLikesEntity;
+import com.qiang.modules.sys.entity.FriendLinkEntity;
+import com.qiang.modules.sys.entity.FriendurlEntity;
+import com.qiang.modules.sys.entity.RepFriendLinkEntity;
 import com.qiang.modules.sys.service.FriendLinkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,8 +20,6 @@ import java.util.List;
 
 /**
  * @Author: qiang
- * @ProjectName: adminsystem
- * @Package: com.qiang.modules.sys.service.impl
  * @Description:
  * @Date: 2019/8/19 0019 19:15
  **/
@@ -36,6 +38,7 @@ public class FriendLinkServiceImpl implements FriendLinkService {
     @Autowired
     private FriendLikesDao friendLikesDao;
 
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<FriendLinkEntity> getAllGuest() {
@@ -53,6 +56,7 @@ public class FriendLinkServiceImpl implements FriendLinkService {
         return list;
     }
 
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public boolean findIsLikes(FriendLikesEntity guestLikes) {
@@ -61,6 +65,7 @@ public class FriendLinkServiceImpl implements FriendLinkService {
                 .eq("like_name", guestLikes.getLikeName());
         return friendLikesDao.selectOne(queryWrapper) != null ? true : false;
     }
+
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
@@ -71,11 +76,13 @@ public class FriendLinkServiceImpl implements FriendLinkService {
         return friendLikesDao.delete(queryWrapper);
     }
 
+
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public int updInsLikes(Long id) {
         return friendlinkDao.updInsRepGuest(id);
     }
+
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
@@ -92,6 +99,7 @@ public class FriendLinkServiceImpl implements FriendLinkService {
         return list;
     }
 
+
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public List<FriendLinkEntity> updDesLikes(Long id) {
@@ -102,7 +110,6 @@ public class FriendLinkServiceImpl implements FriendLinkService {
         }
         return list;
     }
-
 
 
     @Transactional(propagation = Propagation.REQUIRED)
@@ -121,6 +128,7 @@ public class FriendLinkServiceImpl implements FriendLinkService {
         }
         return list;
     }
+
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
