@@ -17,7 +17,7 @@
 ## 项目架构
 ```
 |--- pom                                        // acblog配置文件
-|--- blog-plus.sql                              // acblog数据库设计
+|--- acblog.sql                                 // acblog数据库设计
 |--- src                                        // 源代码
 |--- |--- main                                  // 代码页
           |--- Java                             // 后台代码
