@@ -31,7 +31,6 @@ public enum BlogConstant {
      */
     BLOG_REPORT("redis:article:report:blog"),
 
-
     /**
      * 文章点赞数
      */
@@ -41,7 +40,6 @@ public enum BlogConstant {
      * 网站留言(总数)
      */
     BLOG_GUEST_COUNT("redis:guest:report:blog:count"),
-
 
     /**
      * 评论总数
