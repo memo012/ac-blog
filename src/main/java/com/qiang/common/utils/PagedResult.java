@@ -1,5 +1,7 @@
 package com.qiang.common.utils;
 
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
 /**
@@ -7,6 +9,7 @@ import java.util.List;
  * @Description: 封装分页后的数据格式
  * @Date: 2019/7/31 0031 19:20
  */
+@Component
 public class PagedResult {
 
     /**

@@ -73,5 +73,4 @@ public class Constant {
      */
     public static final String USER_PHONE_CODE = "redis:blog:user:code";
 
-
 }

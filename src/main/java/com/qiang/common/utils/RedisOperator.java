@@ -17,7 +17,7 @@ public class RedisOperator {
 
     /**
      * @Autowired 默认以类型来比较
-     * @Resource 默认以名字来比较
+     * @Resource  默认以名字来比较
      */
     @Autowired
     private RedisTemplate redisTemplate;

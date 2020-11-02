@@ -1,5 +1,7 @@
 package com.qiang.common.utils;
 
+import org.springframework.stereotype.Component;
+
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -9,6 +11,7 @@ import java.util.Set;
  * @Description: 工具类
  * @Date: 2019/7/31 0031 18:41
  */
+@Component
 public class CommonUtils {
 
     /**

@@ -1,5 +1,7 @@
 package com.qiang.common.utils;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @Author: qiang
  * @Description: 自定义响应数据结构
@@ -14,18 +16,29 @@ package com.qiang.common.utils;
  * 503: 不具备角色功能
  * 555：异常抛出信息
  */
+@Component
 public class BlogJSONResult {
 
-    // 响应业务状态
+    /**
+     * 响应业务状态
+     */
+
     private Integer status;
 
-    // 响应消息
+    /**
+     * 响应消息
+     */
     private String msg;
 
-    // 响应中的数据
+    /**
+     * 响应中的数据
+     */
     private Object data;
 
-    private String ok;    // 不使用
+    /**
+     * 不使用
+     */
+    private String ok;
 
     public static BlogJSONResult build(Integer status, String msg, Object data) {
         return new BlogJSONResult(status, msg, data);

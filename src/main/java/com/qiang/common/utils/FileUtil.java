@@ -1,6 +1,7 @@
 package com.qiang.common.utils;
 
 import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -11,6 +12,7 @@ import java.io.InputStream;
  * @Description: 文件上传工具类
  * @Date: 2019/7/31 0031 19:20
  */
+@Component
 public class FileUtil {
 
     /**
@@ -30,4 +32,5 @@ public class FileUtil {
         fileOutputStream = new FileOutputStream(files);
         IOUtils.copy(file, fileOutputStream);
     }
+
 }

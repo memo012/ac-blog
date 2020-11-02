@@ -1,5 +1,7 @@
 package com.qiang.common.utils;
 
+import org.springframework.stereotype.Component;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
@@ -8,6 +10,7 @@ import java.net.URLDecoder;
  * @Describe: 转码工具
  * @Date: 2018/7/22 21:17
  */
+@Component
 public class TransCodingUtil {
 
     /**
@@ -86,73 +89,5 @@ public class TransCodingUtil {
         }
         return false;
     }
-
-
-//    /**
-//     * 汉字转16进制
-//     * @param s 汉字
-//     * @return 汉字的16进制
-//     */
-//    public static String stringToHex16(String s){
-//        System.out.println("汉字转16进制-------汉字：" + s);
-//        if (s == null || s.equals("")) {
-//            return null;
-//        }
-//        StringBuffer sb = new StringBuffer();
-//        try {
-//            char c;
-//            for (int i = 0; i < s.length(); i++) {
-//                c = s.charAt(i);
-//                if (c >= 0 && c <= 255) {
-//                    sb.append(c);
-//                } else {
-//                    byte[] b;
-//                    b = Character.toString(c).getBytes("utf-8");
-//                    for (byte aB : b) {
-//                        int k = aB;
-//                        if (k < 0) {
-//                            k += 256;
-//                        }
-//                        sb.append(Integer.toHexString(k).toUpperCase());
-//                    }
-//                }
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        System.out.println("汉字转16进制-------16进制：" + sb.toString());
-//        return sb.toString();
-//    }
-//
-//    /**
-//     * 16进制转汉字
-//     * @param s 汉字的16进制
-//     * @return 汉字
-//     */
-//    public static String hex16ToString(String s){
-//        System.out.println("16进制转汉字-------16进制：" + s);
-//        if (s == null || s.equals("")) {
-//            return null;
-//        }
-//
-//        try {
-//            s = s.toUpperCase();
-//            int total = s.length() / 2;
-//            int pos = 0;
-//            byte[] buffer = new byte[total];
-//            for (int i = 0; i < total; i++) {
-//                int start = i * 2;
-//                buffer[i] = (byte) Integer.parseInt(
-//                        s.substring(start, start + 2), 16);
-//                pos++;
-//            }
-//            System.out.println("16进制转汉字-------汉字：" + new String(buffer, 0, pos, "UTF-8"));
-//            return new String(buffer, 0, pos, "UTF-8");
-//        } catch (UnsupportedEncodingException e) {
-//            e.printStackTrace();
-//        }
-//        System.out.println("16进制转汉字-------汉字：" + s);
-//        return s;
-//    }
 
 }

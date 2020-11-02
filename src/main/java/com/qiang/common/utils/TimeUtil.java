@@ -1,5 +1,7 @@
 package com.qiang.common.utils;
 
+import org.springframework.stereotype.Component;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -10,6 +12,7 @@ import java.util.Date;
  * @Description: 时间工具
  * @Date: 2019/7/4 0004 11:05
  */
+@Component
 public class TimeUtil {
 
     /**

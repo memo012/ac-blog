@@ -1,10 +1,13 @@
 package com.qiang.common.utils;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @Author: qiang
  * @Description: markdown截取文章生成摘要
  * @Date: 2019/7/4 0004 11:05
  */
+@Component
 public class BuildArticleTabloidUtil {
 
     public String buildArticleTabloid(String htmlArticleComment) {
