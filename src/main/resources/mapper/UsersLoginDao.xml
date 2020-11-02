@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiang.modules.sys.dao.UsersLoginDao">
+
+    <resultMap id="userMap" type="UsersVOEntity">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="phone" column="phone"/>
+        <result property="sex" column="sex"/>
+        <result property="password" column="password"/>
+        <result property="lastTime" column="last_time"/>
+        <result property="name" column="name"/>
+        <result property="roleId" column="role_id"/>
+        <result property="realname" column="realname"/>
+        <result property="qq" column="qq"/>
+        <result property="email" column="email"/>
+        <result property="intro" column="intro"/>
+        <collection property="roles" ofType="RoleVOEntity">
+            <id property="rid" column="rid"/>
+            <result property="rname" column="rname"/>
+            <collection property="permissionSet" ofType="PermissionEntity">
+                <id property="pid" column="pid"/>
+                <result property="pname" column="pname"/>
+                <result property="url" column="url"/>
+            </collection>
+        </collection>
+    </resultMap>
+
+    <select id="findByPhone" parameterType="String" resultMap="userMap">
+      SELECT u.*, r.*, p.*
+      from users u
+      INNER JOIN roles r on u.role_Id = r.rid
+      INNER JOIN permission_role pr on pr.rid = r.rid
+      INNER JOIN permission p on p.pid = pr.pid
+      where u.phone = #{arg0}
+    </select>
+
+</mapper>

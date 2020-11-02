@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiang.modules.sys.dao.UsersDao">
+
+    <update id="updUserMess" parameterType="UsersEntity">
+        update  users
+         set realname = #{realname}, qq = #{qq}, email = #{email}, intro = #{intro}
+         where username = #{username}
+    </update>
+
+
+</mapper>

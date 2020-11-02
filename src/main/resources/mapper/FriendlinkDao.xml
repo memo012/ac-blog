@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiang.modules.sys.dao.FriendlinkDao">
+
+    <resultMap id="allFriend" type="FriendLinkEntity">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="message" property="message"/>
+        <result column="create_time" property="createTime"/>
+        <result column="likes" property="likes"/>
+        <result column="is_read" property="isRead"/>
+        <result column="author_name" property="authorName"/>
+        <collection property="reportCommentSet" ofType="RepFriendLinkEntity">
+            <id column="rid" property="rid"/>
+            <result column="friend_id" property="friendId"/>
+            <result column="rep_mess" property="repMess"/>
+            <result column="rfriend_id" property="rfriendId"/>
+            <result column="rcreate_time" property="rcreateTime"/>
+            <result column="ris_read" property="risRead"/>
+            <result column="rep_name" property="repName"/>
+            <result column="friend_name" property="friendName"/>
+        </collection>
+    </resultMap>
+
+    <select id="getAllGuest" resultMap="allFriend">
+      SELECT g.*, r.*
+      from friendlink g
+      LEFT JOIN repfriend r on g.id = r.friend_id
+      order by g.id desc
+    </select>
+
+</mapper>
