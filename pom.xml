@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.qiang</groupId>
-    <artifactId>acblog</artifactId>
+    <artifactId>ac-blog</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>acblog</name>
+    <name>ac-blog</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -119,10 +119,10 @@
                     <groupId>redis.clients</groupId>
                     <artifactId>jedis</artifactId>
                 </exclusion>
-                    <exclusion>
-                        <groupId>io.lettuce</groupId>
-                        <artifactId>lettuce-core</artifactId>
-                    </exclusion>
+                <exclusion>
+                    <groupId>io.lettuce</groupId>
+                    <artifactId>lettuce-core</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
         <dependency>
@@ -141,7 +141,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
-<!--            <scope>provided</scope>-->
+            <!--            <scope>provided</scope>-->
         </dependency>
 
         <!-- 腾讯云短信平台-->
