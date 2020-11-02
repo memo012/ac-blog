@@ -41,7 +41,7 @@ public class RegisterController {
     public BlogJSONResult register(@RequestBody UsersEntity users) {
         int result = registerService.insUsers(users);
         if (result > 0) {
-            redisOperator.del(BlogConstant.USER_PHONE_CODE + users.getPhone());
+            redisOperator.del(BlogConstant.USER_PHONE_CODE.val() + users.getPhone());
             return BlogJSONResult.ok();
         }
         return BlogJSONResult.errorMsg("注册失败");
@@ -57,8 +57,8 @@ public class RegisterController {
     @GetMapping("phoneCheck")
     public BlogJSONResult phoneCheck(@RequestParam("phone") String phone) {
         // 先从缓存中查询
-        if (redisOperator.hsize(BlogConstant.USER_PHONE_EXIST) != 0) {
-            if (!redisOperator.hasHkey(BlogConstant.USER_PHONE_EXIST, phone)) {
+        if (redisOperator.hsize(BlogConstant.USER_PHONE_EXIST.val()) != 0) {
+            if (!redisOperator.hasHkey(BlogConstant.USER_PHONE_EXIST.val(), phone)) {
                 return BlogJSONResult.ok();
             } else {
                 return BlogJSONResult.errorMsg("该手机号已被注册");
@@ -83,13 +83,12 @@ public class RegisterController {
     @GetMapping("usernameCheck")
     public BlogJSONResult usernameCheck(@RequestParam("username") String username) {
         // 先从缓存中查询
-        if (redisOperator.hsize(BlogConstant.USER_NAME_EXIST) != 0) {
-            if (!redisOperator.hasHkey(BlogConstant.USER_NAME_EXIST, username)) {
+        if (redisOperator.hsize(BlogConstant.USER_NAME_EXIST.val()) != 0) {
+            if (!redisOperator.hasHkey(BlogConstant.USER_NAME_EXIST.val(), username)) {
                 return BlogJSONResult.ok();
             } else {
                 return BlogJSONResult.errorMsg("该用户已存在");
             }
-
         } else {
             int result = registerService.findByUsername(username);
             if (result == 0) {
@@ -127,8 +126,8 @@ public class RegisterController {
      */
     @GetMapping("getCodeReflush")
     public BlogJSONResult getCodeReflush(@RequestParam("phone") String phone) {
-        if (redisOperator.hasKey(BlogConstant.USER_PHONE_CODE + phone)) {
-            return BlogJSONResult.ok(redisOperator.get(BlogConstant.USER_PHONE_CODE + phone));
+        if (redisOperator.hasKey(BlogConstant.USER_PHONE_CODE.val() + phone)) {
+            return BlogJSONResult.ok(redisOperator.get(BlogConstant.USER_PHONE_CODE.val() + phone));
         } else {
             return BlogJSONResult.errorMsg("验证码失效");
         }

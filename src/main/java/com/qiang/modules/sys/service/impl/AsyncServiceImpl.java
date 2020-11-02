@@ -54,7 +54,7 @@ public class AsyncServiceImpl implements AsyncService {
         List<UsersEntity> allUsers = registerDao.selectList(null);
         for (UsersEntity u : allUsers) {
             // 手机号加入缓存
-            redisOperator.hset(BlogConstant.USER_PHONE_EXIST, u.getPhone(), 1);
+            redisOperator.hset(BlogConstant.USER_PHONE_EXIST.val(), u.getPhone(), 1);
         }
     }
 
@@ -66,7 +66,7 @@ public class AsyncServiceImpl implements AsyncService {
         List<UsersEntity> allUsers = registerDao.selectList(null);
         for (UsersEntity u : allUsers) {
             // 用户名加入缓存
-            redisOperator.hset(BlogConstant.USER_NAME_EXIST, u.getUsername(), 1);
+            redisOperator.hset(BlogConstant.USER_NAME_EXIST.val(), u.getUsername(), 1);
         }
     }
 
@@ -80,7 +80,7 @@ public class AsyncServiceImpl implements AsyncService {
             b.setTagValue(StringAndArray.stringToArray(b.getLabelValues()));
             b.setArticleUrl("/article/" + b.getId());
             // 存入缓存中(首页分页查询)
-            redisOperator.lpush(BlogConstant.PAGE_BLOG, b);
+            redisOperator.lpush(BlogConstant.PAGE_BLOG.val(), b);
         }
     }
 
@@ -90,7 +90,7 @@ public class AsyncServiceImpl implements AsyncService {
     @Transactional(propagation = Propagation.REQUIRED)
     public void insLabelName(List<LabelEntity> list) {
         for (LabelEntity label : list) {
-            redisOperator.lpush(BlogConstant.LABEL_ALL, label);
+            redisOperator.lpush(BlogConstant.LABEL_ALL.val(), label);
         }
     }
 

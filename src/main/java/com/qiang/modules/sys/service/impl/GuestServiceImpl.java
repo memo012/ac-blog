@@ -118,7 +118,7 @@ public class GuestServiceImpl implements GuestService {
             list = getAllGuest();
         }
         // 存入缓存 增加留言（+1）
-        redisOperator.incr(BlogConstant.BLOG_GUEST_COUNT, 1);
+        redisOperator.incr(BlogConstant.BLOG_GUEST_COUNT.val(), 1);
         return list;
     }
 
@@ -138,7 +138,7 @@ public class GuestServiceImpl implements GuestService {
             list = getAllGuest();
         }
         // 存入缓存 增加留言（+1）
-        redisOperator.incr(BlogConstant.BLOG_GUEST_COUNT, 1);
+        redisOperator.incr(BlogConstant.BLOG_GUEST_COUNT.val(), 1);
         return list;
     }
 

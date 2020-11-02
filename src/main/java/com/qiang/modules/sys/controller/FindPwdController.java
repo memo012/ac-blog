@@ -56,7 +56,7 @@ public class FindPwdController {
     public BlogJSONResult findUsersPwd(@RequestParam("phone") String phone, @RequestParam("password") String password) {
         int i = userService.updUserPwd(phone, password);
         if (i > 0) {
-            redisOperator.del(BlogConstant.USER_PHONE_CODE + phone);
+            redisOperator.del(BlogConstant.USER_PHONE_CODE.val() + phone);
             return BlogJSONResult.ok();
         }
         return BlogJSONResult.errorMsg("修改失败");

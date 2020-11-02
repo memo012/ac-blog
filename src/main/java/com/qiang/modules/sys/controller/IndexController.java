@@ -33,8 +33,8 @@ public class IndexController {
     @GetMapping("myArticlesCount")
     public BlogJSONResult myArticlesCount() {
         Long count = 0L;
-        if (redisOperator.hasKey(BlogConstant.BLOG_DETAIL)) {
-            count = redisOperator.hsize(BlogConstant.BLOG_DETAIL);
+        if (redisOperator.hasKey(BlogConstant.BLOG_DETAIL.val())) {
+            count = redisOperator.hsize(BlogConstant.BLOG_DETAIL.val());
         } else {
             count = indexService.myArticlesCount();
         }
@@ -50,8 +50,8 @@ public class IndexController {
     @GetMapping("myLabelsCount")
     public BlogJSONResult myLabelsCount() {
         Integer count = 0;
-        if (redisOperator.hasKey(BlogConstant.LABEL_ALL_COUNT)) {
-            count = (int) redisOperator.get(BlogConstant.LABEL_ALL_COUNT);
+        if (redisOperator.hasKey(BlogConstant.LABEL_ALL_COUNT.val())) {
+            count = (int) redisOperator.get(BlogConstant.LABEL_ALL_COUNT.val());
         } else {
             count = indexService.myLabelsCount();
         }
@@ -67,8 +67,8 @@ public class IndexController {
     @GetMapping("myReportsCount")
     public BlogJSONResult myReportsCount() {
         Integer count = 0;
-        if (redisOperator.hasKey(BlogConstant.BLOG_REPORT_COUNT)) {
-            count = (Integer) redisOperator.get(BlogConstant.BLOG_REPORT_COUNT);
+        if (redisOperator.hasKey(BlogConstant.BLOG_REPORT_COUNT.val())) {
+            count = (Integer) redisOperator.get(BlogConstant.BLOG_REPORT_COUNT.val());
         } else {
             count = indexService.myReportsCount();
         }
@@ -85,8 +85,8 @@ public class IndexController {
     @GetMapping("myGuestCount")
     public BlogJSONResult myGuestCount() {
         Integer count = 0;
-        if (redisOperator.hasKey(BlogConstant.BLOG_GUEST_COUNT)) {
-            count = (Integer) redisOperator.get(BlogConstant.BLOG_GUEST_COUNT);
+        if (redisOperator.hasKey(BlogConstant.BLOG_GUEST_COUNT.val())) {
+            count = (Integer) redisOperator.get(BlogConstant.BLOG_GUEST_COUNT.val());
         } else {
             count = indexService.myGuestCount();
         }
@@ -104,15 +104,15 @@ public class IndexController {
         Integer count = 0;
         // 有N个页面不需要添加访问量
         if (CommonUtils.pageNameIsAdd(pageName)) {
-            if (redisOperator.hasKey(BlogConstant.BLOG_VISIT_COUNT)) {
-                count = (Integer) redisOperator.get(BlogConstant.BLOG_VISIT_COUNT);
+            if (redisOperator.hasKey(BlogConstant.BLOG_VISIT_COUNT.val())) {
+                count = (Integer) redisOperator.get(BlogConstant.BLOG_VISIT_COUNT.val());
             } else {
                 count = indexService.myWebCount();
             }
         } else {
-            if (redisOperator.hasKey(BlogConstant.BLOG_VISIT_COUNT)) {
-                redisOperator.incr(BlogConstant.BLOG_VISIT_COUNT, 1);
-                count = (Integer) redisOperator.get(BlogConstant.BLOG_VISIT_COUNT);
+            if (redisOperator.hasKey(BlogConstant.BLOG_VISIT_COUNT.val())) {
+                redisOperator.incr(BlogConstant.BLOG_VISIT_COUNT.val(), 1);
+                count = (Integer) redisOperator.get(BlogConstant.BLOG_VISIT_COUNT.val());
             } else {
                 count = indexService.myWebCount();
             }

@@ -33,7 +33,7 @@ public class ScheduledServiceImpl implements ScheduledService {
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public void visitorCustom() {
-        indexDao.updWebVisitorCount((int) redisOperator.get(BlogConstant.BLOG_VISIT_COUNT));
+        indexDao.updWebVisitorCount((int) redisOperator.get(BlogConstant.BLOG_VISIT_COUNT.val()));
     }
 
 
@@ -41,7 +41,6 @@ public class ScheduledServiceImpl implements ScheduledService {
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public void lookBlog() {
-
     }
 
 }

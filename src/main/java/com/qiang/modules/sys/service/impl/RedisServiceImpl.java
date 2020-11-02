@@ -25,9 +25,9 @@ public class RedisServiceImpl implements RedisService {
     @Override
     public void SavePhoneAndUsername(String phone, String username) {
         // 手机号加入缓存
-        redisOperator.hset(BlogConstant.USER_PHONE_EXIST, phone, 1);
+        redisOperator.hset(BlogConstant.USER_PHONE_EXIST.val(), phone, 1);
         // 用户名加入缓存
-        redisOperator.hset(BlogConstant.USER_NAME_EXIST, username, 1);
+        redisOperator.hset(BlogConstant.USER_NAME_EXIST.val(), username, 1);
     }
 
 
@@ -35,11 +35,11 @@ public class RedisServiceImpl implements RedisService {
     @Override
     public void SaveEditBlog(BlogMessageVOEntity blogMessageVOEntity) {
         // 存入缓存中(首页分页查询)
-        redisOperator.lpush(BlogConstant.PAGE_BLOG, blogMessageVOEntity);
+        redisOperator.lpush(BlogConstant.PAGE_BLOG.val(), blogMessageVOEntity);
         // 存入缓存（博客具体详情）
-        redisOperator.hset(BlogConstant.BLOG_DETAIL, String.valueOf(blogMessageVOEntity.getId()), blogMessageVOEntity);
+        redisOperator.hset(BlogConstant.BLOG_DETAIL.val(), String.valueOf(blogMessageVOEntity.getId()), blogMessageVOEntity);
         // 文章浏览次数
-        redisOperator.set(BlogConstant.BLOG_DETAIL + blogMessageVOEntity.getId(), 0);
+        redisOperator.set(BlogConstant.BLOG_DETAIL.val() + blogMessageVOEntity.getId(), 0);
     }
 
 }

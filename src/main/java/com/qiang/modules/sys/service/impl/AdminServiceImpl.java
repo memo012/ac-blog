@@ -41,19 +41,18 @@ public class AdminServiceImpl implements AdminService {
     @Autowired
     private FriendurlDao friendurlDao;
 
+    // @Autowired
+    // private EsService esService;
 
-    //    @Autowired
-    //    private EsService esService;
-    //
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public int deleteBlog(Long id) {
         // 删除缓存里东西
-        redisOperator.lremove(BlogConstant.PAGE_BLOG, 0, redisOperator.hget(BlogConstant.BLOG_DETAIL, String.valueOf(id))); // 首页
-        redisOperator.del(BlogConstant.BLOG_DETAIL + id); // 文章浏览次数
-        redisOperator.hdel(BlogConstant.BLOG_DETAIL, String.valueOf(id)); // 详情
+        redisOperator.lremove(BlogConstant.PAGE_BLOG.val(), 0, redisOperator.hget(BlogConstant.BLOG_DETAIL.val(), String.valueOf(id))); // 首页
+        redisOperator.del(BlogConstant.BLOG_DETAIL.val() + id); // 文章浏览次数
+        redisOperator.hdel(BlogConstant.BLOG_DETAIL.val(), String.valueOf(id)); // 详情
         // esService.removeEsBlog(id); // 搜索
-        //  BlogMessageVO byId = adminMapper.findById(id);
+        // BlogMessageVO byId = adminMapper.findById(id);
         int i = blogDao.deleteById(id);
         return i;
     }

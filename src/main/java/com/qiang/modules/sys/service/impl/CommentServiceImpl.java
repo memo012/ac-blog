@@ -82,9 +82,9 @@ public class CommentServiceImpl implements CommentService {
         int i = commentDao.updDesCommIsLikes(blogId, commentId);
         List<CommentEntity> allComment = null;
         if (i > 0) {
-            redisOperator.lpop(BlogConstant.BLOG_REPORT + blogId);
+            redisOperator.lpop(BlogConstant.BLOG_REPORT.val() + blogId);
             getAllComment(blogId);
-            allComment = (List<CommentEntity>) redisOperator.range(BlogConstant.BLOG_REPORT + blogId, 0, -1);
+            allComment = (List<CommentEntity>) redisOperator.range(BlogConstant.BLOG_REPORT.val() + blogId, 0, -1);
         }
         return allComment;
     }
@@ -114,9 +114,9 @@ public class CommentServiceImpl implements CommentService {
         int i = commentDao.updInsCommIsLikes(blogId, commentId);
         List<CommentEntity> allComment = null;
         if (i > 0) {
-            redisOperator.lpop(BlogConstant.BLOG_REPORT + blogId);
+            redisOperator.lpop(BlogConstant.BLOG_REPORT.val() + blogId);
             getAllComment(blogId);
-            allComment = (List<CommentEntity>) redisOperator.range(BlogConstant.BLOG_REPORT + blogId, 0, -1);
+            allComment = (List<CommentEntity>) redisOperator.range(BlogConstant.BLOG_REPORT.val() + blogId, 0, -1);
         }
         return allComment;
     }
@@ -145,12 +145,12 @@ public class CommentServiceImpl implements CommentService {
         int result = repCommentDao.insert(reportComment);
         if (result > 0) {
             list = commentDao.findByBlogIdAndPid(reportComment.getBlogId());
-            redisOperator.lpop(BlogConstant.BLOG_REPORT + reportComment.getBlogId());
-            redisOperator.lpush(BlogConstant.BLOG_REPORT + reportComment.getBlogId(), list);
+            redisOperator.lpop(BlogConstant.BLOG_REPORT.val() + reportComment.getBlogId());
+            redisOperator.lpush(BlogConstant.BLOG_REPORT.val() + reportComment.getBlogId(), list);
             list = getAllComment(reportComment.getBlogId());
         }
         // 增加博客评论（缓存）
-        redisOperator.incr(BlogConstant.BLOG_REPORT_COUNT, 1);
+        redisOperator.incr(BlogConstant.BLOG_REPORT_COUNT.val(), 1);
         return list;
     }
 
@@ -159,14 +159,14 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public List<CommentEntity> getAllComment(long blogId) {
         List<CommentEntity> list = null;
-        if (redisOperator.hasKey(BlogConstant.BLOG_REPORT + blogId)) {
-            list = (List<CommentEntity>) redisOperator.range(BlogConstant.BLOG_REPORT + blogId, 0, -1);
+        if (redisOperator.hasKey(BlogConstant.BLOG_REPORT.val() + blogId)) {
+            list = (List<CommentEntity>) redisOperator.range(BlogConstant.BLOG_REPORT.val() + blogId, 0, -1);
         } else {
             list = commentDao.findByBlogIdAndPid(blogId);
             if (list.size() > 0) {
-                redisOperator.lpush(BlogConstant.BLOG_REPORT + blogId, list);
+                redisOperator.lpush(BlogConstant.BLOG_REPORT.val() + blogId, list);
             } else {
-                redisOperator.lpush(BlogConstant.BLOG_REPORT + blogId, "");
+                redisOperator.lpush(BlogConstant.BLOG_REPORT.val() + blogId, "");
             }
         }
         return list;
@@ -188,12 +188,12 @@ public class CommentServiceImpl implements CommentService {
         if (result > 0) {
             // 查询评论
             byBlogId = commentDao.findByBlogIdAndPid(blogId);
-            redisOperator.lpop(BlogConstant.BLOG_REPORT + blogId);
-            redisOperator.lpush(BlogConstant.BLOG_REPORT + blogId, byBlogId);
+            redisOperator.lpop(BlogConstant.BLOG_REPORT.val() + blogId);
+            redisOperator.lpush(BlogConstant.BLOG_REPORT.val() + blogId, byBlogId);
             list = getAllComment(blogId);
         }
         // 增加博客评论（缓存）
-        redisOperator.incr(BlogConstant.BLOG_REPORT_COUNT, 1);
+        redisOperator.incr(BlogConstant.BLOG_REPORT_COUNT.val(), 1);
         return list;
     }
 
