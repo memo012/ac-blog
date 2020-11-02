@@ -1,10 +1,13 @@
 ﻿package com.qiang.common.utils.phoneVerify.util;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @Author: qiang
  * @Description: 腾讯云短信验证常量
  * @Date: 2019/8/4 0004 10:50
  */
+@Component
 public class SMSUtil {
 
     // 短信应用SDK AppID
