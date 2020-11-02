@@ -1,11 +1,12 @@
-﻿package com.qiang.common.utils.phoneVerify.util;
+package com.qiang.common.utils.phoneVerify.util;
 
 import org.springframework.stereotype.Component;
 
 /**
- * @Author: qiang
- * @Description: 腾讯云短信验证常量
- * @Date: 2019/8/4 0004 10:50
+ * @Author: zuiguangyin
+ * @Despcription:
+ * @Date: Created in 2020/11/2 23:45
+ * @Modified by:
  */
 @Component
 public class SMSUtil {
@@ -14,18 +15,17 @@ public class SMSUtil {
      * 短信应用SDK AppID
      */
 
-    public static final Integer APPID = 1400247771; // 你的AppID
+    public static final Integer APPID = 1400247771;
 
     /**
      * 短信应用SDK AppKEY
      */
-    public static final String APPKEY = ""; //你的
+    public static final String APPKEY = "";
 
     /**
-     * 短信模板id（注册）
+     * 短信模板id（注册）AppKEY
      */
-    public static final Integer SHORTNOTID = 3878379;// AppKEY
-
+    public static final Integer SHORTNOTID = 3878379;
 
     /**
      * 短信模板id （密码修改）
