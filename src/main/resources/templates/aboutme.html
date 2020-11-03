@@ -1,145 +1,164 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
-<head>
-    <meta charset="UTF-8">
-    <title>强子的博客~~</title>
-    <link rel="alternate icon" type="image/png" href="/myPicture.jpg">
-    <link rel="stylesheet" href="assets/css/amazeui.css"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style/index.css"/>
-    <link rel="stylesheet" href="style/show.css"/>
-    <link rel="stylesheet" href="style/tig.css"/>
-    <link rel="stylesheet" href="layui/css/layui.css"/>
-    <link rel="stylesheet" href="style/css/editormd/css/editormd.preview.min.css"/>
-    <link href="https://lib.baomitu.com/lightgallery/1.6.12/css/lightgallery.min.css" rel="stylesheet">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>强子的博客~~</title>
+        <link rel="alternate icon" type="image/png" href="/myPicture.jpg">
+        <link rel="stylesheet" href="assets/css/amazeui.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style/index.css"/>
+        <link rel="stylesheet" href="style/show.css"/>
+        <link rel="stylesheet" href="style/tig.css"/>
+        <link rel="stylesheet" href="layui/css/layui.css"/>
+        <link rel="stylesheet" href="style/css/editormd/css/editormd.preview.min.css"/>
+        <link href="https://lib.baomitu.com/lightgallery/1.6.12/css/lightgallery.min.css" rel="stylesheet">
+        <script src="assets/js/jquery-1.12.4.min.js"></script>
+        <script src="style/css/editormd/css/jquery-1.12.4.min.js"></script>
+        <script src="style/css/editormd/css/editormd.min.js" charset="utf-8"></script>
+        <script src="style/css/editormd/lib/marked.min.js"></script>
+        <script src="https://lib.baomitu.com/prettify/r298/prettify.min.js"></script>
+        <script src="https://lib.baomitu.com/raphael/2.2.7/raphael.min.js"></script>
+        <script src="https://lib.baomitu.com/underscore.js/1.9.1/underscore-min.js"></script>
+        <script src="https://lib.baomitu.com/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+        <script src="https://lib.baomitu.com/flowchart/1.11.3/flowchart.min.js"></script>
+        <script src="style/css/editormd/lib/jquery.flowchart.min.js"></script>
+        <script src="style/js/lightgallery/lightgallery.js"></script>
+        <script src="layui/layui.js"></script>
 
+        <style type="text/css">
+            .qz-center .qz-session-content .qz-art .comment-top, .textareas {
+                margin: 60px auto 10px;
+                padding: 50px 30px;
+                width: 90%;
+                border-radius: 9px;
+                border: 1px solid #098e91;
+                background: white;
+                position: relative;
+                font-size: 15px;
+            }
 
-    <script src="assets/js/jquery-1.12.4.min.js"></script>
-    <script src="style/css/editormd/css/jquery-1.12.4.min.js"></script>
-    <script src="style/css/editormd/css/editormd.min.js" charset="utf-8"></script>
-    <script src="style/css/editormd/lib/marked.min.js" ></script>
-    <script src="https://lib.baomitu.com/prettify/r298/prettify.min.js"></script>
-    <script src="https://lib.baomitu.com/raphael/2.2.7/raphael.min.js"></script>
-    <script src="https://lib.baomitu.com/underscore.js/1.9.1/underscore-min.js"></script>
-    <script src="https://lib.baomitu.com/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
-    <script src="https://lib.baomitu.com/flowchart/1.11.3/flowchart.min.js"></script>
-    <script src="style/css/editormd/lib/jquery.flowchart.min.js"></script>
-    <script src="style/js/lightgallery/lightgallery.js"></script>
-    <script src="layui/layui.js"></script>
+            .textareas {
+                margin-left: 27px;
+                overflow-y: hidden;
+            }
 
-    <style type="text/css">
-        .qz-center .qz-session-content .qz-art .comment-top, .textareas {
-            margin: 60px auto 10px;
-            padding: 50px 30px;
-            width: 90%;
-            border-radius: 9px;
-            border: 1px solid #098e91;
-            background: white;
-            position: relative;
-            font-size: 15px;
-        }
+            .commentBtn {
+                position: absolute;
+                right: 0;
+                bottom: -36%;
+            }
 
-        .textareas {
-            margin-left: 27px;
-            overflow-y: hidden;
-        }
+            .commentBt {
+                position: absolute;
+                right: 5%;
+            }
 
-        .commentBtn {
-            position: absolute;
-            right: 0;
-            bottom: -36%;
-        }
+            .commentBt > button {
+                border-radius: 10px;
+            }
 
-        .commentBt {
-            position: absolute;
-            right: 5%;
-        }
+            .commentBtn > button {
+                border-radius: 10px;
+            }
 
-        .commentBt > button {
-            border-radius: 10px;
-        }
+            .goToLogin > a {
+                color: #0bc5c8;
+            }
 
-        .commentBtn > button {
-            border-radius: 10px;
-        }
+            .goToLogin > a:hover {
+                cursor: pointer;
+                color: #098e91;
+            }
 
-        .goToLogin > a {
-            color: #0bc5c8;
-        }
+            .qz-markerdown p {
+                font-size: 15px;
+                color: #4d4d4d;
+                font-weight: 400;
+            }
+        </style>
+    </head>
 
-        .goToLogin > a:hover {
-            cursor: pointer;
-            color: #098e91;
-        }
+    <script src="style/js/background.js" th:src="@{/style/js/background.js}"></script>
 
-        .qz-markerdown p{
-            font-size: 15px;
-            color: #4d4d4d;
-            font-weight: 400;
-        }
+    <body>
+        <!--首页-->
+        <div th:replace="header :: header"></div>
 
+        <!--主体-->
+        <div class="layui-row layui-col-space25 qz-session">
+            <div class="layui-col-md9 qz-main">
+                <div class="layui-row grid-demo layui-col-space15">
+                    <div class="layui-col-md4">
+                        <div th:replace="left :: left"></div>
+                    </div>
+                    <div class="layui-col-md8 qz-center">
+                        <div class="qz-session-content">
+                            <div class="qz-art">
+                                <div class="qz-article-top">
+                                    <div class="qz-article-top">
+                                        <div class="article-top">关于我</div>
+                                        <div class="qz-tt article-info"><span class="am-badge am-badge-success qz-mark">&nbsp;原创</span>&nbsp;&nbsp;<span
+                                                class=""><span class="am-icon-calendar">
+                                        </span>&nbsp;&nbsp;2019-08-03</span>&nbsp;&nbsp;<span
+                                                style="font-size: 14px;"><i class="am-icon-user">&nbsp;强子</i></span>&nbsp;&nbsp;<span
+                                                style="font-size: 14px; color: #610024;"></span></div>
+                                    </div>
+                                </div>
+                                <div class="qz-article-content">
+                                    <div id="wordsView" class="qz-markerdown markdown-body editormd-html-preview"
+                                         lg-uid="lg0">
+                                        <blockquote>
+                                            <p>关键<br>只有忍受别人不能忍受的忍受<br>才能享受别人不能享受的享受</p>
+                                        </blockquote>
+                                        <p><br></p>
+                                        <blockquote>
+                                            <p>自我评价<br>我就是我 一个不求伟大 却不甘堕落的人</p>
+                                        </blockquote>
+                                        <p><br></p>
+                                        <p></p>
+                                        <center><br><strong>壹 |
+                                            关于我</strong><br>目前就读于中北大学<br>处在一个人才济济的宿舍<br>他们站的高度是我的动力<br>被动鞭策我成长<br>我
+                                            一个没有天赋却孜孜不倦的人<br>喜欢一些不知道为什么喜欢的人<br></center>
+                                        <br><br>
+                                        <p></p>
+                                        <p></p>
+                                        <center><br><strong>贰 | 关于博客</strong><br>真正属于我自己的开源项目<br>也是我的一个记录之地<br>也是自己的一个蜕变<br>也是自己的一个成长<br>不管付出多大努力<br>回头望去<br>当时种下的种子<br>如今已茁壮成长<br>不断生根发芽<br>
+                                        </center>
+                                        <br><br>
+                                        <p></p>
+                                        <p></p>
+                                        <center><br><strong>叁 | 关于此网站代码</strong><br><a
+                                                href="https://github.com/memo012/ac-blog" target="_blank">https://github.com/memo012/ac-blog</a><br>该网站建设代码已开源到GitHub<br>可自行下载<br>
+                                        </center>
+                                        <br><br>
+                                        <p></p>
+                                        <p></p>
+                                        <center><br><strong>肆 | 最后想说的话</strong><br>希望自己可以勇往直前<br>乘风破浪<br></center>
+                                        <br><br>
+                                        <p></p>
+                                    </div>
+                                </div>
 
-    </style>
-</head>
-<script src="style/js/background.js" th:src="@{/style/js/background.js}"></script>
-<body>
-<!--首页-->
-<div th:replace="header :: header"></div>
-
-<!--主体-->
-<div class="layui-row layui-col-space25 qz-session">
-
-
-    <div class="layui-col-md9 qz-main">
-        <div class="layui-row grid-demo layui-col-space15">
-            <div class="layui-col-md4">
-                <div th:replace="left :: left"></div>
-            </div>
-            <div class="layui-col-md8 qz-center">
-                <div class="qz-session-content">
-                    <div class="qz-art">
-                        <div class="qz-article-top"><div class="qz-article-top"><div class="article-top">关于我</div><div class="qz-tt article-info"><span class="am-badge am-badge-success qz-mark">&nbsp;原创</span>&nbsp;&nbsp;<span class=""><span class="am-icon-calendar"></span>&nbsp;&nbsp;2019-08-03</span>&nbsp;&nbsp;<span style="font-size: 14px;"><i class="am-icon-user">&nbsp;强子</i></span>&nbsp;&nbsp;<span style="font-size: 14px; color: #610024;"></span></div></div></div>
-                        <div class="qz-article-content">
-                            <div id="wordsView" class="qz-markerdown markdown-body editormd-html-preview" lg-uid="lg0">
-                                <blockquote>
-                                    <p>关键<br>只有忍受别人不能忍受的忍受<br>才能享受别人不能享受的享受</p>
-                                </blockquote>
-                                <p><br></p>
-                                <blockquote>
-                                    <p>自我评价<br>我就是我 一个不求伟大 却不甘堕落的人</p>
-                                </blockquote>
-                                <p><br></p>
-                                <p></p><center><br><strong>壹 | 关于我</strong><br>目前就读于中北大学<br>处在一个人才济济的宿舍<br>他们站的高度是我的动力<br>被动鞭策我成长<br>我 一个没有天赋却孜孜不倦的人<br>喜欢一些不知道为什么喜欢的人<br></center><br><br><p></p>
-                                <p></p><center><br><strong>贰 | 关于博客</strong><br>真正属于我自己的开源项目<br>也是我的一个记录之地<br>也是自己的一个蜕变<br>也是自己的一个成长<br>不管付出多大努力<br>回头望去<br>当时种下的种子<br>如今已茁壮成长<br>不断生根发芽<br></center><br><br><p></p>
-                                <p></p><center><br><strong>叁 | 关于此网站代码</strong><br><a href="https://github.com/memo012/ac-blog" target="_blank">https://github.com/memo012/ac-blog</a><br>该网站建设代码已开源到GitHub<br>可自行下载<br></center><br><br><p></p>
-                                <p></p><center><br><strong>肆 | 最后想说的话</strong><br>希望自己可以勇往直前<br>乘风破浪<br></center><br><br><p></p>
+                                <div class="qz-button"><br><br><br><br><br></div>
                             </div>
                         </div>
-
-                        <div class="qz-button"><br><br><br><br><br></div>
                     </div>
                 </div>
             </div>
+
+            <!--个人信息-->
+            <div class="layui-col-md3">
+                <div th:replace="aside :: aside"></div>
+            </div>
         </div>
 
-    </div>
+        <!--底部-->
+        <div th:replace="footer :: footer"></div>
+    </body>
 
-    <!--个人信息-->
-    <div class="layui-col-md3">
-        <div th:replace="aside :: aside"></div>
-    </div>
-</div>
-
-
-<!--底部-->
-<div th:replace="footer :: footer"></div>
-
-</body>
-
-<script src="assets/js/amazeui.js"></script>
-<script src="style/js/tags.js"></script>
-<script src="style/js/aboutme.js"></script>
-<script src="style/js/header.js" th:src="@{/style/js/header.js}"></script>
+    <script src="assets/js/amazeui.js"></script>
+    <script src="style/js/tags.js"></script>
+    <script src="style/js/aboutme.js"></script>
+    <script src="style/js/header.js" th:src="@{/style/js/header.js}"></script>
 
 </html>

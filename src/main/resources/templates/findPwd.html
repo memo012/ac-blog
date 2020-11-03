@@ -1,122 +1,123 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>强子的博客~~</title>
-    <link rel="alternate icon" type="image/png" href="myPicture.jpg">
-    <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
-    <link rel="stylesheet" href="style/tig.css">
-    <link rel="stylesheet" href="style/index.css" th:href="@{/style/index.css}"/>
-    <style>
-        .pass >div > h1{
-            text-align: center;
-            font-size: 200%;
-            color: #333;
-            margin-top: 30px;
-        }
-    </style>
-</head>
-<script src="assets/js/jquery-1.12.4.min.js"></script>
-<script src="style/js/background.js" th:src="@{/style/js/background.js}"></script>
-<body>
-<!--引入公共头部-->
-<div th:replace="header :: header"></div>
+    <head>
+        <meta charset="UTF-8">
+        <title>强子的博客~~</title>
+        <link rel="alternate icon" type="image/png" href="myPicture.jpg">
+        <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+        <link rel="stylesheet" href="style/tig.css">
+        <link rel="stylesheet" href="style/index.css" th:href="@{/style/index.css}"/>
+        <style>
+            .pass > div > h1 {
+                text-align: center;
+                font-size: 200%;
+                color: #333;
+                margin-top: 30px;
+            }
+        </style>
+    </head>
+    <script src="assets/js/jquery-1.12.4.min.js"></script>
+    <script src="style/js/background.js" th:src="@{/style/js/background.js}"></script>
 
-<div class="header pass">
-    <div class="am-g">
-        <h1>密码修改界面</h1>
-    </div>
-    <hr/>
-</div>
-<div class="am-g">
-    <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
-        <div class="am-form">
-            <label>手机号:</label>
-            <input type="text" name="" id="phone" value="" placeholder="手机号">
-            <br>
-            <label>验证码:</label>
-            <input type="text" id="yan" placeholder="点右边获取验证码"
-                   style="width: 190px;">
-            <button class="authCodeBtn am-btn am-btn-secondary am-round am-btn-sm"
-                    id="authCodeBtn" type="button" style="position: relative;top: -37px;left: 250px;">获取验证码
-            </button>
-            <br>
-            <br>
-            <label for="password">新密码:</label>
-            <input type="password" name="" id="password" value="" placeholder="新密码">
-            <br>
-            <label for="passwordSure">确认密码:</label>
-            <input type="password" name="" id="passwordSure" placeholder="再输一次新密码">
-            <br>
-            <br>
-            <br/>
-            <div class="am-cf">
-                <input type="button" id="register-btn" name="" value="修 改"
-                       class="am-btn am-btn-primary am-btn-sm am-fl">
-                <button class="am-btn am-btn-default am-btn-sm am-fr"><a href="/login" style="color:black;">取消
-                    ^_^?</a></button>
+    <body>
+        <!--引入公共头部-->
+        <div th:replace="header :: header"></div>
+
+        <div class="header pass">
+            <div class="am-g">
+                <h1>密码修改界面</h1>
             </div>
-            <br>
-            <br>
+            <hr/>
         </div>
-    </div>
-
-    <div class="notice-box notice-box-phone">
-        <i class="am-icon-exclamation-circle"></i>
-        <span> 手机号不能为空</span>
-    </div>
-    <div class="notice-box notice-box-yan">
-        <i class="am-icon-exclamation-circle"></i>
-        <span> 验证码错误</span>
-    </div>
-    <div class="notice-box notice-box-password">
-        <i class="am-icon-exclamation-circle"></i>
-        <span> 密码不能为空</span>
-    </div>
-    <div class="notice-box notice-box-password-ps">
-        <i class="am-icon-exclamation-circle"></i>
-        <span> 两次密码输入错误</span>
-    </div>
-    <div class="notice-box notice-box-password-num">
-        <i class="am-icon-exclamation-circle"></i>
-        <span> 客官，密码格式6-18位</span>
-    </div>
-    <div class="notice-box notice-box-phone-num">
-        <i class="am-icon-exclamation-circle"></i>
-        <span> 客官，输入有效的手机号码！</span>
-    </div>
-    <div class="notice-box notice-box-phone-exit">
-        <i class="am-icon-exclamation-circle"></i>
-        <span> 客官，该手机号未注册！</span>
-    </div>
-    <div class="notice-box notice-box-reg">
-        <i class="am-icon-exclamation-circle"></i>
-        <span> 客官，修改失败！</span>
-    </div>
-
-    <div class="am-modal am-modal-alert" tabindex="-1" id="publish-success" style="border-radius: 5px;">
-        <div class="am-modal-dialog">
-            <div class="am-modal-hd">强子博客欢迎你</div>
-            <div class="am-modal-bd">
-                修改成功！！！
+        <div class="am-g">
+            <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+                <div class="am-form">
+                    <label>手机号:</label>
+                    <input type="text" name="" id="phone" value="" placeholder="手机号">
+                    <br>
+                    <label>验证码:</label>
+                    <input type="text" id="yan" placeholder="点右边获取验证码"
+                           style="width: 190px;">
+                    <button class="authCodeBtn am-btn am-btn-secondary am-round am-btn-sm"
+                            id="authCodeBtn" type="button" style="position: relative;top: -37px;left: 250px;">获取验证码
+                    </button>
+                    <br/>
+                    <br/>
+                    <label for="password">新密码:</label>
+                    <input type="password" name="" id="password" value="" placeholder="新密码">
+                    <br>
+                    <label for="passwordSure">确认密码:</label>
+                    <input type="password" name="" id="passwordSure" placeholder="再输一次新密码">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div class="am-cf">
+                        <input type="button" id="register-btn" name="" value="修 改"
+                               class="am-btn am-btn-primary am-btn-sm am-fl">
+                        <button class="am-btn am-btn-default am-btn-sm am-fr"><a href="/login" style="color:black;">取消
+                            ^_^?</a></button>
+                    </div>
+                    <br/>
+                    <br/>
+                </div>
             </div>
-            <div class="am-modal-footer">
-                <span class="am-modal-btn" id="issue-success">确定</span>
+
+            <div class="notice-box notice-box-phone">
+                <i class="am-icon-exclamation-circle"></i>
+                <span> 手机号不能为空</span>
+            </div>
+            <div class="notice-box notice-box-yan">
+                <i class="am-icon-exclamation-circle"></i>
+                <span> 验证码错误</span>
+            </div>
+            <div class="notice-box notice-box-password">
+                <i class="am-icon-exclamation-circle"></i>
+                <span> 密码不能为空</span>
+            </div>
+            <div class="notice-box notice-box-password-ps">
+                <i class="am-icon-exclamation-circle"></i>
+                <span> 两次密码输入错误</span>
+            </div>
+            <div class="notice-box notice-box-password-num">
+                <i class="am-icon-exclamation-circle"></i>
+                <span> 客官，密码格式6-18位</span>
+            </div>
+            <div class="notice-box notice-box-phone-num">
+                <i class="am-icon-exclamation-circle"></i>
+                <span> 客官，输入有效的手机号码！</span>
+            </div>
+            <div class="notice-box notice-box-phone-exit">
+                <i class="am-icon-exclamation-circle"></i>
+                <span> 客官，该手机号未注册！</span>
+            </div>
+            <div class="notice-box notice-box-reg">
+                <i class="am-icon-exclamation-circle"></i>
+                <span> 客官，修改失败！</span>
+            </div>
+
+            <div class="am-modal am-modal-alert" tabindex="-1" id="publish-success" style="border-radius: 5px;">
+                <div class="am-modal-dialog">
+                    <div class="am-modal-hd">强子博客欢迎你</div>
+                    <div class="am-modal-bd">
+                        修改成功！！！
+                    </div>
+                    <div class="am-modal-footer">
+                        <span class="am-modal-btn" id="issue-success">确定</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!--底部-->
+        <div th:replace="footer :: footer"></div>
+    </body>
 
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<!--底部-->
-<div th:replace="footer :: footer"></div>
-</body>
+    <script src="assets/js/amazeui.js"></script>
+    <script src="style/js/findPwd.js"></script>
 
-<script src="assets/js/amazeui.js"></script>
-<script src="style/js/findPwd.js"></script>
 </html>

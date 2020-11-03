@@ -1,143 +1,135 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>强子的博客~~</title>
-    <link rel="alternate icon" type="image/png" href="myPicture.jpg">
-    <link rel="stylesheet" href="assets/css/amazeui.css"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style/index.css"/>
-    <link rel="stylesheet" href="layui/css/layui.css"/>
-    <link rel="stylesheet" href="style/update.css"/>
-    <script src="layui/layui.js"></script>
-</head>
-<script src="assets/js/jquery-1.12.4.min.js"></script>
-<script src="style/js/background.js" th:src="@{/style/js/background.js}"></script>
-<body>
-<div th:replace="header :: header"></div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>强子的博客~~</title>
+        <link rel="alternate icon" type="image/png" href="myPicture.jpg">
+        <link rel="stylesheet" href="assets/css/amazeui.css"/>
+        <link rel="stylesheet" href="style/index.css"/>
+        <link rel="stylesheet" href="layui/css/layui.css"/>
+        <link rel="stylesheet" href="style/update.css"/>
+        <script src="layui/layui.js"></script>
+    </head>
 
-<!--主体-->
-<div class="layui-row layui-col-space25 qz-session">
+    <script src="assets/js/jquery-1.12.4.min.js"></script>
+    <script src="style/js/background.js" th:src="@{/style/js/background.js}"></script>
 
-
-    <div class="layui-col-md9 qz-main">
-        <div class="layui-row grid-demo layui-col-space15">
-            <div class="layui-col-md4">
-                <div th:replace="left :: left"></div>
-            </div>
-            <div class="layui-col-md8 qz-center">
-                <div class="qz-session-content">
-                    <div class="qz-center">
-                        <div class="qz-center-div">
-                            <div class="qz-update am-kai">
-                                强子博客终于要开张了，欢迎大家光临！！！
-                            </div>
-                            <div class="am-kai qz-log">
-                                <span class="am-icon-modx"></span>
-                                博客更新日志
-                            </div>
-                            <div class="qz-updatelog">
-
-                                <ul class="layui-timeline">
-                                    <li class="layui-timeline-item qz-ul-li qz-ul-li-first">
-                                        <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                                        <div class="layui-timeline-content layui-text">
-                                            <h3 class="layui-timeline-title">2019年6月28日</h3>
-                                            <p class="am-serif">开始搭建网站
-                                           <i class="layui-icon"></i></p>
-                                        </div>
-                                    </li>
-                                </ul>
-
-                                <ul class="layui-timeline">
-                                    <li class="layui-timeline-item qz-ul-li">
-                                        <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                                        <div class="layui-timeline-content layui-text">
-                                            <h3 class="layui-timeline-title">2019年7月5日</h3>
-                                            <p class="am-serif">首页，发布博客页面搭建完毕<i class="layui-icon"></i></p>
-                                            <p class="am-serif">发布博客与后台交互完毕<i class="layui-icon"></i></p>
-                                        </div>
-                                    </li>
-                                </ul>
-
-
-                                <ul class="layui-timeline">
-                                <li class="layui-timeline-item qz-ul-li">
-                                    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                                    <div class="layui-timeline-content layui-text">
-                                        <h3 class="layui-timeline-title">2019年7月11日</h3>
-                                        <p class="am-serif">个人中心页面搭建完毕<i class="layui-icon"></i></p>
-                                        <p class="am-serif">部分前后台已连接完成<i class="layui-icon"></i></p>
+    <body>
+        <div th:replace="header :: header"></div>
+        <!--主体-->
+        <div class="layui-row layui-col-space25 qz-session">
+            <div class="layui-col-md9 qz-main">
+                <div class="layui-row grid-demo layui-col-space15">
+                    <div class="layui-col-md4">
+                        <div th:replace="left :: left"></div>
+                    </div>
+                    <div class="layui-col-md8 qz-center">
+                        <div class="qz-session-content">
+                            <div class="qz-center">
+                                <div class="qz-center-div">
+                                    <div class="qz-update am-kai">
+                                        强子博客终于要开张了，欢迎大家光临！！！
                                     </div>
-                                </li>
-                            </ul>
-
-                                <ul class="layui-timeline">
-                                    <li class="layui-timeline-item qz-ul-li">
-                                        <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                                        <div class="layui-timeline-content layui-text">
-                                            <h3 class="layui-timeline-title">2019年7月21日</h3>
-                                            <p class="am-serif">shiro实现权限分配<i class="layui-icon"></i></p>
-                                        </div>
-                                    </li>
-                                </ul>
-
-                                <ul class="layui-timeline">
-                                    <li class="layui-timeline-item qz-ul-li">
-                                        <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                                        <div class="layui-timeline-content layui-text">
-                                            <h3 class="layui-timeline-title">2019年8月3日</h3>
-                                            <p class="am-serif">网站基本功能建设完毕<i class="layui-icon"></i></p>
-                                        </div>
-                                    </li>
-                                </ul>
-
-                                <ul class="layui-timeline">
-                                <li class="layui-timeline-item qz-ul-li">
-                                    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                                    <div class="layui-timeline-content layui-text">
-                                        <h3 class="layui-timeline-title">2019年8月7日</h3>
-                                        <p class="am-serif">网站正式上线<i class="layui-icon"></i></p>
+                                    <div class="am-kai qz-log">
+                                        <span class="am-icon-modx"></span>
+                                        博客更新日志
                                     </div>
-                                </li>
-                            </ul>
+                                    <div class="qz-updatelog">
+                                        <ul class="layui-timeline">
+                                            <li class="layui-timeline-item qz-ul-li qz-ul-li-first">
+                                                <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                                                <div class="layui-timeline-content layui-text">
+                                                    <h3 class="layui-timeline-title">2019年6月28日</h3>
+                                                    <p class="am-serif">开始搭建网站<i class="layui-icon"></i></p>
+                                                </div>
+                                            </li>
+                                        </ul>
 
-                                <ul class="layui-timeline">
-                                    <li class="layui-timeline-item qz-ul-li">
-                                        <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                                        <div class="layui-timeline-content layui-text">
-                                            <h3 class="layui-timeline-title">2019年8月20日</h3>
-                                            <p class="am-serif">网站后台技术更新<i class="layui-icon"></i></p>
-                                        </div>
-                                    </li>
-                                </ul>
+                                        <ul class="layui-timeline">
+                                            <li class="layui-timeline-item qz-ul-li">
+                                                <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                                                <div class="layui-timeline-content layui-text">
+                                                    <h3 class="layui-timeline-title">2019年7月5日</h3>
+                                                    <p class="am-serif">首页，发布博客页面搭建完毕<i class="layui-icon"></i></p>
+                                                    <p class="am-serif">发布博客与后台交互完毕<i class="layui-icon"></i></p>
+                                                </div>
+                                            </li>
+                                        </ul>
 
+                                        <ul class="layui-timeline">
+                                            <li class="layui-timeline-item qz-ul-li">
+                                                <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                                                <div class="layui-timeline-content layui-text">
+                                                    <h3 class="layui-timeline-title">2019年7月11日</h3>
+                                                    <p class="am-serif">个人中心页面搭建完毕<i class="layui-icon"></i></p>
+                                                    <p class="am-serif">部分前后台已连接完成<i class="layui-icon"></i></p>
+                                                </div>
+                                            </li>
+                                        </ul>
 
-                            </div>
-                            <div>
-                                <br><br><br><br><br><br><br>
+                                        <ul class="layui-timeline">
+                                            <li class="layui-timeline-item qz-ul-li">
+                                                <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                                                <div class="layui-timeline-content layui-text">
+                                                    <h3 class="layui-timeline-title">2019年7月21日</h3>
+                                                    <p class="am-serif">shiro实现权限分配<i class="layui-icon"></i></p>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                        <ul class="layui-timeline">
+                                            <li class="layui-timeline-item qz-ul-li">
+                                                <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                                                <div class="layui-timeline-content layui-text">
+                                                    <h3 class="layui-timeline-title">2019年8月3日</h3>
+                                                    <p class="am-serif">网站基本功能建设完毕<i class="layui-icon"></i></p>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                        <ul class="layui-timeline">
+                                            <li class="layui-timeline-item qz-ul-li">
+                                                <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                                                <div class="layui-timeline-content layui-text">
+                                                    <h3 class="layui-timeline-title">2019年8月7日</h3>
+                                                    <p class="am-serif">网站正式上线<i class="layui-icon"></i></p>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                        <ul class="layui-timeline">
+                                            <li class="layui-timeline-item qz-ul-li">
+                                                <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                                                <div class="layui-timeline-content layui-text">
+                                                    <h3 class="layui-timeline-title">2019年8月20日</h3>
+                                                    <p class="am-serif">网站后台技术更新<i class="layui-icon"></i></p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <br/><br/><br/><br/><br/><br/><br/>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
+
+            <div class="layui-col-md3">
+                <div th:replace="aside :: aside"></div>
+            </div>
         </div>
-    </div>
 
-    <div class="layui-col-md3">
-        <div th:replace="aside :: aside"></div>
-    </div>
+        <!--底部-->
+        <div th:replace="footer :: footer"></div>
+    </body>
 
+    <script src="style/js/update.js"></script>
+    <script src="assets/js/amazeui.js"></script>
+    <script src="style/js/tags.js"></script>
+    <script src="style/js/header.js" th:src="@{/style/js/header.js}"></script>
 
-</div>
-</div>
-
-<!--底部-->
-<div th:replace="footer :: footer"></div>
-</body>
-<script src="style/js/update.js"></script>
-<script src="assets/js/amazeui.js"></script>
-<script src="style/js/tags.js"></script>
-<script src="style/js/header.js" th:src="@{/style/js/header.js}"></script>
 </html>

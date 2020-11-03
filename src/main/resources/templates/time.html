@@ -1,76 +1,62 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>强子的博客~~</title>
-    <link rel="stylesheet" href="assets/css/amazeui.css"/>
-    <link rel="alternate icon" type="image/png" href="myPicture.jpg">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style/index.css"/>
-    <link rel="stylesheet" href="layui/css/layui.css"/>
-    <link rel="stylesheet" href="style/archive.css"/>
-    <script src="layui/layui.js"></script>
-</head>
-<script src="assets/js/jquery-1.12.4.min.js"></script>
-<script src="style/js/background.js" th:src="@{/style/js/background.js}"></script>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>强子的博客~~</title>
+        <link rel="stylesheet" href="assets/css/amazeui.css"/>
+        <link rel="alternate icon" type="image/png" href="myPicture.jpg">
+        <link rel="stylesheet" href="style/index.css"/>
+        <link rel="stylesheet" href="layui/css/layui.css"/>
+        <link rel="stylesheet" href="style/archive.css"/>
+        <script src="layui/layui.js"></script>
+    </head>
 
-<div th:replace="header :: header"></div>
+    <script src="assets/js/jquery-1.12.4.min.js"></script>
+    <script src="style/js/background.js" th:src="@{/style/js/background.js}"></script>
 
-<!--主体-->
-<div class="layui-row layui-col-space25 qz-session">
-    <div class="layui-col-md9 qz-main">
-        <div class="layui-row grid-demo layui-col-space15">
-            <div class="layui-col-md4">
-                <div th:replace="left :: left"></div>
-            </div>
-            <div class="layui-col-md8 qz-center">
-                <div class="qz-session-content">
-                    <div class="qz-center">
-                        <div class="qz-center-list">
+    <body>
+        <div th:replace="header :: header"></div>
 
-                            <div class="container-before-icon">
-
-                            </div>
-
-                            <div class="qz-container layui-row">
-                                <div class="layui-col-md12">
-                                    <div class="qz-time">
-
+        <!--主体-->
+        <div class="layui-row layui-col-space25 qz-session">
+            <div class="layui-col-md9 qz-main">
+                <div class="layui-row grid-demo layui-col-space15">
+                    <div class="layui-col-md4">
+                        <div th:replace="left :: left"></div>
+                    </div>
+                    <div class="layui-col-md8 qz-center">
+                        <div class="qz-session-content">
+                            <div class="qz-center">
+                                <div class="qz-center-list">
+                                    <div class="container-before-icon"></div>
+                                    <div class="qz-container layui-row">
+                                        <div class="layui-col-md12">
+                                            <div class="qz-time"></div>
+                                        </div>
                                     </div>
                                 </div>
+
+                                <div class="qz-page" id="page-helper"></div>
+                                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                             </div>
-
-
                         </div>
-
-                        <div class="qz-page" id="page-helper">
-
-                        </div>
-                        <br><br><br><br><br><br><br><br><br><br>
-
                     </div>
                 </div>
             </div>
+
+            <div class="layui-col-md3">
+                <div th:replace="aside :: aside"></div>
+            </div>
         </div>
-    </div>
 
-    <div class="layui-col-md3">
-        <div th:replace="aside :: aside"></div>
-    </div>
+        <!--底部-->
+        <div th:replace="footer :: footer"></div>
+    </body>
 
+    <script src="style/js/time.js"></script>
+    <script src="assets/js/amazeui.js"></script>
+    <script src="style/js/tags.js"></script>
+    <script src="style/js/header.js" th:src="@{/style/js/header.js}"></script>
 
-</div>
-</div>
-
-
-<!--底部-->
-<div th:replace="footer :: footer"></div>
-
-</body>
-
-<script src="style/js/time.js"></script>
-<script src="assets/js/amazeui.js"></script>
-<script src="style/js/tags.js"></script>
-<script src="style/js/header.js" th:src="@{/style/js/header.js}"></script>
 </html>

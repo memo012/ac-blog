@@ -1,283 +1,283 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
-<head>
-    <meta charset="UTF-8">
-    <title>强子的博客~~</title>
-    <link rel="alternate icon" type="image/png" href="/myPicture.jpg">
-    <link rel="stylesheet" href="assets/css/amazeui.css"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style/index.css"/>
-    <link rel="stylesheet" href="style/show.css"/>
-    <link rel="stylesheet" href="style/tig.css"/>
-    <link rel="stylesheet" href="layui/css/layui.css"/>
-    <link rel="stylesheet" href="style/css/editormd/css/editormd.preview.min.css"/>
-    <link href="https://lib.baomitu.com/lightgallery/1.6.12/css/lightgallery.min.css" rel="stylesheet">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+    <head>
+        <meta charset="UTF-8">
+        <title>强子的博客~~</title>
+        <link rel="alternate icon" type="image/png" href="/myPicture.jpg">
+        <link rel="stylesheet" href="assets/css/amazeui.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style/index.css"/>
+        <link rel="stylesheet" href="style/show.css"/>
+        <link rel="stylesheet" href="style/tig.css"/>
+        <link rel="stylesheet" href="layui/css/layui.css"/>
+        <link rel="stylesheet" href="style/css/editormd/css/editormd.preview.min.css"/>
+        <link href="https://lib.baomitu.com/lightgallery/1.6.12/css/lightgallery.min.css" rel="stylesheet">
 
+        <script src="assets/js/jquery-1.12.4.min.js"></script>
+        <script src="style/css/editormd/css/jquery-1.12.4.min.js"></script>
+        <script src="style/css/editormd/css/editormd.min.js" charset="utf-8"></script>
+        <script src="style/css/editormd/lib/marked.min.js"></script>
+        <script src="https://lib.baomitu.com/prettify/r298/prettify.min.js"></script>
+        <script src="https://lib.baomitu.com/raphael/2.2.7/raphael.min.js"></script>
+        <script src="https://lib.baomitu.com/underscore.js/1.9.1/underscore-min.js"></script>
+        <script src="https://lib.baomitu.com/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+        <script src="https://lib.baomitu.com/flowchart/1.11.3/flowchart.min.js"></script>
+        <script src="style/css/editormd/lib/jquery.flowchart.min.js"></script>
+        <script src="style/js/lightgallery/lightgallery.js"></script>
+        <script src="layui/layui.js"></script>
 
-    <script src="assets/js/jquery-1.12.4.min.js"></script>
-    <script src="style/css/editormd/css/jquery-1.12.4.min.js"></script>
-    <script src="style/css/editormd/css/editormd.min.js" charset="utf-8"></script>
-    <script src="style/css/editormd/lib/marked.min.js" ></script>
-    <script src="https://lib.baomitu.com/prettify/r298/prettify.min.js"></script>
-    <script src="https://lib.baomitu.com/raphael/2.2.7/raphael.min.js"></script>
-    <script src="https://lib.baomitu.com/underscore.js/1.9.1/underscore-min.js"></script>
-    <script src="https://lib.baomitu.com/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
-    <script src="https://lib.baomitu.com/flowchart/1.11.3/flowchart.min.js"></script>
-    <script src="style/css/editormd/lib/jquery.flowchart.min.js"></script>
-    <script src="style/js/lightgallery/lightgallery.js"></script>
-    <script src="layui/layui.js"></script>
+        <style type="text/css">
+            /*代码块颜色*/
+            .editormd-html-preview pre {
+                background: #272822;
+            }
 
-    <style type="text/css">
-        /*代码块颜色*/
-        .editormd-html-preview pre {
-            background: #272822;
-        }
-        /*代码不换行*/
-        .markdown-body pre code {
-            white-space: pre;
-            display: inline-block;
-            margin-right: 20px;
-            background: #272822;
-            padding: 0;
-        }
-        li.L1, li.L3, li.L5, li.L7, li.L9 {
-            background: #272822;
-        }
-        .pln {
-            color: #b6b6b6
-        }
+            /*代码不换行*/
+            .markdown-body pre code {
+                white-space: pre;
+                display: inline-block;
+                margin-right: 20px;
+                background: #272822;
+                padding: 0;
+            }
 
-        .str {
-            color: #e6db74
-        }
+            li.L1, li.L3, li.L5, li.L7, li.L9 {
+                background: #272822;
+            }
 
-        .kwd {
-            color: #f90
-        }
+            .pln {
+                color: #b6b6b6
+            }
 
-        .com {
-            color: #666666
-        }
+            .str {
+                color: #e6db74
+            }
 
-        .typ {
-            color: #d197d9
-        }
+            .kwd {
+                color: #f90
+            }
 
-        .lit {
-            color: #bed6ff
-        }
+            .com {
+                color: #666666
+            }
 
-        .pun{
-            color: #f7f9f299;
-        }
+            .typ {
+                color: #d197d9
+            }
 
-        .clo, .opn {
-            color: #fff
-        }
+            .lit {
+                color: #bed6ff
+            }
 
-        .tag {
-            color: #f90
-        }
+            .pun {
+                color: #f7f9f299;
+            }
 
-        .atn {
-            color: #6c95f5
-        }
+            .clo, .opn {
+                color: #fff
+            }
 
-        .atv {
-            color: #080
-        }
+            .tag {
+                color: #f90
+            }
 
-        .dec, .var {
-            color: #008ba7
-        }
+            .atn {
+                color: #6c95f5
+            }
 
-        .fun {
-            color: red
-        }
-        /*行内代码样式*/
-        code {
-            font-size: inherit;
-            line-height: inherit;
-            overflow-wrap: break-word;
-            padding: 4px 1px 0 !important;
-            border-radius: 4px !important;
-            margin: 0 0 !important;
-            color: rgb(233, 105, 0);
-            background: rgb(248, 248, 248) none repeat scroll 0% 0%;
-            border: 0 !important;
-        }
-        .qz-center .qz-session-content .qz-art .comment-top, .textareas {
-            margin: 60px auto 10px;
-            padding: 50px 30px;
-            width: 90%;
-            border-radius: 9px;
-            border: 1px solid #098e91;
-            background: white;
-            position: relative;
-            font-size: 15px;
-        }
+            .atv {
+                color: #080
+            }
 
-        .textareas {
-            margin-left: 27px;
-            overflow-y: hidden;
-        }
+            .dec, .var {
+                color: #008ba7
+            }
 
-        .commentBtn {
-            position: absolute;
-            right: 0;
-            bottom: -36%;
-        }
+            .fun {
+                color: red
+            }
 
-        .commentBt {
-            position: absolute;
-            right: 5%;
-        }
+            /*行内代码样式*/
+            code {
+                font-size: inherit;
+                line-height: inherit;
+                overflow-wrap: break-word;
+                padding: 4px 1px 0 !important;
+                border-radius: 4px !important;
+                margin: 0 0 !important;
+                color: rgb(233, 105, 0);
+                background: rgb(248, 248, 248) none repeat scroll 0% 0%;
+                border: 0 !important;
+            }
 
-        .commentBt > button {
-            border-radius: 10px;
-        }
+            .qz-center .qz-session-content .qz-art .comment-top, .textareas {
+                margin: 60px auto 10px;
+                padding: 50px 30px;
+                width: 90%;
+                border-radius: 9px;
+                border: 1px solid #098e91;
+                background: white;
+                position: relative;
+                font-size: 15px;
+            }
 
-        .commentBtn > button {
-            border-radius: 10px;
-        }
+            .textareas {
+                margin-left: 27px;
+                overflow-y: hidden;
+            }
 
-        .goToLogin > a {
-            color: #0bc5c8;
-        }
+            .commentBtn {
+                position: absolute;
+                right: 0;
+                bottom: -36%;
+            }
 
-        .goToLogin > a:hover {
-            cursor: pointer;
-            color: #098e91;
-        }
+            .commentBt {
+                position: absolute;
+                right: 5%;
+            }
 
-        /*.qz-markerdown img{*/
+            .commentBt > button {
+                border-radius: 10px;
+            }
+
+            .commentBtn > button {
+                border-radius: 10px;
+            }
+
+            .goToLogin > a {
+                color: #0bc5c8;
+            }
+
+            .goToLogin > a:hover {
+                cursor: pointer;
+                color: #098e91;
+            }
+
+            /*.qz-markerdown img{*/
             /*width: 100%;*/
-        /*}*/
-        .qz-markerdown p{
-            font-size: 15px;
-            color: #4d4d4d;
-            font-weight: 400;
-        }
-        .qz-markerdown li{
-            list-style:decimal;
-        }
+            /*}*/
+            .qz-markerdown p {
+                font-size: 15px;
+                color: #4d4d4d;
+                font-weight: 400;
+            }
 
+            .qz-markerdown li {
+                list-style: decimal;
+            }
+        </style>
+    </head>
 
-    </style>
-</head>
-<script src="style/js/background.js" th:src="@{/style/js/background.js}"></script>
-<body>
+    <script src="style/js/background.js" th:src="@{/style/js/background.js}"></script>
 
-<!--首页-->
-<div th:replace="header :: header"></div>
+    <body>
+        <!--首页-->
+        <div th:replace="header :: header"></div>
 
-<!--主体-->
-<div class="layui-row layui-col-space25 qz-session">
+        <!--主体-->
+        <div class="layui-row layui-col-space25 qz-session">
+            <div class="layui-col-md9 qz-main">
+                <div class="layui-row grid-demo layui-col-space15">
+                    <div class="layui-col-md4">
+                        <div th:replace="left :: left"></div>
+                    </div>
+                    <div class="layui-col-md8 qz-center">
+                        <div class="qz-session-content">
+                            <div class="qz-art">
+                                <div class="qz-article-top">
+                                    <div class="article-top"></div>
+                                    <div class="qz-tt article-info">
+                                    </div>
+                                </div>
+                                <div class="qz-article-content">
+                                    <div id="wordsView" class="qz-markerdown">
+                                        <textarea style="display:none;" name="editormd-markdown-doc"
+                                                  id="mdText"></textarea>
+                                    </div>
+                                </div>
+                                <div id="article-share">
+                                    <div class="article-button">
+                                        <button class="article-btn" id="article-like" style="border: none;">
+                                            <span>❤ 喜欢  </span><span id="article-like-span">0</span></button>
+                                    </div>
+                                </div>
+                                <hr>
 
+                                <div class="qz-comment" shiro:notAuthenticated="">
+                                    <div class="comment-top">
+                                        <div class="comment-top-input">
+                                            <div class="goToLogin">
+                                                &nbsp;&nbsp;&nbsp;<a id="toLogin" href="/login" th:href="@{/login}">登录</a>后才可以发表评论呦...
+                                            </div>
+                                        </div>
 
-    <div class="layui-col-md9 qz-main">
-        <div class="layui-row grid-demo layui-col-space15">
-            <div class="layui-col-md4">
-                <div th:replace="left :: left"></div>
-            </div>
-            <div class="layui-col-md8 qz-center">
-                <div class="qz-session-content">
-                    <div class="qz-art">
-                        <div class="qz-article-top">
-                            <div class="article-top"></div>
-                            <div class="qz-tt article-info">
-                            </div>
-                        </div>
-                        <div class="qz-article-content">
-                            <div id="wordsView" class="qz-markerdown">
-                                <textarea style="display:none;" name="editormd-markdown-doc" id="mdText"></textarea>
-                            </div>
-                        </div>
-                        <div id="article-share">
-                            <div class="article-button">
-                                <button class="article-btn" id="article-like" style="border: none;">
-                                    <span>❤ 喜欢  </span><span id="article-like-span">0</span></button>
-                            </div>
-                        </div>
-                        <hr>
-
-                        <div class="qz-comment" shiro:notAuthenticated="">
-                            <div class="comment-top">
-                                <div class="comment-top-input">
-                                    <div class="goToLogin">
-                                        &nbsp;&nbsp;&nbsp;<a id="toLogin" href="/login" th:href="@{/login}">登录</a>后才可以发表评论呦...
+                                        <div class="commentBtn">
+                                            <button id="commentBtn" type="button" class="am-btn am-btn-secondary">发表评论
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="commentBtn">
-                                    <button id="commentBtn" type="button" class="am-btn am-btn-secondary">发表评论</button>
+                                <div class="qz-comment" shiro:authenticated="">
+                                    <textarea class="textareas" id="desc" placeholder="客官可以发表言论(⊙o⊙)？"></textarea>
+                                    <div class="commentBt">
+                                        <button id="commentBn" type="button" class="am-btn am-btn-secondary">发表评论
+                                        </button>
+                                    </div>
                                 </div>
 
-
-                            </div>
-                        </div>
-
-                        <div class="qz-comment" shiro:authenticated="">
-                        <textarea class="textareas" id="desc" placeholder="客官可以发表言论(⊙o⊙)？"></textarea>
-                            <div class="commentBt">
-                                <button id="commentBn" type="button" class="am-btn am-btn-secondary">发表评论</button>
-                            </div>
-                        </div>
-
-
-                        <div class="article-comment-title">
-                            <span class="article-comment-word">评论</span>
-                            <div class="article-comment-line"></div>
-                        </div>
-
-                        <div class="visitorComment comment">
-                            <div class="am-g">
-                                <div class="visitorCommentImg am-u-sm-2 am-u-lg-1">
+                                <div class="article-comment-title">
+                                    <span class="article-comment-word">评论</span>
+                                    <div class="article-comment-line"></div>
                                 </div>
-                                <div class="am-u-sm-10 am-u-lg-11">
+
+                                <div class="visitorComment comment">
+                                    <div class="am-g">
+                                        <div class="visitorCommentImg am-u-sm-2 am-u-lg-1">
+                                        </div>
+                                        <div class="am-u-sm-10 am-u-lg-11">
+                                        </div>
+                                    </div>
+                                    <hr>
                                 </div>
+                                <div class="qz-button"><br><br><br><br><br></div>
                             </div>
-                            <hr>
                         </div>
-                        <div class="qz-button"><br><br><br><br><br></div>
                     </div>
                 </div>
+
+                <div class="notice-box notice-box-text">
+                    <i class="am-icon-exclamation-circle"></i>
+                    <span> 客官，内容不能为空！</span>
+                </div>
+
+                <div class="notice-box notice-box-comment">
+                    <i class="am-icon-exclamation-circle"></i>
+                    <span> 客官，评论失败，请重新发送！</span>
+                </div>
+            </div>
+
+            <!--个人信息-->
+            <div class="layui-col-md3">
+                <div th:replace="aside :: aside"></div>
             </div>
         </div>
 
-        <div class="notice-box notice-box-text">
-            <i class="am-icon-exclamation-circle"></i>
-            <span> 客官，内容不能为空！</span>
-        </div>
+        <!--底部-->
+        <div th:replace="footer :: footer"></div>
+    </body>
 
-        <div class="notice-box notice-box-comment">
-            <i class="am-icon-exclamation-circle"></i>
-            <span> 客官，评论失败，请重新发送！</span>
-        </div>
-    </div>
+    <script src="assets/js/amazeui.js"></script>
+    <script src="style/js/tags.js"></script>
+    <script src="style/js/show.js"></script>
+    <script src="style/js/header.js" th:src="@{/style/js/header.js}"></script>
 
-    <!--个人信息-->
-    <div class="layui-col-md3">
-        <div th:replace="aside :: aside"></div>
-    </div>
-</div>
+    <!--放大图片插件-->
+    <script src="style/js/lightgallery/picturefill.min.js"></script>
+    <script src="style/js/lightgallery/lg-pager.js"></script>
+    <script src="style/js/lightgallery/lg-autoplay.js"></script>
+    <script src="style/js/lightgallery/lg-fullscreen.js"></script>
+    <script src="style/js/lightgallery/lg-zoom.js"></script>
 
-
-<!--底部-->
-<div th:replace="footer :: footer"></div>
-
-</body>
-
-<script src="assets/js/amazeui.js"></script>
-<script src="style/js/tags.js"></script>
-<script src="style/js/show.js"></script>
-<script src="style/js/header.js" th:src="@{/style/js/header.js}"></script>
-
-<!--放大图片插件-->
-<script src="style/js/lightgallery/picturefill.min.js"></script>
-<script src="style/js/lightgallery/lg-pager.js"></script>
-<script src="style/js/lightgallery/lg-autoplay.js"></script>
-<script src="style/js/lightgallery/lg-fullscreen.js"></script>
-<script src="style/js/lightgallery/lg-zoom.js"></script>
 </html>
