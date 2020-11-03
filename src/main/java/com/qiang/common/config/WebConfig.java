@@ -16,7 +16,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Value("${qiang.file-path}")
     private String url;
 
-    // /E:/vblog/             /www/vblog/
+    // /E:/vblog/ , /www/vblog/
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/**")
@@ -33,4 +33,5 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/es/**")
                 .addResourceLocations("classpath:/static/");
     }
+
 }
