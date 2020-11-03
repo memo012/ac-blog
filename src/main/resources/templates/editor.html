@@ -40,8 +40,8 @@
                                 <li><a href="/SuperAdmin" shiro:hasRole="admin">网站后台管理</a></li>
                                 <li shiro:hasRole="user"><a class="feedbackClick">消息&nbsp;&nbsp;<span
                                         class="newsNum am-badge am-badge-danger"></span></a></li>
-                                <li shiro:hasRole="admin"><a class="feedbackClick">反馈&nbsp;&nbsp;<span id="mess"
-                                                                                                       class="am-badge am-radius am-badge-danger"></span></a>
+                                <li shiro:hasRole="admin">
+                                    <a class="feedbackClick">反馈&nbsp;&nbsp;<span id="mess" class="am-badge am-radius am-badge-danger"></span></a>
                                 </li>
                                 <hr style="margin: 10px 0 5px 0;">
                                 <li><a class="logou" style="cursor: pointer;">退出登录</a></li>
@@ -57,7 +57,6 @@
                         <a href="/login" class="am-btn am-btn-primary am-topbar-btn am-btn-sm"
                            style="color: white">登录</a>
                     </div>
-
                 </header>
 
                 <div id="writeArticle">
@@ -80,12 +79,10 @@
                     </div>
 
                     <div class="notice-box notice-box-title">
-                        <i class="am-icon-exclamation-circle"></i>
-                        <span> 文章标题不能为空</span>
+                        <i class="am-icon-exclamation-circle"></i><span> 文章标题不能为空</span>
                     </div>
                     <div class="notice-box notice-box-content">
-                        <i class="am-icon-exclamation-circle"></i>
-                        <span> 文章內容不能为空</span>
+                        <i class="am-icon-exclamation-circle"></i><span> 文章內容不能为空</span>
                     </div>
                 </div>
             </div>
@@ -104,9 +101,7 @@
                                     <div class="tag-inline">
                                         <label class="publish-tag">文章标签<strong>:</strong></label>
                                         <div class="tag"></div>
-                                        <button class="addTagsBtn">
-                                            <i class="am-icon-plus-circle"></i>添加标签
-                                        </button>
+                                        <button class="addTagsBtn"><i class="am-icon-plus-circle"></i>添加标签</button>
                                     </div>
                                     <span style="display: block;margin-left:67px;">最多添加5个标签</span>
                                 </div>
