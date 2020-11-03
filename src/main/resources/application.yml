@@ -7,6 +7,9 @@ spring:
   # 环境 dev|test|prod
   profiles:
     active: dev
+  # thymeleaf的模式
+  thymeleaf:
+    mode: HTML
 
 
 
