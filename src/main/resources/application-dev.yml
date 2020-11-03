@@ -52,6 +52,7 @@ qiang:
   file-path: /home/memo012/code/acblogMessage
   # druid 账号密码
   druid:
+    user: admin
     password: acblogdev
 
 

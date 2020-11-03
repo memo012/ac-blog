@@ -10,7 +10,6 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.sql.DataSource;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,12 +23,15 @@ import java.util.Map;
 @Configuration
 public class DruidConfig {
 
+    @Value("${qiang.druid.user}")
+    private String user;
+
     @Value("${qiang.druid.password}")
     private String password;
 
     @ConfigurationProperties(prefix = "spring.datasource")
     @Bean
-    public DataSource druid() {
+    public DruidDataSource druidDataSource() {
         return new DruidDataSource();
     }
 
@@ -40,10 +42,15 @@ public class DruidConfig {
     public ServletRegistrationBean statViewServlet() {
         ServletRegistrationBean bean = new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
         Map<String, String> initParams = new HashMap<>();
-        initParams.put("loginUsername", "admin");
+        // 添加控制台管理用户
+        initParams.put("loginUsername", user);
         initParams.put("loginPassword", password);
-        initParams.put("allow", "");//默认就是允许所有访问
+        // 添加IP白名单, 默认就是允许所有访问, 127.0.0.1
+        initParams.put("allow", "");
+        // 添加IP黑名单，当白名单和黑名单重复时，黑名单优先级更高
         initParams.put("deny", "192.168.203.8");
+        // 是否能够重置数据
+        initParams.put("resetEnable", "false");
         bean.setInitParameters(initParams);
         return bean;
     }

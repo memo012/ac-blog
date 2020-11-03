@@ -48,4 +48,5 @@ qiang:
   file-path: /www/vblog
   # druid 账号密码
   druid:
+    user: admin
     password: acblogdev

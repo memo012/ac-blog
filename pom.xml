@@ -18,7 +18,7 @@
         <java.version>1.8</java.version>
         <jedis.version>2.9.0</jedis.version>
         <mybatis-plus.version>3.1.0</mybatis-plus.version>
-        <druid.version>1.1.8</druid.version>
+        <druid.version>1.1.20</druid.version>
         <commons-lang3.version>3.4</commons-lang3.version>
         <pagehelper.version>1.2.3</pagehelper.version>
         <pegdown.version>1.6.0</pegdown.version>
@@ -61,10 +61,10 @@
             <version>${mybatis-plus.version}</version>
         </dependency>
 
-        <!-- 引入druid数据源 -->
+        <!-- druid -->
         <dependency>
             <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
+            <artifactId>druid-spring-boot-starter</artifactId>
             <version>${druid.version}</version>
         </dependency>
 
