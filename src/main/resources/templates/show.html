@@ -2,17 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>强子的博客~~</title>
         <link rel="alternate icon" type="image/png" href="/myPicture.jpg">
         <link rel="stylesheet" href="assets/css/amazeui.css"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style/index.css"/>
         <link rel="stylesheet" href="style/show.css"/>
         <link rel="stylesheet" href="style/tig.css"/>
         <link rel="stylesheet" href="layui/css/layui.css"/>
         <link rel="stylesheet" href="style/css/editormd/css/editormd.preview.min.css"/>
         <link href="https://lib.baomitu.com/lightgallery/1.6.12/css/lightgallery.min.css" rel="stylesheet">
-
         <script src="assets/js/jquery-1.12.4.min.js"></script>
         <script src="style/css/editormd/css/jquery-1.12.4.min.js"></script>
         <script src="style/css/editormd/css/editormd.min.js" charset="utf-8"></script>
@@ -187,23 +186,20 @@
                             <div class="qz-art">
                                 <div class="qz-article-top">
                                     <div class="article-top"></div>
-                                    <div class="qz-tt article-info">
-                                    </div>
+                                    <div class="qz-tt article-info"></div>
                                 </div>
                                 <div class="qz-article-content">
                                     <div id="wordsView" class="qz-markerdown">
-                                        <textarea style="display:none;" name="editormd-markdown-doc"
-                                                  id="mdText"></textarea>
+                                        <textarea style="display:none;" name="editormd-markdown-doc" id="mdText"></textarea>
                                     </div>
                                 </div>
                                 <div id="article-share">
                                     <div class="article-button">
                                         <button class="article-btn" id="article-like" style="border: none;">
-                                            <span>❤ 喜欢  </span><span id="article-like-span">0</span></button>
+                                            <span>❤ 喜欢</span><span id="article-like-span">0</span></button>
                                     </div>
                                 </div>
                                 <hr>
-
                                 <div class="qz-comment" shiro:notAuthenticated="">
                                     <div class="comment-top">
                                         <div class="comment-top-input">
@@ -211,10 +207,8 @@
                                                 &nbsp;&nbsp;&nbsp;<a id="toLogin" href="/login" th:href="@{/login}">登录</a>后才可以发表评论呦...
                                             </div>
                                         </div>
-
                                         <div class="commentBtn">
-                                            <button id="commentBtn" type="button" class="am-btn am-btn-secondary">发表评论
-                                            </button>
+                                            <button id="commentBtn" type="button" class="am-btn am-btn-secondary">发表评论</button>
                                         </div>
                                     </div>
                                 </div>
@@ -234,10 +228,8 @@
 
                                 <div class="visitorComment comment">
                                     <div class="am-g">
-                                        <div class="visitorCommentImg am-u-sm-2 am-u-lg-1">
-                                        </div>
-                                        <div class="am-u-sm-10 am-u-lg-11">
-                                        </div>
+                                        <div class="visitorCommentImg am-u-sm-2 am-u-lg-1"></div>
+                                        <div class="am-u-sm-10 am-u-lg-11"></div>
                                     </div>
                                     <hr>
                                 </div>

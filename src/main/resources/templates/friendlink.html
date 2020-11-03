@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>强子的博客~~</title>
         <link rel="alternate icon" type="image/png" href="/myPicture.jpg">
         <link rel="stylesheet" href="assets/css/amazeui.css"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style/index.css"/>
         <link rel="stylesheet" href="style/show.css"/>
         <link rel="stylesheet" href="style/guest.css"/>
@@ -131,7 +131,6 @@
 
                                 <!--友链列表-->
                                 <div class="visitorComment">
-
                                     <hr>
                                 </div>
 
@@ -156,8 +155,10 @@
         <div th:replace="footer :: footer"></div>
 
     </body>
+
     <script src="assets/js/amazeui.js"></script>
     <script src="style/js/tags.js"></script>
     <script src="style/js/friendlink.js"></script>
     <script src="style/js/header.js" th:src="@{/style/js/header.js}"></script>
+
 </html>
