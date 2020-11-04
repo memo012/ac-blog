@@ -8,12 +8,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * @Author: qiang
- * @Description:
+ * @Description: mybatis-plus的config配置类@MapperScan的扫描和与接口上的@Mapper的配置, 有一个就行了, 不然会有重复提示
  * @Date: 2019/7/26 0026 11:02
  */
 @EnableTransactionManagement
 @Configuration
-@MapperScan("com.qiang.modules.sys.dao")
+// @MapperScan("com.qiang.modules.sys.dao")
 public class MybatisPlusConfig {
 
     /**
