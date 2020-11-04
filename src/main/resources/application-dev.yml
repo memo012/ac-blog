@@ -22,7 +22,6 @@ spring:
     maxPoolPreparedStatementPerConnectionSize: 20
     useGlobalDataSourceStat: true
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
-
   # redis配置
   cache:
     type: redis
@@ -36,6 +35,7 @@ spring:
         max-wait: -1ms    # 连接池最大阻塞等待时间（使用负值表示没有限制）
         max-idle: 8       # 连接池中的最大空闲连接
         min-idle: 0       # 连接池中的最小空闲连接
+    timeout: 10000
 
   # thymeleaf
   thymeleaf:
