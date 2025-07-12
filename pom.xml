@@ -19,7 +19,7 @@
         <jedis.version>2.9.0</jedis.version>
         <mybatis-plus.version>3.1.0</mybatis-plus.version>
         <druid.version>1.1.8</druid.version>
-        <commons-lang3.version>3.4</commons-lang3.version>
+        <commons-lang3.version>3.18.0</commons-lang3.version>
         <pagehelper.version>1.2.3</pagehelper.version>
         <pegdown.version>1.6.0</pegdown.version>
         <shiro.version>1.4.0</shiro.version>
